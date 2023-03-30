@@ -26,7 +26,7 @@ public class DataTypeApp {
 		System.out.println("========================================");
 		
 		//실수형(DoubleType) 리터럴: 소숫점이 있는 숫자값
-		//Java에서 실수형 리터럴은 기본적으로 8Byte(Double)로 표현>> 부동 소수점 형식으로
+		//Java에서 실수형 리터럴은 기본적으로 8Byte(Double)로 표현>> 부동 소수점 형식으로 숫자값 표현
 		System.out.println("<<실수형(DoubleType)>>");
 		System.out.println("실수형(4Byte) = "+12.3F); //실수값F >>4Byte 실수형 리터럴(FloatType))
 		System.out.println("실수형(8Byte) = "+12.3); //실수값 >>8Byte 실수형 리터럴(DoubleType))
