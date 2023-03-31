@@ -33,8 +33,8 @@ public class OperatorApp {
 		//++연산자와 --연산자로만 구성된 단일 명령이 아닌 경우 연산자의 위치는 연산결과에 영향을 미침
 		int a4=10, a5=10;
 		System.out.println("a4= "+a4+" a5= "+a5);
-		int result1=++a4; //전처리: ++a4 연산식이 실행된 후 result1=a4 연산식 실행
-		int result2=a5++; //후처리: result2=a5 연산식이 실행된 후 a5++ 연산식 실행
+		int result1=++a4; //전처리: ++a4 연산식이 실행된 후 result1=a4 연산식 실행_선연산 후명령
+		int result2=a5++; //후처리: result2=a5 연산식이 실행된 후 a5++ 연산식 실행_선명령 후연산
 		System.out.println("a4= "+a4+" a5= "+a5);
 		System.out.println("result1= "+result1+"result2= "+result2);
 		
