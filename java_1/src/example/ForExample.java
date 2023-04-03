@@ -7,9 +7,8 @@ public class ForExample {
 		for(int i=0;i<7;i++) {
 			System.out.print("임현지 ");
 		}
-
-
 		System.out.println();
+		
 		System.out.println("=========================================");
 		//1~10 범위의 정수 중 홀수를 화면에 출력하세요.
 		//ex) 1     3     5     7     9
@@ -46,7 +45,7 @@ public class ForExample {
 		//    7 * 8 = 56
 		//    7 * 9 = 63
 		for(int i=1;i<=9;i++) {
-			System.out.println("7 * "+i+"= "+7*i);
+			System.out.println("7 * "+i+" = "+(7*i));
 		}
 
 
@@ -77,9 +76,10 @@ public class ForExample {
 				System.out.println();
 			}
 		}
+		System.out.println();
+		
+		System.out.println("=========================================");
 
-
-		System.out.println("=========================================");	
 	}
 
 }

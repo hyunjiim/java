@@ -78,6 +78,27 @@ public class ForApp {
 		}
 		System.out.println(begin+"~"+end+" 범위의 정수들의 합계: "+sum);
 		
-	
+		System.out.println("======================================================");
+		
+		for(int i=1, j=5; i<=3;i++,j--) {
+			System.out.println("i= "+i+" j= "+j);
+		}
+		
+		System.out.println("======================================================");
+		
+		int i=1;
+		
+		for(;i<=4;i++) {  //초기식 생략, 세미콜론은 무조건 두개
+			System.out.print(i+"\t");
+		}
+		
+		//i가 반복문이 끝나도 사라지지 않으므로 i=5가 저장되어 있음
+		
+		for(;i>=1;i--) {  //초기식 생략, 세미콜론은 무조건 두개
+			System.out.print(i+"\t");
+		}
+		System.out.println();
+		
+		
 	}
 }
