@@ -27,6 +27,6 @@ public class GuGuDanExample {
 		for(int i=1;i<=9;i++) {
 			System.out.println(j+" * "+i+" = "+ (j*i));
 		}
-	
+		scanner.close();
 	}
 }

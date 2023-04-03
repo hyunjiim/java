@@ -21,6 +21,7 @@ public class TotalTwoExample {
 			}
 		
 		System.out.println("[결과]합계 = "+tot);
-		
+		scanner.close();
 	}
+	
 }
