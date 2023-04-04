@@ -19,8 +19,12 @@ public class InputCheckApp {
 		do {
 			System.out.print("점수[0~100]를 입력하시오>>");
 			jumsu=scanner.nextInt();
-			}while(jumsu<0 || jumsu>100);
+			if(score<0 || score>100) {
+				System.out.println("[에러]점수는 0~100 범위의 정수값만 입력 가능합니다.");
+			}
+		}while(jumsu<0 || jumsu>100);
 		*/
+		
 		int jumsu;  //while문을 실행하기 위해서 초기값을 정상적이지 않은 값 대입 
 		
 		while(true) {

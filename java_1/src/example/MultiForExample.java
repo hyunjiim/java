@@ -22,6 +22,7 @@ public class MultiForExample {
 		//☆☆★★★
 		//☆☆☆★★
 		//☆☆☆☆★
+		//if문 사용
 		for(int i=1;i<=5;i++) {
 			for(int j=1;j<=5;j++) {
 				if(j-i<0) {
@@ -33,7 +34,17 @@ public class MultiForExample {
 			}
 			System.out.println();
 		}	
-
+		//for문 사용
+		for(int i=1;i<=5;i++) {
+			int j;
+			for(j=1;j-i<0;j++) {
+				System.out.print("☆");
+			}
+			for(;j<=5;j++) {
+				System.out.print("★");
+			}
+			System.out.println();
+		}
 		System.out.println("===============================================================");
 		//★
 		//★★★
@@ -42,7 +53,7 @@ public class MultiForExample {
 		//★★★★★★★★★
 		
 		for(int i=1;i<=5;i++) { //행(Row)을 처리하기 위한 반복문
-			for(int j=1;j<=(2*i-1);j++) {  //열(Column)을 처리하기 위한 반복문
+			for(int j=1;j<=(2*i)-1;j++) {  //열(Column)을 처리하기 위한 반복문
 				System.out.print("★");
 			}
 			System.out.println();
