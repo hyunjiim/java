@@ -31,7 +31,7 @@ public class RpaGameApp {
 			case 1: System.out.print("가위"); break;
 			case 2: System.out.print("바위"); break;
 			case 3: System.out.print("보"); break;
-			}
+			} 
 			
 			System.out.print(", 사용자>>");
 			switch(user) {

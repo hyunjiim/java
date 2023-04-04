@@ -32,7 +32,7 @@ public class UpAndDownExample {
 				System.out.println("[결과]정답입니다.");
 				break;
 			}else if(user<=rand) {
-				System.out.println("[결과]큰값 입력");
+				System.out.println("[결과]큰값 입력"); 
 			}else {
 				System.out.println("[결과]작은값 입력");
 			}

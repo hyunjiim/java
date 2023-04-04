@@ -15,6 +15,6 @@ public class MathRandomApp {
 		System.out.println("==========================================");
 		for(int i=1;i<=6;i++) {
 			System.out.println(i+"번째 정수 난수값 = "+((int)(Math.random()*45)+1));
-		}
+		} 
 	}
 }

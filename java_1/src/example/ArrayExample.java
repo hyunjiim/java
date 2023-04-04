@@ -38,7 +38,7 @@ public class ArrayExample {
 			}
 			}
 		for(int i=10;i<=60;i+=10) {
-			System.out.println(i+"대 = "+cnt[(i/10)-1]+"명");
+			System.out.println(i+"대 = "+cnt[(i/10)-1]+"명"); 
 			}
 	
 		
