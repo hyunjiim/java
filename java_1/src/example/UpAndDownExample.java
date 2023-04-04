@@ -19,12 +19,8 @@ public class UpAndDownExample {
 			while(true) { //난수값이 같은 경우/범위를 벗어난 경우/큰값 입력/작은값 입력
 				System.out.print(cnt+"번째 입력[기회:10번]>>");
 				user=scanner.nextInt();
-				cnt++;
 				if(user>=0&&user<=100) {
 					break;
-				}
-				if(cnt>10) {
-					System.out.println("[결과]실패! 난수값: "+rand);
 				}
 				System.out.println("[error]1~100 범위 안의 정상적인 값을 입력하셔야 합니다.");
 			}
@@ -36,7 +32,11 @@ public class UpAndDownExample {
 			}else {
 				System.out.println("[결과]작은값 입력");
 			}
-			
+			cnt++;
+			if(cnt>10) {
+				System.out.println("[결과]실패! 난수값: "+rand);
+				break;
+			}
 		}
 		scanner.close();
 	}
