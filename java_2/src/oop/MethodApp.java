@@ -73,5 +73,12 @@ public class MethodApp {
 		System.out.println("합계 = "+method.sumTwo(new int[] {10,20,30}));
 		System.out.println("합계 = "+method.sumTwo(new int[] {10,20}));
 		System.out.println("합계 = "+method.sumTwo(new int[] {}));
+		
+		System.out.println("=============================================================================");
+		System.out.println("합계 = "+method.sumThree(10,20,30));
+	    System.out.println("합계 = "+method.sumThree());
+	    System.out.println("합계 = "+method.sumThree(10,20));
+	    System.out.println("합계 = "+method.sumThree(10,20,30,40));
+
 	}
 }

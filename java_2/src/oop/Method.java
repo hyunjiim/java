@@ -100,4 +100,16 @@ public class Method {
 		}
 		return tot;
 	}
+	
+	//매개변수 생략 기호(...)를 이용하여 매개변수를 작성하면 전달값을 0개 이상 전달받아 메소드에 사용가능
+    int sumThree(int...array) {
+       int tot=0;
+       for(int num:array) {
+          tot+=num;
+       }
+       return tot;
+    }
+
+	
+	
 }
