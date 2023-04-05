@@ -54,11 +54,11 @@ public class ArrayApp {
 		//5개 정수를 입력받은 후 차례로 출력하는 프로그램
 		Scanner scanner=new Scanner(System.in);
 		
-		System.out.print("입력>> ");
 		int[] num1=new int[5];
 		 for(int i=0;i<5;i++) {
+			 System.out.print("입력>> ");
 			 num1[i]=scanner.nextInt();
-			 System.out.print(num1[i]+" ");
+			 System.out.println("[결과]:"+num1[i]);
 		 }
 		 System.out.println("=========================================================");
 		 int[] array= {54,70,64,33,11,51,82,66,41,90,99};
@@ -77,7 +77,27 @@ public class ArrayApp {
 		 }
 		 System.out.println("30~60 범위의 요소의 갯수 = "+count);
 		 System.out.println("=========================================================");
-		 
-		 scanner.close();
+		// 최대 100개까지의 정수를 차례로 입력받다가 0이 입력되면 입력을 중단하고 
+		// 짝수 번째에 입력된 정수를 모두 출력하는 프로그램 작성 
+		
+		int i=0;
+		int[] arraynum = new int[100];
+		
+		while(true) {//0이 입력되어 종료하기 전까지 반복
+			System.out.print("정수를 입력합니다[0:종료]>>");
+			arraynum[i]=scanner.nextInt();
+			if(arraynum[i]==0||i==101) {
+				break;
+			}
+			System.out.println();
+			i++;
+		}
+		System.out.println("=========[0이 입력되어 입력을 종료합니다]=========");
+		System.out.print("짝수번째에 입력된 정수 출력>>");
+		//입력되지 않아 0으로 저장되어있는 공간은 출력하지 못하도록
+		for(int j=0;j<i-1;j+=2) {
+			System.out.print(arraynum[j+1]+" ");
+		}
+		System.out.println("=========================================================");
 	}
 }

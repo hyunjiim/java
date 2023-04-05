@@ -13,6 +13,7 @@ public class UpAndDownExample {
 	public static void main(String[] args) {
 		int rand = (int)(Math.random()*100)+1;
 		Scanner scanner=new Scanner(System.in);
+		
 		int cnt=1;
 		int user;
 		while(true) { //입력 기회 10번 반복
@@ -25,7 +26,7 @@ public class UpAndDownExample {
 				System.out.println("[error]1~100 범위 안의 정상적인 값을 입력하셔야 합니다.");
 			}
 			if(user==rand) {
-				System.out.println("[결과]정답입니다.");
+				System.out.println("[결과]정답입니다."+cnt+"번만에 정답!");
 				break;
 			}else if(user<=rand) {
 				System.out.println("[결과]큰값 입력"); 
@@ -37,6 +38,7 @@ public class UpAndDownExample {
 				System.out.println("[결과]실패! 난수값: "+rand);
 				break;
 			}
+			
 		}
 		scanner.close();
 	}

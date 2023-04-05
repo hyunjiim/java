@@ -11,7 +11,7 @@ public class ArrayExample {
 			sum+=age[i];
 		}
 		double avg=(double)sum/age.length;
-		System.out.println("[결과]나이 평균: "+avg);
+		System.out.println("[결과]나이 평균: "+(int)(avg*100)/100.0);
 		
 		
 		System.out.println("===============================================================");
@@ -20,9 +20,9 @@ public class ArrayExample {
 		//    20대 = 4명
 		//    ...
 		//    60대 = 1명
-		int[] cnt= new int[6];
+		int[] cnt= new int[6]; //cnt[0]=>10대 인원수, cnt[1=>20대 인원수.....]
 		
-		for(int i=0;i<age.length;i++) {		
+		for(int i=0;i<age.length;i++) { 		
 			if(age[i]>=60) {
 				cnt[5]++;
 			}else if(age[i]>=50) {
