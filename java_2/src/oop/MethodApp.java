@@ -38,7 +38,11 @@ public class MethodApp {
 		System.out.println("[합계]: "+result);
 		System.out.println("[합계]: "+method.returnTot(30,70));
 		result=method.returnTot(-1, 70);
-		System.out.println(result);
+		if(result==0) {
+			System.out.print("");
+		}else{
+			System.out.println(result);
+		}
 		System.out.println("=============================================================================");
 
 		boolean result1=method.isOddEven(10);
@@ -75,6 +79,8 @@ public class MethodApp {
 		System.out.println("합계 = "+method.sumTwo(new int[] {}));
 		
 		System.out.println("=============================================================================");
+		
+		//매개변수 생략기호(...)를 사용한 메소드를 호출할 때 new를 사용해 객체생성을 하지 않아도 됨
 		System.out.println("합계 = "+method.sumThree(10,20,30));
 	    System.out.println("합계 = "+method.sumThree());
 	    System.out.println("합계 = "+method.sumThree(10,20));
