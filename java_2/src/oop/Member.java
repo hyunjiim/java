@@ -4,9 +4,10 @@ package oop;
 //회원정보(아이디, 이름, 이메일)를 저장하기 위한 클래스
 public class Member {
 	// 필드 선언: 객체를 생성하면 객체의 필드에는 기본값(숫자형:0, 논리형:false, 참조형:NULL)이 초기값으로 자동 저장
-	private String id;
-	private String name;
-	private String email;
+//	 => 객체 생성시 객체 필드에 초기값으로 자동 저장될 기본값 변경 가능
+	private String id="NoId";
+	private String name="NoName";
+	private String email="NoEmail";
 	
 //	생성자 선언: 객체를 생성하기 위한 특별한 형태의 메소드
 //	=>생성자를 선언하지 않으면 매개변수가 없는 기본 생성자 제공
@@ -16,6 +17,8 @@ public class Member {
 	
 	public Member() {
 		// TODO Auto-generated constructor stub
+//		this(값, 값,...); :생성자에서 this 키워드로 다른 생성자를 호출하는 명령
+		//this("NoId", "NoName","NoEmail");
 	}
 	
 //	매개변수가 있는 생성자
