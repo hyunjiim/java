@@ -38,10 +38,22 @@ public class MemberEvent extends Member{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+	/*
+	//메소드 오버라이딩
 	public void display() {
 		System.out.println("아이디: "+getId());
 		System.out.println("이름: "+getName());
 		System.out.println("이메일: "+email);
+	}
+	*/
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		super.display();
+		System.out.println("이메일: "+email);
+	}
+	
+	public void print() {
+		super.display(); //super 키워드로 부모 클래스의 숨겨진 메소드 호출
 	}
 }
