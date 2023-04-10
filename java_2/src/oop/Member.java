@@ -18,6 +18,7 @@ public class Member {
 	public Member() {
 		// TODO Auto-generated constructor stub
 //		this(값, 값,...); :생성자에서 this 키워드로 다른 생성자를 호출하는 명령
+		//이유: 매개변수의 수만 달리하고 필드 초기화 내용이 비슷한 생성자 사이에서 중복 코드 발생
 		//this("NoId", "NoName","NoEmail");
 	}
 	
@@ -30,6 +31,7 @@ public class Member {
 	public Member(String id, String name) {
 		this.id=id;
 		this.name=name;
+		//this(id, name, "NoEmail");
 	}
 	
 	
