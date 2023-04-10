@@ -14,7 +14,7 @@ public class Singleton {
 	//시스템 필드: 클래스 내부에서만 사용하기 위한 필드
 	//=>Getter 메소드와 Setter 메소드를 작성하지 않는 필드
 	//=>일반적인 필드와 구분하기 위해 필드명을 _로 시작되도록 작성하는 것을 권장
-	private static Singleton _instance;  
+	private static Singleton _instance;  //static으로 선언되어야 밑의 정적 영역에서 사용 가능
 	
 	//생성자를 은닉화 선언- 클래스 외부에서 생성자에 접근하지 못하도록 설정
 	//=> 객체 생성 불가능
