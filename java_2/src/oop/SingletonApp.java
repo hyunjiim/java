@@ -19,8 +19,12 @@ public class SingletonApp {
 		
 		//싱글톤 클래스는 생성자가 은닉화 선언되어 있어 new 연산자로 생성자를 호출하여 객체 생성 불가능
 		//=>객체를 반환하는 정적 메소드를 호출하여 참조변수에 반환받은 객체를 저장하여 사용
-		Singleton singleton1 = Singleton.getInsance();
-		Singleton singleton2 = Singleton.getInsance();
+		Singleton singleton1 = Singleton.getInsance(); //[결과]:oop.Singleton@3b6eb2ec
+		Singleton singleton2 = Singleton.getInsance(); //[결과]:oop.Singleton@3b6eb2ec
+		//=>두 객체의 주소가 같음=두 변수가 같은 객체임을 나타냄
+		
+		System.out.println("singleton1= "+singleton1);
+		System.out.println("singleton2= "+singleton2);
 		
 		singleton1.display();
 		singleton2.display();
