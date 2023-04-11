@@ -1,5 +1,5 @@
 package inheritance;
-
+ 
 //자동차정보(모델명,소유자명)를 저장하기 위한 클래스
 //=>클래스 선언시 상속받은 부모클래스가 없는 경우 기본적으로 Object 클래스를 자동으로 상속
 public class Car {   //public class Car extends Object

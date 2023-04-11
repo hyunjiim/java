@@ -1,5 +1,5 @@
 package inheritance;
-
+ 
 //사람정보(번호,이름)를 저장하기 위한 클래스
 //=>학생, 강사, 직원에 대한 공통적인 속성과 행위를 표현하기 위한 클래스
 public class AcademyPerson {
