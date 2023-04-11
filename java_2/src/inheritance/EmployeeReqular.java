@@ -8,7 +8,7 @@ public class EmployeeReqular extends Employee {
 	public EmployeeReqular() {
 		// TODO Auto-generated constructor stub
 	}
-
+ 
 	public EmployeeReqular(int empNo, String empName, int anuualSalary) {
 		super(empNo, empName);
 		this.anuualSalary = anuualSalary;

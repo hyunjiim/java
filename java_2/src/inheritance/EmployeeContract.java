@@ -20,7 +20,7 @@ public class EmployeeContract extends Employee{
 	public void setContractPay(int contractPay) {
 		this.contractPay = contractPay;
 	}
-	
+	 
 	/*
 	 //급여를 반환하는 메소드
 	 public int couputeContract() {

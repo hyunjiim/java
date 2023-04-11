@@ -26,7 +26,7 @@ public class EmployeeTime extends Employee {
 	public int getWorkedHour() {
 		return workedHour;
 	}
-
+ 
 	public void setWorkedHour(int workedHour) {
 		this.workedHour = workedHour;
 	}
