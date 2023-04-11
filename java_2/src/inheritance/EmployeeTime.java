@@ -30,9 +30,16 @@ public class EmployeeTime extends Employee {
 	public void setWorkedHour(int workedHour) {
 		this.workedHour = workedHour;
 	}
-	
+	/*
 	//급여를 반환하는 메소드
 	public int computeTimePay() {
+		return moneyPerHour*workedHour;
+	}
+	*/
+	
+	@Override
+	public int computePay() {
+		// TODO Auto-generated method stub
 		return moneyPerHour*workedHour;
 	}
 

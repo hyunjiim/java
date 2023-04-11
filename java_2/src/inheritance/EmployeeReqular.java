@@ -21,9 +21,16 @@ public class EmployeeReqular extends Employee {
 	public void setAnuualSalary(int anuualSalary) {
 		this.anuualSalary = anuualSalary;
 	}
-	
+	/*
 	//급여를 반환하는 메소드
 	public int computeSalary() {
+		return anuualSalary/12;
+	}
+	*/
+	
+	@Override
+	public int computePay() {
+		// TODO Auto-generated method stub
 		return anuualSalary/12;
 	}
 }

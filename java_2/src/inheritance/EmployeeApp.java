@@ -22,6 +22,7 @@ public class EmployeeApp {
 		empArray[3]=new EmployeeTime(4000,"일지매",20000,100);
 		empArray[4]=new EmployeeReqular(5000,"장길산",60000000);
 		
+
 		//사원급여를 반환받아 출력
 		//=>참조변수는 부모클래스의 객체만 참조 가능하므로 자식클래스의 메소드 호출 불가
 		//=>명시적 객체 형변환을 이용하여 참조변수로 자식클래스의 객체를 참조하여 메소드 호출 가능
@@ -29,14 +30,19 @@ public class EmployeeApp {
 		for(Employee employee: empArray) {
 			System.out.println("사원번호: "+employee.getEmpNo());
 			System.out.println("사원이름: "+employee.getEmpName());
+			/*
 			if(employee instanceof EmployeeReqular) {
 				System.out.println("급여: "+((EmployeeReqular)employee).computeSalary());
 			}else if(employee instanceof EmployeeTime) {
 				System.out.println("급여: "+((EmployeeTime)employee).computeTimePay());
 			}else if(employee instanceof EmployeeContract) {
 				System.out.println("급여: "+((EmployeeContract)employee).couputeContract());
-			}
+		*/	
+			
+			
+			System.out.println("사원급여: "+employee.computePay());
 			System.out.println("=======================================================");
 		}
+		
 	}
 }

@@ -21,9 +21,17 @@ public class EmployeeContract extends Employee{
 		this.contractPay = contractPay;
 	}
 	
+	/*
 	 //급여를 반환하는 메소드
 	 public int couputeContract() {
 	    return contractPay;
 	 }
+	 */
+	
+	@Override
+	public int computePay() {
+		// TODO Auto-generated method stub
+		return contractPay;
+	}
 
 }
