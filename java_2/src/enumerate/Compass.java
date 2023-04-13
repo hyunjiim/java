@@ -19,6 +19,8 @@ public enum Compass {
 	// => 상수필드의 자료형 또는 저장값을 변경하기 위한 필드에 매개변수의 값 저장
 	// => 반드시 생성자는 은닉화 선언
 	// => 생성자를 선언하면 매개변수가 없는 기본 생성자는 미제공
+	
+	
 	private Compass(String value) {
 		this.value=value;
 	}
