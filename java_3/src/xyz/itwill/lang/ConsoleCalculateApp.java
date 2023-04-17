@@ -11,10 +11,27 @@ import java.util.Scanner;
 
 public class ConsoleCalculateApp {
 	public static void main(String[] args) {
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("연산식 입력 >> ");
-		String calc = scanner.nextLine();
-		calc.replace(" ", "");
-		
+		try {
+			Scanner scanner=new Scanner(System.in);
+			System.out.println("연산식 입력 >> ");
+			String calc = scanner.nextLine();
+			String[] calcArray= {};
+			calc.replace(" ", "");
+			if(calc.indexOf("+")!=-1) {
+				calcArray=calc.split("\\+");
+			}else if(calc.indexOf("-")!=-1) {
+				calcArray=calc.split("\\-");
+			}else if(calc.indexOf("*")!=-1) {
+				calcArray=calc.split("\\*");
+			}else if(calc.indexOf("/")!=-1) {
+				calcArray=calc.split("\\/");
+			}
+			System.out.println(Integer.parseInt(calcArray[0])+Integer.parseInt(calcArray[1])+Integer.parseInt(calcArray[2]));
+			scanner.close();
+			
+		}
+		catch(Exception e) {
+			System.out.println("[에러]형식에 맞지 않는 연산식이 입력되었습니다.");
+		}
 	}
 }
