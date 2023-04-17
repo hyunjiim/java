@@ -87,9 +87,9 @@ public class StringApp {
 		System.out.println("두번째 위치의 문자: "+str5.charAt(1));
 		System.out.println("========================================================");
 		//String.indexOf(String str): String 객체에 저장된 문자열에서 매개변수로 전달받은 문자열(문자)을 처음부터 차례대로 검색하여 시작위치값(첨자)을 반환하는 메소드
+		//=>매개변수로 전달받은 문자열을 찾을 수 없는 경우 -1 반환
 		System.out.println("A 문자열의 저장 위치: "+str5.indexOf("A"));
 		System.out.println("EFG 문자열의 저장 위치: "+str5.indexOf("EFG"));
-		//=>매개변수로 전달받은 문자열을 찾을 수 없는 경우 -1 반환
 		System.out.println("X 문자열의 저장 위치: "+str5.indexOf("X"));
 		System.out.println("========================================================");
 		String str6="Java Programming";
