@@ -11,6 +11,10 @@ import java.util.Scanner;
 
 public class ConsoleCalculateApp {
 	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("연산식 입력 >> ");
+		String calc = scanner.nextLine();
+		calc.replace(" ", "");
 		
 	}
 }
