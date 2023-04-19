@@ -22,7 +22,6 @@ public class WantCalendarApp {
 
 		// Calendar 객체에 저장된 날짜와 시간 중 [요일]을 반환받아 저장
 		int week = calendar.get(Calendar.DAY_OF_WEEK);
-//				System.out.println("week: "+week);
 
 		System.out.println("         " + calendar.get(Calendar.YEAR) + "년 " + (calendar.get(Calendar.MONTH) + 1) + "월");
 		System.out.println("==============================");
