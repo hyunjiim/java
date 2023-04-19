@@ -40,6 +40,8 @@ public class ConsoleCalculateApp {
 			scanner.close();
 		} catch (ArithmeticException e) {
 			System.out.println("[에러]연산식에 올바르지 않은 수식이 입력되었습니다.");
+		} catch (Exception e) {
+			System.out.println("[에러]프로그램에 예기치 못한 오류가 발생하였습니다.");
 		}
 	}
 }
