@@ -16,7 +16,7 @@ public class ConsoleCalculateApp {
 		System.out.print("연산식 입력 >> ");
 		String calc = scanner.nextLine();
 		if (calc.indexOf("+") == -1 && calc.indexOf("-") == -1 && calc.indexOf("*") == -1 && calc.indexOf("/") == -1) {
-			System.out.println("[에러]형식에 맞지 않는 연산식이 입력되었습니다.");
+			System.out.println("[에러]형식에 맞지 않는 연산식이 입력되었으므로 프로그램을 강제 종료합니다.");
 			System.exit(0);
 		}
 
