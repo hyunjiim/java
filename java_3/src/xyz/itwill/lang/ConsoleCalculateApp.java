@@ -21,7 +21,7 @@ public class ConsoleCalculateApp {
 				System.out.println("[에러]형식에 맞지 않는 연산식이 입력되었습니다.");
 				System.exit(0);
 			}
-			break;
+			break;	
 			}
 		
 		calc=calc.replace(" ", "");
@@ -39,6 +39,5 @@ public class ConsoleCalculateApp {
 			calcArray=calc.split("\\/");
 			System.out.println("[결과]"+(Integer.parseInt(calcArray[0])/Integer.parseInt(calcArray[1])));
 		}
-		
 	}
 }
