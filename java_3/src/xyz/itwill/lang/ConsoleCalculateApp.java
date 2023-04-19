@@ -11,31 +11,35 @@ import java.util.Scanner;
 
 public class ConsoleCalculateApp {
 	public static void main(String[] args) {
+		try {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("연산식 입력 >> ");
+			String calc = scanner.nextLine();
+			if (calc.indexOf("+") == -1 && calc.indexOf("-") == -1 && calc.indexOf("*") == -1
+					&& calc.indexOf("/") == -1) {
+				System.out.println("[에러]형식에 맞지 않는 연산식이 입력되었으므로 프로그램을 강제 종료합니다.");
+				System.exit(0);
+			}
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("연산식 입력 >> ");
-		String calc = scanner.nextLine();
-		if (calc.indexOf("+") == -1 && calc.indexOf("-") == -1 && calc.indexOf("*") == -1 && calc.indexOf("/") == -1) {
-			System.out.println("[에러]형식에 맞지 않는 연산식이 입력되었으므로 프로그램을 강제 종료합니다.");
-			System.exit(0);
-		}
+			calc = calc.replace(" ", "");
+			String[] calcArray = {};
+			if (calc.contains("+")) {
+				calcArray = calc.split("\\+");
+				System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) + Integer.parseInt(calcArray[1])));
+			} else if (calc.contains("-")) {
+				calcArray = calc.split("\\-");
+				System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) - Integer.parseInt(calcArray[1])));
+			} else if (calc.contains("*")) {
+				calcArray = calc.split("\\*");
+				System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) * Integer.parseInt(calcArray[1])));
+			} else if (calc.contains("/")) {
+				calcArray = calc.split("\\/");
+				System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) / Integer.parseInt(calcArray[1])));
+			}
 
-		calc = calc.replace(" ", "");
-		String[] calcArray = {};
-		if (calc.contains("+")) {
-			calcArray = calc.split("\\+");
-			System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) + Integer.parseInt(calcArray[1])));
-		} else if (calc.contains("-")) {
-			calcArray = calc.split("\\-");
-			System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) - Integer.parseInt(calcArray[1])));
-		} else if (calc.contains("*")) {
-			calcArray = calc.split("\\*");
-			System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) * Integer.parseInt(calcArray[1])));
-		} else if (calc.contains("/")) {
-			calcArray = calc.split("\\/");
-			System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) / Integer.parseInt(calcArray[1])));
+			scanner.close();
+		} catch (ArithmeticException e) {
+			System.out.println("[에러]연산식에 올바르지 않은 수식이 입력되었습니다.");
 		}
-		
-		scanner.close();
 	}
 }
