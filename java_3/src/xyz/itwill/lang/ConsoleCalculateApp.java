@@ -35,5 +35,7 @@ public class ConsoleCalculateApp {
 			calcArray = calc.split("\\/");
 			System.out.println("[결과]" + (Integer.parseInt(calcArray[0]) / Integer.parseInt(calcArray[1])));
 		}
+		
+		scanner.close();
 	}
 }
