@@ -7,18 +7,16 @@ import java.util.Scanner;
 public class WantCalendarApp {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("연도를 입력하세요 >> ");
+		System.out.print("년도를 입력하세요 >> ");
 		String wantYear = scanner.nextLine();
 		System.out.print("월을 입력하세요 >> ");
 		String wantMonth = scanner.nextLine();
 
-		// calendar.set(Calendar.DATE, 1);
-
 		Calendar calendar = Calendar.getInstance();
 
-		calendar.set(Calendar.YEAR, Integer.parseInt(wantYear));
-		calendar.set(Calendar.MONTH, Integer.parseInt(wantMonth) - 1);
-		calendar.set(Calendar.DATE, 1);
+		calendar.set(Calendar.YEAR, Integer.parseInt(wantYear)); //Calendar 객체에 저장된 [년]를 입력받은 [년]으로 변경
+		calendar.set(Calendar.MONTH, Integer.parseInt(wantMonth) - 1); //Calendar 객체에 저장된 [월]을 입력받은 [월]로 변경
+		calendar.set(Calendar.DATE, 1); ////Calendar 객체에 저장된 [일]을 입력받은 [1일]로 변경
 
 		// Calendar 객체에 저장된 날짜와 시간 중 [요일]을 반환받아 저장
 		int week = calendar.get(Calendar.DAY_OF_WEEK);
@@ -34,8 +32,6 @@ public class WantCalendarApp {
 		}
 
 		// 1일부터 [월]의 마지막 일까지 출력
-		// Calendar.getActualMaximum(int field): Calnedar 객체에 저장된 날짜와 시간에서 매개변수로 전달받은
-		// 상수에 대한 최대값을 반환하는 메소드
 		for (int i = 1; i <= calendar.getActualMaximum(Calendar.DATE); i++) {
 			if (i <= 9) {
 				System.out.print("   " + i);
