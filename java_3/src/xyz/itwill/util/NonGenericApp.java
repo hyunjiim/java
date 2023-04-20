@@ -1,7 +1,7 @@
 package xyz.itwill.util;
 
 //Object 타입의 필드가 선언된 클래스로 객체를 생성하여 사용하는 프로그램
-//
+
 public class NonGenericApp {
 	public static void main(String[] args) {
 		NonGeneric nonGeneric1=new NonGeneric();

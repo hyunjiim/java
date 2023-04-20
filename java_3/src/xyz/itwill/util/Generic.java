@@ -10,6 +10,10 @@ package xyz.itwill.util;
 //형식) public class 클래스명<제네릭 extends 부모클래스>{}
 //=>제네릭은 반드시 부모클래스를 상속받은 Java 자료형만 전달받아 사용 가능
 
+//제네릭의 장점
+//=>컴파일 시 강한 타입 체크 가능
+//=>타입 변환 제거(casting)
+
 public class Generic<T extends Number> {//제네릭 클래스
 	private T field;
 	
