@@ -11,7 +11,6 @@ import java.util.Scanner;
 //=>형식에 맞지 않는 생년월일을 입력한 경우 에러 메세지 출력 후 프로그램 종료
 public class DayCalculateApp {
 	public static void main(String[] args) {
-		Date now = new Date();
 		Scanner scanner=new Scanner(System.in);
 		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
 		System.out.print("생년월일 입력[ex) 2000-01-01] >> ");
@@ -24,6 +23,7 @@ public class DayCalculateApp {
 			System.out.println("[결과]태어난지 <"+(currentTime-birthTime)/(1000*86400)+"일>이 지났습니다.");
 		}catch(ParseException e) {
 	         System.out.println("[에러]형식에 맞게 날짜와 시간을 입력해주세요.");
+	         System.exit(0);
 		}
 	}
 
