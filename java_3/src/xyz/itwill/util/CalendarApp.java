@@ -15,7 +15,7 @@ public class CalendarApp {
 		String[] day={"일","월","화","수","목","금","토"};
 		
 		//Calendar.get(int field): Calendar 객체에 저장된 날짜와 시간에서 매개변수로 전달받은 Calendar 클래스의 상수(Constant)에 대한 값을 반환하는 메소드
-		//=>[월]은 0~11 범위의 정수값으로 표현되며
+		//=>[월]은 0~11 범위의 정수값으로 표현되며 [요일]은 1(일)~7(토) 범위의 정수값으로 표현
 		String prinDate=calendar.get(Calendar.YEAR)+"년 "+(calendar.get(Calendar.MONTH)+1)+"월 "+calendar.get(Calendar.DATE)+"일 "+day[calendar.get(Calendar.DAY_OF_WEEK)-1]+"요일";
 		
 		System.out.println("현재 날짜: "+prinDate);
