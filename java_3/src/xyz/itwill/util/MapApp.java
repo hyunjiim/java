@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 //Map 인터페이스를 상속받은 콜렉션 클래스 - HashMap, Hashtable, Properties 등
-// => 이름(Key - 고유값)과 객체(Value)을 하나의 그룹으로 묶어 Map 객체에 저장하여 관리
+// => 이름(Key - 고유값)과 객체(Value)를 하나의 그룹으로 묶어 Map 객체에 저장하여 관리
 // => 엔트리(Entry) : Map 객체에 이름과 객체를 하나로 묶어 저장하기 위한 단위
 // => 이름(Key)을 이용하여 객체(Value)를 빠르게 검색하여 제공하기 위한 콜렉션 클래스
 public class MapApp {
@@ -13,7 +13,7 @@ public class MapApp {
 		//이름(K)과 저장 객체(V)에 대한 제네릭 타입 2개에 자료형을 전달하여 객체 생성
 		Map<String, String> map=new HashMap<String, String>();
 		
-		//Map.put(K key, V value) : Map 객체에 엔트리를 추가하는 메소드
+		//Map.put(K key, V value) : Map 객체에 엔트리를 추가하는 메소드-중요
 		// => Map 객체에 저장되는 엔트리의 이름(Key)을 Set 객체로 저장되므로 중복 저장 불가능
 		map.put("1000", "홍길동");
 		map.put("2000", "임꺽정");
@@ -36,7 +36,7 @@ public class MapApp {
 		System.out.println("map = "+map);
 		System.out.println("===============================================================");
 		//Map.get(K key) : Map 객체에 저장된 엔트리에서 매개변수로 전달받은 이름(Key)에
-		//대한 엔트리를 검색하여 엔트리의 객체를 반환하는 메소드
+		//대한 엔트리를 검색하여 엔트리의 객체를 반환하는 메소드-중요
 		// => 이름(Key)에 대한 엔트리가 없는 경우 null 반환
 		String name=map.get("1000");
 		System.out.println("name = "+name);
