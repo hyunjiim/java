@@ -31,7 +31,7 @@ public class EventInnerHandleApp extends Frame {
 	}
 	
 	public static void main(String[] args) {
-		new EventSourceHandleApp("이벤트처리");
+		new EventInnerHandleApp("이벤트처리");
 	}
 	
 	public class EventHandle implements ActionListener {
