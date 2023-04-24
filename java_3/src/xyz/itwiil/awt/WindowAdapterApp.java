@@ -18,7 +18,7 @@ public class WindowAdapterApp extends Frame {
 		
 //		addWindowListener(new WindowEventHandleTwo());
 		
-		//Anonymous Class
+		////프레임의 [닫기]를 누른 경우 프로그램을 종료하는 기능의 명령 - 익명의 내부클래스(Anonymous Class) 사용
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -35,12 +35,13 @@ public class WindowAdapterApp extends Frame {
 		new WindowAdapterApp("윈도우 이벤트");
 	}
 	
-	
+	/*
 	public class WindowEventHandleTwo extends WindowAdapter {
 		@Override
 		public void windowClosing(WindowEvent e) {
 			System.exit(0);
 		}
 	} 
+	*/
 
 }
