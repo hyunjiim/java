@@ -34,7 +34,7 @@ public class EventSourceHandleApp extends Frame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		System.exit(0);
 	}
 	
 }
