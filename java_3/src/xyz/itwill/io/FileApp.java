@@ -28,14 +28,18 @@ public class FileApp {
 		}
 		
 		System.out.println("=================================================================");
-		File fileTwo=new File("c:\\data\\itwill.txt");
+		//File fileTwo=new File("c:\\data\\itwill.txt");
+		
+		//Windows 운영체제를 제외한 나머지 운영체제에서는 폴더(드라이브)와 파일을 구분하기
+		//위해 / 문자 사용 - Java에서는 파일 경로를 표현하기 위한 \ 문자 대신 / 문자 사용 가능
+		File fileTwo=new File("c:/data/itwill.txt");
 		
 		if(fileTwo.exists()) {
-			System.out.println("c:\\data\\\\itwill.txt 파일이 이미 존재합니다.");
+			System.out.println("c:\\data\\itwill.txt 파일이 이미 존재합니다.");
 		}else {
 			//File.createNewFile(): File 객체에 저장된 파일경로의 파일을 생성하는 메소드
 			fileTwo.createNewFile(); //IOException 발생 오류->throws
-			System.out.println("c:\\data 폴더를 생성 하였습니다.");
+			System.out.println("c:\\data\\itwill.txt 폴더를 생성 하였습니다.");
 		}
 		System.out.println("=================================================================");
 		//File 클래스의 File(String parent,String child)생성자를 이용하여 매개변수로 부모(디렉터리)와 자식(파일)을 
@@ -59,10 +63,10 @@ public class FileApp {
 		
 		if(fileFour.exists()) {			
 			//File.toString(): File 객체에 저장된 파일경로를 문자열로 반환하는 메소드
-//			System.out.println("파일경로="+fileFour.toString());
+//			System.out.println("파일경로="+fileFour.toString()); //참조변수를 출력할 경우 toString() 메소드 자동호출
 			System.out.println("파일경로="+fileFour); //참조변수를 출력할 경우 toString() 메소드 자동호출
-			//File.getAbsolutePath(): File 객체에 저장된 파일경로를 문자열로 
-			System.out.println("파일경로="+fileFour.getAbsolutePath()); //참조변수를 출력할 경우 toString() 메소드 자동호출
+			//File.getAbsolutePath(): File 객체에 저장된 파일경로를 절대경로 표현방법의 문자열로 반환하는 메소드 
+			System.out.println("파일경로="+fileFour.getAbsolutePath());
 			
 			
 		}else {
@@ -80,6 +84,8 @@ public class FileApp {
 			File[] subFiles=fileFive.listFiles();
 			System.out.println(fileFive+"폴더의 자식 목록 >> "); 
 			for(File file: subFiles) {
+				//File.isFile() : File 객체에 저장된 파일경로의 파일이 일반파일이 아닌 경우
+				//[false]를 반환하고 일반파일인 경우 [true]를 반환하는 메소드
 				if(fileFive.isFile()) {
 					System.out.println("파일 ="+file);
 				}else {
