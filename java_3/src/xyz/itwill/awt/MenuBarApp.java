@@ -1,4 +1,4 @@
-package xyz.itwiil.awt;
+package xyz.itwill.awt;
 
 import java.awt.BorderLayout;
 import java.awt.Font;

@@ -21,6 +21,7 @@ import xyz.itwill.swing.DigitalClockApp.ClockEventHandle;
 //1.실제 계산기에서는 연산자(*,/,+,-)를 누른경우 0으로 초기화되어야함-연산식이 입력된 그대로 label에 출력
 //2.나누기 연산을 했을 때 소수점 한자리까지 출력됨
 //3.b_C를 누르고 다시 연산을 시작하면 연산식 맨 앞에 0이 출력됨
+//=>operation에는 ""을 저장하고 setText()를 사용하여 JLabel 컴퍼넌트에는 0이 출력되도록 수정
 //4.여러 연산을 한번에 처리하려고 하는 경우 에러 발생
 
 public class CalculatorFrameExampleApp extends JFrame implements ActionListener {
