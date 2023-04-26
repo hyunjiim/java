@@ -26,7 +26,7 @@ public class ByteStreamApp {
 			//InputStream.read(): 입력스트림에 존재하는 값을 원시 데이터(1Byte)로 읽어 정수값(int)으로 반환하는 메소드
 			//=>입력스트림에 값이 없는 경우 스레드는 일시 중지 상태로 전환
 			//=>입력스트림에 엔터(Enter)가 입력될 경우 스레드 다시 실행
-			//=>입력스트림 또는 출력스트림 관련 메소드는 IOException 발생
+			//=>입력스트림 또는 출력스트림 관련 메소드는 IOException 발생-RuntimeException을 상속하지 않는 필수 예외처리
 			//=>IOException은 일반 예외이므로 반드시 예외처리
 			readByte=System.in.read(); //거의 발생하지 않는 예외이므로 throws를 사용하여 JVM이 예외처리하도록 작성
 			
