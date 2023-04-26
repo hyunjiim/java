@@ -19,7 +19,7 @@ public class ObjectInputStreamApp {
 		String string=(String)in.readObject();
 		Date date=(Date)in.readObject();
 		@SuppressWarnings("unchecked")
-		List<String> list=(List<String>)in.readObject();
+		List<String> list=(List<String>)in.readObject(); //파일에 저장된 객체를 객체로 읽어들일 수 있음
 		
 		System.out.println("string = "+string);
 		System.out.println("date = "+date);
@@ -28,3 +28,6 @@ public class ObjectInputStreamApp {
 		in.close();
 	}
 }
+
+//파일 입출력 시 많이 사용하는 방법-파일에 어떤 값을 저장할 목적이면 객체를 이용하여 저장하는 방법이 좋음
+//=>ObjectInputStream, ObjectOutputStream 으로 확장하여 사용

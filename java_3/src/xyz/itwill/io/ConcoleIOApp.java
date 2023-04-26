@@ -12,7 +12,8 @@ public class ConcoleIOApp {
 		//확장된 Reader 객체를 전달받아 BufferedReader 클래스의 입력스트림으로 확장하여 대량의 문자데이터를 입력받을 수 있는 입력스트림 생성
 		//=>입출력 관련 클래스는 스트림의 다단계 연결을 사용하여 스트림 확장 가능
 		//키보드로 문자열을 입력받기 위한 입력스트림 생성
-		BufferedReader in= new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader in= new BufferedReader(new InputStreamReader(System.in)); //스트림의 다단계 연결?(검색)
+		//system.in은 원시데이터 1개만 읽음=>InputStreamReader로 확장
 		
 		//Java 프로그램 개발을 위해 기본적으로 제공되는 모니터 출력스트림(System.out)은
 		//PrintStream 클래스로 생성되어 print() 또는 println() 메소드를 호출하여 매개변수로
@@ -23,7 +24,7 @@ public class ConcoleIOApp {
 		
 		System.out.print("태어난 년도 입력 >> ");
 		//키보드로 입력받은 문자열을 정수값으로 변환하여 저장 - NumberFormatException 발생
-		int birthYear=Integer.parseInt(in.readLine());
+		int birthYear=Integer.parseInt(in.readLine()); //Scanner는 입력메소드를 사용하는데, 입력메소드가 버그를 가지고 있음(무한루프 가능성)-불완전
 		
 		int age=Calendar.getInstance().get(Calendar.YEAR)-birthYear+1;
 		
@@ -31,3 +32,4 @@ public class ConcoleIOApp {
 		
 	}
 }
+

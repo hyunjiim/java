@@ -8,6 +8,7 @@ import java.util.Date;
 
 public class ObjectOutputStreamApp {
 	public static void main(String[] args) throws IOException {
+		//ObjectOutputStream 클래스 : OutputStream 객체를 전달받아 Java 객체를 원시데이터로 전달하는 출력스트림을 생성하기 위한 클래스
 		ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("c:/data/object.txt"));
 		
 		//ObjectOutputStream.writeObject(Object o): 매개변수로 전달받은 객체를 원시데이터로 변환하여 출력스트림으로 전달하는 메소드

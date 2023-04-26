@@ -26,7 +26,7 @@ public class FileCopyByteApp {
 			out=new BufferedOutputStream(new FileOutputStream("c:/data/BANDIZIP_byte.EXE"));
 			
 			int readByte;
-			//원본파일의 값을 원시데이터로 읽어 타겟파일로 전달하는 반복문-
+			//원본파일의 값을 원시데이터로 읽어 타겟파일로 전달하는 반복문-파일내용 복사
 			while(true) {
 				readByte=in.read();
 				if(readByte==-1) break;

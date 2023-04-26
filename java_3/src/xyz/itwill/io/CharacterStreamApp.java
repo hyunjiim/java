@@ -38,6 +38,8 @@ public class CharacterStreamApp {
 			out.write(readByte); //=>이것만 작성하면 출력되지 않음
 			
 			//Writer.flush() : 출력스트림의 버퍼에 존재하는 모든 값을 출력스트림으로 전달하는 메소드
+			//=>write() 함수를 cpu가 처리했다고 해도 모든 데이터가 물리적으로 디스크에 전부 저장되지 않을 수도 있음
+			//=>write()한 파일을 다시 읽을 경우 반드시 flush()해주는 것이 좋음
 			out.flush();
 		}
 		

@@ -23,7 +23,7 @@ public class FileInputStreamApp {
 		int readByte;
 		
 		while(true) {
-			//파일 입력스트림을 이용하여 파일에 저장된 값을 원시데이터로 반환받아 저장
+			//파일 입력스트림을 이용하여 파일에 저장된 값을 원시데이터로 반환받아 저장-파일의 값을 읽어들임(LOAD)
 			readByte=in.read();
 			
 			//파일 입력스트림으로 제공받은 파일 내용이 없는 경우 반복문 종료
