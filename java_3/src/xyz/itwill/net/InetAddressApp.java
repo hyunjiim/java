@@ -1,4 +1,4 @@
-package xyz.itwill.net;
+package xyz.itwill.net;//1번째 클래스
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
