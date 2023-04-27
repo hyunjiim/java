@@ -1,4 +1,4 @@
-package xyz.itwill.net;
+package xyz.itwill.net;//5번째 클래스
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +20,10 @@ public class EchoServerApp {
 				
 				//소켓의 입력스트림을 제공받아 대량의 문자데이터를 얻어올 수 있는 입력스트림 확장
 				BufferedReader in= new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				
+				System.out.println("["+socket.getInetAddress().getHostAddress()+"]님이 보내온 메세지: "+in.readLine());
+				
+				socket.close();
 			}
 		}catch (IOException e) {
 			System.out.println("[에러]서버 네트워크에 문제가 발생되었습니다.");
