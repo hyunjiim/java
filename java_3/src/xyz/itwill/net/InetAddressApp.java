@@ -25,6 +25,7 @@ import java.net.UnknownHostException;
 //UDP(User Datagram Protocol) : 비연결형 프로토콜(네트워크 기능을 이용한 연결 설정 없이 통신
 //가능)로 신뢰할 수 없는 데이타 전송에 통신규약 - 사용자 데이타그램 프로토콜
 // => 고속 통신 - 1:Many 연결
+//전송단위: 세그먼트
 
 //응용계층 : 전송계층을 기반으로 생성된 다수의 서비스 프로토콜
 
@@ -39,7 +40,7 @@ import java.net.UnknownHostException;
 // => B Class : 255.255.0.0 - 65,536 => 128.X.X.X ~ 191.X.X.X
 // => C Class : 255.255.255.0 - 256 => 192.X.X.X ~ 232.X.X.X
 
-//Geteway 주소 : 라우터에 부여된 IP 주소
+//Gateway 주소 : 라우터에 부여된 IP 주소
 
 //DNS 서버 : 도메인(호스트 이름)을 IP 주소로 변환하는 기능의 서비스를 제공하는 컴퓨터
 
