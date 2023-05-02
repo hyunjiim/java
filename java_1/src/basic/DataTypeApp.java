@@ -18,6 +18,12 @@ public class DataTypeApp {
 		int a3= 2147483647; //4Byte: -2147483648~2147483647
 		long a4= 2147483648L; //8Byte
 		
+		System.out.println("a1 = "+a1);
+		System.out.println("a2 = "+a2);
+		System.out.println("a3 = "+a3);
+		System.out.println("a4 = "+a4);
+		
+		
 		//int a5= 100L; ->에러발생: 값에 대한 손실이 일어날 수 있으므로 에러 발생
 		
 		long a5= 100;
