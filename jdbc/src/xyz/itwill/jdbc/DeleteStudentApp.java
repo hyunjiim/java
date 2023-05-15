@@ -26,14 +26,14 @@ public class DeleteStudentApp {
 			int rows=stmt.executeUpdate(sql);
 			
 			if(rows>0) {
-				System.out.println("[메세지]"+rows+"행이 삭제되었습니다.");
+				System.out.println("[메세지]"+rows+"명의 학생정보가 삭제되었습니다.");
 			}else {
-				System.out.println("[메세지]삭제할 수 있는 행이 없습니다.");
+				System.out.println("[메세지]삭제할 수 있는 학생정보가 없습니다.");
 			}
 		}catch (ClassNotFoundException e) {
 			System.out.println("[에러]오라클 드라이버 클래스를 찾을 수 없습니다.");
 		}catch (SQLException e) {
-			System.out.println("[에러]jdbc에서 오류 발생: "+e.getMessage());
+			System.out.println("[에러]jdbc 관련 오류 발생: "+e.getMessage());
 		}finally {
 			try {
 				if(stmt!=null) stmt.close();
@@ -45,3 +45,6 @@ public class DeleteStudentApp {
 	}
 
 }
+
+
+
