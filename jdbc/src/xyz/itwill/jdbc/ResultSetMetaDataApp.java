@@ -11,8 +11,8 @@ public class ResultSetMetaDataApp {
 		Connection con=ConnectionFactory.getConnection();
 		Statement stmt=con.createStatement();
 		
-		String sql="select * from student order by no";
-		//String sql="select no,name from student order by no";
+		//String sql="select * from student order by no";
+		String sql="select no,name from student order by no";
 		ResultSet rs=stmt.executeQuery(sql);
 		
 		while(rs.next()) {
