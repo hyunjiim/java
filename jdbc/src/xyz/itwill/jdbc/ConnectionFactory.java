@@ -1,3 +1,4 @@
+//[33day-1]
 package xyz.itwill.jdbc;
 
 import java.sql.Connection;
@@ -38,7 +39,7 @@ public class ConnectionFactory {
 			e.printStackTrace();
 		}
 	}
-	
+	//OverLoading
 	public static void close(Connection con, Statement stmt) {
 		try {
 			if(stmt != null) stmt.close();
@@ -47,7 +48,7 @@ public class ConnectionFactory {
 			e.printStackTrace();
 		}
 	}
-	
+	//OverLoading
 	public static void close(Connection con, Statement stmt, ResultSet rs) {
 		try {
 			if(rs != null) rs.close();

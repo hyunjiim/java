@@ -1,3 +1,4 @@
+//[33day-7]
 package xyz.itwill.jdbc;
 
 import java.io.BufferedReader;
@@ -9,8 +10,8 @@ import java.sql.ResultSet;
 //PreparedStatement 객체 : 현재 접속중인 DBMS 서버에 SQL 명령을 전달하여 실행하기 위한 기능을 제공하는 객체
 //장점 : InParameter를 사용하여 SQL 명령에 Java 변수값을 문자값으로 포함하여 사용 가능
 // => InParameter를 사용하여 가독성이 향상되고 유지보수의 효율성 증가
-// => InSQL 해킹 기술을 무효화 처리 - InParameter로 전달받은 사용자 입력값은 SQL 명령에서 무조건 문자값으로 처리
-//단점 : 하나의 PreparedStatement는 저장된 하나의 SQL 명령만 전달하여 실행 가능
+// => InSQL 해킹 기술을 무효화 처리 - InParameter로 전달받은 사용자 입력값은 SQL 명령에서 무조건 문자값으로 처리하기 때문
+//단점 : 하나의 PreparedStatement는 저장된 하나의 SQL 명령만 전달하여 실행 가능 - 여러 개의 SQL 명령을 전달하려면 객체도 여러개 생성해야 함
 public class PreparedStatementApp {
 	public static void main(String[] args) throws Exception {
 		/*

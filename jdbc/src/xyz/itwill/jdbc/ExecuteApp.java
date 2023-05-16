@@ -1,3 +1,4 @@
+//[33day-3]
 package xyz.itwill.jdbc;
 
 import java.sql.Connection;
@@ -12,12 +13,12 @@ public class ExecuteApp {
 		Statement stmt=con.createStatement();
 		
 		String sql1="update student set name='임걱정' where no=2000";
-		int rows=stmt.executeUpdate(sql1);
+		int rows=stmt.executeUpdate(sql1); //=>INSERT/DELETE/UPDATE
 		
 		System.out.println("[메세지]"+rows+"명의 학생정보를 변경 하였습니다.");
 		System.out.println("==============================================================");
 		String sql2="select * from student order by no";
-		ResultSet rs=stmt.executeQuery(sql2);
+		ResultSet rs=stmt.executeQuery(sql2); //=>SELECT
 		
 		while(rs.next()) {
 			System.out.println("학번 = "+rs.getInt("no")+", 이름 = "+rs.getString("name"));
@@ -26,10 +27,11 @@ public class ExecuteApp {
 		ConnectionFactory.close(con, stmt, rs);
 		*/
 		
+		//사용자가 직접 입력하여 전달하는 SQL 명령이 명확하지 않는 경우
 		Connection con=ConnectionFactory.getConnection();
 		Statement stmt=con.createStatement();
 
-		int choice=2;
+		int choice=2; //1이 저장되어있으면 UPDATE 명령, 1이 아니면 SELECT 명령
 		String sql="";
 		if(choice == 1) {
 			sql="update student set name='임꺽정' where no=2000";

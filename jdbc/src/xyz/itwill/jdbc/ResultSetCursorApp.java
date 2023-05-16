@@ -1,3 +1,4 @@
+//[33day-5]
 package xyz.itwill.jdbc;
 
 import java.sql.Connection;
@@ -39,11 +40,11 @@ public class ResultSetCursorApp {
 		// => ResultSet.TYPE_SCROLL_SENSITIVE : ResultSet 커서를 자유롭게 이동 가능 - 데이타베이스 변경 반영
 		//resultSetConcurrency : ResultSet 커서가 위치한 처리행의 조작 관련 속성값(ResultSet 인터페이스의 상수) 전달
 		// => ResultSet.CONCUR_READ_ONLY : ResultSet 커서가 위치한 처리행 조작 불가능 - 기본
-		// => ResultSet.CONCUR_UPDATABLE : ResultSet 커서가 위치한 처리행 조작 가능
+		// => ResultSet.CONCUR_UPDATABLE : ResultSet 커서가 위치한 처리행 조작 가능 - 행 삽입,삭제,변경
 		stmt=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		
 		sql="select * from student order by no";
-		rs=stmt.executeQuery(sql);
+		rs=stmt.executeQuery(sql); //자유롭게 이동가능 조작행 변경은 불가능
 		
 		//ResultSet.first() : ResultSet 커서를 첫번째 행으로 이동하는 메소드
 		rs.first();
@@ -54,7 +55,7 @@ public class ResultSetCursorApp {
 		System.out.println(rs.getRow()+"행 : 학번 = "+rs.getInt("no")+", 이름 = "+rs.getString("name"));
 		
 		//ResultSet.absolute(int rowIndex) : ResultSet 커서를 매개변수로 전달받은 행으로 이동하는 메소드
-		rs.absolute(2);
+		rs.absolute(2); //매개변수로 전달받은 행이 없는 경우 예외 발생
 		System.out.println(rs.getRow()+"행 : 학번 = "+rs.getInt("no")+", 이름 = "+rs.getString("name"));
 		System.out.println("==============================================================");
 		//ResultSet.afterLast() : ResultSet 커서를 EOF(End Of File)로 이동하는 메소드
