@@ -248,8 +248,8 @@ public class StudentDAOImpl extends JdbcDAO implements StudentDAO {
 		try {
 			con=getConnection();
 			
-			//String sql= "select * from student order by no";
-			String sql= "select no,name,phone,address,to_char(birthday,'yyyy-mm-dd') birthday from student order by no";
+			String sql= "select * from student order by no";
+			//String sql= "select no,name,phone,address,to_char(birthday,'yyyy-mm-dd') birthday from student order by no";
 			pstmt=con.prepareStatement(sql);
 			
 			rs=pstmt.executeQuery();
@@ -261,8 +261,8 @@ public class StudentDAOImpl extends JdbcDAO implements StudentDAO {
 				student.setPhone(rs.getString("phone"));
 				student.setAddress(rs.getString("address"));
 				//substring() 사용하기 보다는 sql select 문에 * 대신 컬럼명 나열하는게 좋음
-				//student.setBirthday(rs.getString("birthday").substring(0,1));
-				student.setBirthday(rs.getString("birthday"));
+				student.setBirthday(rs.getString("birthday").substring(0,10));
+				//student.setBirthday(rs.getString("birthday"));
 				
 				studentList.add(student);
 			}
@@ -272,7 +272,7 @@ public class StudentDAOImpl extends JdbcDAO implements StudentDAO {
 		}finally {
 			close(con, pstmt, rs);
 		}
-		return null;
+		return studentList;
 	}
 	
 

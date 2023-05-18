@@ -102,7 +102,7 @@ public class StudentDTO {
 	
 	@Override
 	public String toString() {
-		return no+"\t"+name+"\t"+phone+"\t"+address+"\t"+birthday+"\t";
+		return no+"\t"+name+"\t"+phone+"\t"+address+"\t"+birthday;
 	}
 	
 }
