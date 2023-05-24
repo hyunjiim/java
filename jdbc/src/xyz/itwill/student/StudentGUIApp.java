@@ -31,7 +31,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class StudentGUIApp extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
-
+	
+	//
 	public static final int NONE = 0;
 	public static final int ADD = 1;
 	public static final int DELETE = 2;
@@ -135,6 +136,8 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 		addressTF.setEditable(false);
 		birthdayTF.setEditable(false);
 	}
+	
+	
 
 	//이벤트에 따른 JTextField 컴퍼넌트의 활성화 상태 변경
 	public void setEditable(int n) {
