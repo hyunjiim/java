@@ -42,15 +42,22 @@ public class Car {
 	private String modelName;
 	private boolean engineStatus;
 	private int currentSpeed;
+	
+	//생성자(Constructor): 생성자를 선언하지 않으면 매개변수가 없는 기본 생성자(Default
+	//Constructor)가 자동으로 생성되어 제공 - 생략 가능
 
+	//메소드(Method): 필드를 사용하여 메소드의 명령으로 필요한 기능이 제공되도록 작성
 	// 시동 On
 	public void startEngine() {
-		
+		engineStatus=true;
+		System.out.println(modelName+"의 자동차 시동을 켰습니다.");
 	}
 
 	// 시동 Off
 	public void stopEngine() {
-
+		if(currentSpeed!=0) {
+			currentSpeed =0;
+		}
 	}
 	
 	// 속도 증가
