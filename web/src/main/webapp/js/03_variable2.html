@@ -56,6 +56,7 @@
 	alert("num1 = "+num1+", num2 = "+num2+", num3 = "+num3);
 	*/
 	
+	/*
 	//함수 내부에 선언된 변수는 함수 종료시 무조건 소멸
 	function display() {
 		var num1=100; //함수 내부에서만 사용 가능 - 함수 종료시 자동 소멸
@@ -64,8 +65,18 @@
 		
 		//alert("num1 = "+num1+", num2 = "+num2+", num3 = "+num3);
 	}
+	
 	display(); //함수 호출
 	alert("num1 = "+num1+", num2 = "+num2+", num3 = "+num3);
+	*/
+	
+	let num = 100;
+	//alert("num = "+num);
+	//문자값을 표현하기 위해 ' ' 또는 " " 기호 대신 ` `기호를 사용하여 표현 가능 - ES6
+	//alert(`num = `+num);
+	
+	//`(백틱) 기호로 표현된 문자값에서는 ${변수} 형식으로 변수값을 제공받아 출력 가능
+	alert(`num = ${num}`);
 	</script>
 </body>
 </html>
