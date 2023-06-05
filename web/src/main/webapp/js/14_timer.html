@@ -16,14 +16,17 @@
 	
 	<script type="text/javascript">
 	/*
+	//콜백함수에 익명함수를 전달하여 익명함수의 명령을 반복 실행
 	var id=setInterval(function() {
 		alert("setInterval 함수에 의해 반복 실행되는 명령");
 	}, 1000);
 	*/
 	
 	//콜백함수에 화살표함수를 전달하여 화살표함수의 명령을 반복실행
+	var id=setTimeout(() => alert("setInterval 함수에 의해 반복 실행되는 명령"),1000);
+	
 	setTimeout(function() {
-		clearInterval(id)
+		clearInterval(id);
 	}, 5000);
 	</script>
 </body>
