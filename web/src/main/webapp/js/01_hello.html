@@ -1,3 +1,7 @@
+<!-- 웹문서를 해석하여 실행하는 순서 -->
+<!-- HTML 태그를 읽어 메모리에 저장(DOM Parser) - DOM Tree - CSS로 DOM Tree의 태그에 적용 
+	>>JavaScript 실행 >> DOM Tree의 CSS가 적용된 HTML 태그를 화면에 출력(Rendering)-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,17 +9,18 @@
 <title>JavaScript</title>
 <!-- 이클립스의 자동완성 기능은 불편함이 많음 -->
 <!-- 자바스크립트 자동 완성 기능을 제공받기 위해 이클립스에 Tern 플러그인 설치 -->
-<!-- github.com/angelozerr/tern.java/releases >> 1.2.1버전 다운 >> 압축풀지 않아도 됨 -->
+<!-- github.com/angelozerr/tern.java/releases >> 1.2.1버전 다운(컴퓨터마다 설치되지 않을 수 있음 >>
+	 1.2.0 or 1.1.0) >> 압축풀지 않아도 됨 -->
 <!-- Help >> Install New Software... >> work with : http://oss.opensagres.fr/tern.repository/1.1.0 입력
  >> 플러그인 목록 모두 체크 >> Next >> Next >> 라이센스 동의 >> finish -->
  
  <!-- Tern 플러그인을 사용하기 위해 웹프로젝트를 Tern 프로젝트로 변환
-  => 프로젝트 >> 오른쪽 버튼 클릭(메뉴) >> Configure >> Covert to Tern >> Modules : Browser와 jQuery 선택 >> Apply And Close  -->
-
-
+  => 프로젝트 >> 오른쪽 버튼 클릭(메뉴) >> Configure >> Covert to Tern(다시 설치 시 뜨지 않음 > 프로젝트 우클릭> 
+  	properties > Client-side JavaScript > Tern > modulse) >> Modules : Browser와 jQuery 선택 >> Apply And Close  -->
 
 <!-- script 태그를 사용하여 JavaScript Source File을 불러와 HTML 문서에 포함 -->
 <!-- => 사이트를 구성하는 모든 웹문서에 동일한 기능(함수)을 제공하기 위해 사용 -->
+
 <script type="text/javascript" src="/web/js/01_hello.js"> </script>
 
 <!-- script 태그: 스크립트 언어를 사용하여 프로그램을 작성하는 영역을 제공하는 태그 -->
@@ -62,6 +67,7 @@
 	
 	<script type="text/javascript">
 	//alert("body 태그에 작성된 자바스크립트 명령");
+	
 	</script>
 </body>
 </html>
