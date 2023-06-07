@@ -56,30 +56,74 @@ public class Car {
 	// 시동 Off
 	public void stopEngine() {
 		if(currentSpeed!=0) {
-			currentSpeed =0;
+			//currentSpeed =0;
+			speedZero();
 		}
+		
+		engineStatus=false;
+		System.out.println(modelName+"의 자동차 시동을 껐습니다.");
 	}
 	
 	// 속도 증가
-	public void speedUp() {
+	public void speedUp(int speed) {
+		if(!engineStatus) { //엔진이 꺼져있는 상태라면
+			System.out.println(modelName+"의 자동차 시동이 꺼져있습니다.");
+			return;
+		}
 		
+		if(currentSpeed+speed > 150) {
+			speed = 150 - currentSpeed;
+		}
+		
+		currentSpeed+=speed;
+		System.out.println(modelName+"의 자동차 속도가 "+speed
+				+"Km/h 증가되었습니다. 현재 속도는 "+currentSpeed+"Km/h 입니다.");
 	}
 	
 	// 속도 감소
-	public void speedDown() {
+	public void speedDown(int speed) {
+		if(!engineStatus) {
+			System.out.println(modelName+"의 자동차 시동이 꺼져있습니다.");
+			return;
+		}
 		
+		if(currentSpeed<speed) {
+			speed = currentSpeed;
+		}
+		
+		currentSpeed-=speed;
+		System.out.println(modelName+"의 자동차 속도가 "+speed
+				+"Km/h 감소되었습니다. 현재 속도는 "+currentSpeed+"Km/h 입니다.");
 	}
 	
 	//이동 중지
-	public void stopSpeed() {
-		
+	public void speedZero() {
+		currentSpeed = 0;
+		System.out.println(modelName+"의 자동차가 멈췄습니다..");
 	}
 
+	/* 은닉화 처리된 필드를 위해 필드값을 반환하는 Getter 메소드와 필드값 변경하는 
+	 * Setter 메소드 선언 - 캡슐화가 목적
+	 * 캡슐화(Encapsulation): 표현대상의 속성(필드)와 행위(메소드)를 하나의 자료형(클래스)로 작성
+	 * => 필드를 은닉화 처리하여 보호하고 메소드를 이용하여 처리되도록 설정
+	 *  */
+	
+	/*  Getter 메소드: 클래스에 외부에서 필드값을 사용할 수 있도록 필드값을 반환하는 메소드
+	 * => 필드의 자료형이 [boolean]인 경우에는 메소드의 이름을 [is필드명]으로 작성
+	 * 형식)public 반환형 get필드명() { return 필드명; }
+	 *  	public boolean is필드명() { return 필드명; }
+	 *  */
 	public String getModelName() {
 		return modelName;
 	}
 
+	/* Setter 메소드: 매개변수로 값을 전달받아 매개변수에 저장된 값으로 필드값을 변경하는 메소드 
+	 * 형식) public void set필드명(자료형 변수명){ 필드명=변수명; }
+	 * => 매개변수에 전달되어 저장된 값에 대한 검증 가능
+	 * */
 	public void setModelName(String modelName) {
+		//this: 메소드 내부에서 클래스의 객체를 표현하는 키워드
+		// => this 키워드를 사용하여 필드 표현
 		this.modelName = modelName;
 	}
 
