@@ -38,8 +38,22 @@ public class CarApp {
 		System.out.println("첫 번째 자동차 엔진상태 = "+carOne.isEngineStatus());
 		System.out.println("첫 번째 자동차 현재속도 = "+carOne.getCurrentSpeed());
 		System.out.println("=============================================================");
+		
+		carTwo.setModelName("쏘나타");
+		carTwo.setEngineStatus(true);
+		carTwo.setCurrentSpeed(80);
+		
+		System.out.println("두 번째 자동차 모델명 = "+carTwo.getModelName());
+		System.out.println("두 번째 자동차 엔진상태 = "+carTwo.isEngineStatus());
+		System.out.println("두 번째 자동차 현재속도 = "+carTwo.getCurrentSpeed());
 		System.out.println("=============================================================");
-		System.out.println("=============================================================");
+	
+		carOne.startEngine();
+		carOne.speedUp(50);
+		carOne.speedUp(30);
+		carOne.speedDown(40);
+		carOne.speedZero();
+		carOne.stopEngine();
 		System.out.println("=============================================================");
 	}
 }
