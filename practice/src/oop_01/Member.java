@@ -52,6 +52,19 @@ public class Member {
 		
 	}
 	
+	
+	public Member(String id) {
+		this.id = id;
+	}
+
+	
+	public Member(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	
+
 	//매개변수가 있는 생성자
 	//=>매개변수에 전달되어 저장된 값을 필드의 초기값으로 저장
 	public Member(String id, String name, String email) {
