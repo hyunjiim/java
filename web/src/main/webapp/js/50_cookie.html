@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	<h1>쿠키(Cookie)</h1>
+	<hr>
+	<h3>쿠키</h3>
+	<p>서버와 클라이언트의 연결 지속성을 제공하기 위해 클라이언트에 저장되는 문자값</p>
+	<p>클라이언트에 접속된 웹서버의 이름을 식별자로 사용하여 다수의 쿠키를
+	클라이언트에 저장해 웹서버의 웹프로그램 요청시 쿠키에 저장된 값을 전달</p>
+	<hr>
+	<form name="cookieForm">
+      아이디 : <input type="text" name="id">&nbsp;&nbsp;
+      <button type="button" id="saveBtn">입력 아이디 저장</button>&nbsp;&nbsp;
+      <button type="button" id="saveBtn">입력 아이디 저장</button>&nbsp;&nbsp;
+      <button type="button" id="saveBtn">입력 아이디 저장</button>&nbsp;&nbsp;      
+   
+   </form>
+	
+	
+	<script type="text/javascript">
+	//클라이언트에 쿠키를 저장(변경)하는 함수
+	//=> 쿠키에는 필요한 정보를 이름과 값으로 묶어 저장(이름=값)
+	//=> 쿠키에는 저장된 정보를 ;로 구분하여 여러개 저장 가능
+	//=> 쿠키에는 필수정보로 쿠키명과 쿠키값을 묶어 반드시 저장
+	//=> 쿠키의 선택정보로 적용범위, 도메인, 지속시간 등 저장 - 선택 정보를 저장하지 않을
+	function setCookie(name, value, path, expires) {
+		var sc=""; //쿠키를 저장하기 위한 변수
+		
+		//쿠키변수에 쿠키명과 쿠키값을 묶어서 저장
+		//=> 쿠키값은 영문자, 숫자, 일부 특수문자만 저장 가능
+		//=> 영문자, 숫자, 일부 특수문자를 제외한 문자는 부호화 처리하여 저장
+		sc+=name+"="+value;
+		sc+=name+"="+encodeURIComponent(value)+";";
+	}
+	
+	</script>
+
+</body>
+</html>

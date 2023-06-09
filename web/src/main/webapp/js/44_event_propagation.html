@@ -23,8 +23,8 @@ div {
 	<ol>
 		<li>브라우저에서 이벤트 발생</li>
 		<li>window 객체에 이벤트 도착</li>
-		<li>DOM Tree를 이용해 이벤트가 발생된 태그에 이벤트 도착</li>
-		<li>다시 반대방향으로 이동하여 window 객체에 이벤트 도착</li>
+		<li>DOM Tree를 이용해 이벤트가 발생된 태그에 이벤트 도착(Capturing)</li>
+		<li>다시 반대방향으로 이동하여 window 객체에 이벤트 도착(Bubbling)</li>
 		<li>이벤트 소멸</li>
 	</ol>
 	<br>
@@ -47,7 +47,6 @@ div {
 		//event.stopPropagation(): 이벤트 전달을 중단하는 메소드
 		event.stopPropagation();
 	}
-	
 	
 	document.getElementById("green").onclick= function() {
 		location.href="https://www.naver.com";

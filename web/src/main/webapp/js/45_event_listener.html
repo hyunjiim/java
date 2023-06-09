@@ -12,22 +12,19 @@ div {
 
 #red { background-color: red;}
 #green { background-color: green;}
-#blue { background-color: blue;}
 </style>
 
 </head>
 <body>
-	<h1>이벤트(Event) - 이벤트 흐름(Event Propagation)</h1>
+	<h1>이벤트(Event) - 이벤트 전달(Event Propagation)</h1>
 	<hr>
 	<!-- 태그의 이벤트 리스너 속성값으로 다수의 이벤트 처리 함수 호출 가능 -->
-	<button type="button" onclick="eventHandleOne(); eventHandleTwo();">이벤트 버튼</button>
+	<button type="button" onclick="eventHandleOne(); eventHandleTwo();">이벤트 버튼-1</button>
 	<button type="button" id="btn2">이벤트 버튼-2</button>
 	<button type="button" id="btn3">이벤트 버튼-3</button>
 	<hr>
 	<div id="red">
-		<div id="green">
-			<div id="blue"></div>
-		</div>
+		<div id="green"></div>
 	</div>
 	
 	<script type="text/javascript">
@@ -51,21 +48,37 @@ div {
 	document.getElementById("btn3").addEventListener("click", eventHandleOne);
 	document.getElementById("btn3").addEventListener("click", eventHandleTwo);
 	
-	document.getElementById("red").addEventListener("click", function(e) {
+	
+	//Node.addEventListener(eventName, callback[ ,useCapture])를 이용하여 이벤트 처리 함수 등록
+	//=> addEventListener() 메소드를 호출할 때 useCapture 매개변수를 이용하면 캡쳐링 또는
+	//버블링 단계에서 콜백함수를 호출하여 이벤트 처리 명령 실행 가능
+	//=> useCapture 매개변수에 [false]를 전달하면 버블링 단계에서 콜백함수를 호출하여 이벤트 처리
+	//명령을 전달하고 [true]를 전달하면 캡쳐릴 단계에서 콜백함수를 호출하여 이벤트 처리
+	document.getElementById("red").addEventListener("click", function() {
 		//event.currentTarget: 이벤트가 발생된 태그에 대한 Element 객체를 저장한 프로퍼티
-		var eventElement=event.currentTarget;
-	//event.currentTarget.getAttribute("id"): id 속성이 있는 태그값 가져오라
-		alert(eventElement.getAttribute("id")+"태그에서 click 이벤트 발생")
-	}, capture)
+		var tag=event.currentTarget.tagName;
+		//event.currentTarget.getAttribute("id"): id 속성이 있는 태그값 반환
+		var id=event.currentTarget.getAttribute("id");
+		
+		//event.type: 태그에서 발생된 이벤트를 저장한 프로퍼티
+		alert("캡쳐링 단계 = "+tag+" 태그("+id+")에서 "+event.type+" 이벤트 발생");
+	}, true); //[true] 전달 - 캡쳐링 단계에서 콜백함수 호출하여 이벤트 처리
+	
+	document.getElementById("green").addEventListener("click", function() {
+		var tag=event.currentTarget.tagName;
+		var id=event.currentTarget.getAttribute("id");
+		
+		alert("버블링 단계 = "+tag+" 태그("+id+")에서 "+event.type+" 이벤트 발생");
+		//event.stopPropagation();
+	}, false); //[false] 전달 - 버블링 단계에서 콜백함수를 호출하여 이벤트 명령 전달
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	document.getElementById("red").addEventListener("click", function() {
+		var tag=event.currentTarget.tagName;
+		var id=event.currentTarget.getAttribute("id");
+		
+		alert("버블링 단계 = "+tag+" 태그("+id+")에서 "+event.type+" 이벤트 발생");
+	}, false); //[false] 전달 - 버블링 단계에서 콜백함수를 호출하여 이벤트 명령 전달
 	
 	</script>
 </body>
