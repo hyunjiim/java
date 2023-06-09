@@ -7,7 +7,7 @@
 <body>
 	<h1>Number 클래스 함수</h1>
 	<hr>
-	<p>숫자값이 저장된 </p>
+	<p>숫자값이 저장된 객체를 생성하기 위한 클래스 함수 - Number 클래스 함수의 프로퍼티와 메소드 제공 </p>
 	
 	<script type="text/javascript">
 	//매개변수에 전달된 숫자값이 저장된 Number 객체를 생성하여 변수에 저장
@@ -18,25 +18,26 @@
 	
 	//Number.toString(): Number 객체에 저장된 숫자값을 문자값으로 변환하여 반환하는 메소드
 	//alert("num.toString() = "+num.toString()); //변수의 자료형 = object
+	//Number 객체가 저장된 변수를 출력하면 자동으로 toString() 메소드 호출
+	//alert("num = "+num); //num = 100
 	
+	/*
 	//Number.toString(radix): Number 객체에 저장된 숫자값을 매개변수로 전달받은 진수 형태의
 	//문자값으로 변환하여 반환하는 메소드
 	//alert("16 진수 = "+num.toString(16));
 	//alert("8 진수 = "+num.toString(8)); 
 	//alert("2 진수 = "+num.toString(2)); 
-	
-	/*
 	//Number.valueof(): Number 객체에 저장된 숫자값을 반환하는 메소드
-	var su=num.valueof();
-	//alert("변수의 자료형 = "+typeof(su)); //변수의 자료형 = number
+	var su=num.valueOf();
+	alert("변수의 자료형 = "+typeof(su)); //변수의 자료형 = number
 	//alert("su = "+su); //su = 100
 	
 	//자바스크립트는 모든 값을 객체로 표현하여 처리
 	//=> number 자료형의 변수에 저장된 값은 내부적으로 Number 객체로 처리
 	//=> number 자료형의 변수는 Number 클래스의 함수 프로퍼티와 메소드 사용 가능
-	alert("su.toString(2) = "+su.toString(2));
+	alert("su.toString(2) = "+su.toString(2)); //10진수 100을 2진수로 변환하여 반환
 	*/
-
+	
 	/*
 	//Number 객체에 요소(프로퍼티 또는 메소드) 추가 가능
 	var num=new Number(100);
@@ -62,7 +63,7 @@
 	
 	/*
 	//Number.toFixed(digits) : Number 객체에 저장된 숫자값에서 매개변수로 전달받은 소숫점
-	//자릿수(0~20)까지 잘라내어 문자값으로 변환하여 반환하는 메소드
+	//자릿수(0~20)까지 잘라내어(반올림) 문자값으로 변환하여 반환하는 메소드
 	// => 자릿수 뒤의 값을 이용하여 반올림 처리
 	//alert("num.toFixed(0) = "+num.toFixed(0));//num.toFixed(0) = 12
 	//alert("num.toFixed(1) = "+num.toFixed(1));//num.toFixed(1) = 12.3
