@@ -5,13 +5,22 @@
 <title>JavaScript</title>
 </head>
 <body>
-	<h1>BOM(Browser Object Model) - window</h1>
+	<h1>BOM(Browser Object Model) - window 객체</h1>
 	<hr>
-	<h3>BOM</h3>
+	<h3>BOM 객체</h3>
 	<p>브라우저를 기반으로 제공되는 자바스크립트 내장객체</p>
+	<p>객체 모델 종류: window(최상위), location, navigator, history,screen, document</p>
+	<p>DOM(Document Object Model)으로 통합하여 칭하기도 함</p>
+	<p>정확히는 자바스크립트가 아닌 웹브라우저가 제공하는 기능</p>
 	<h3>window 객체</h3>
 	<p>브라우저를 객체로 표현하여 프로퍼티와 메소드 제공</p>
-	
+	<p>다른 BOM 객체의 상위 개념</p>
+	<p>메소드: alert(),prompt() 등</p>
+	<p>var 키워드로 선언한 일반 변수도 window 객체의 속성이 됨</p>
+	<p>window 객체 생성 메소드: open(URL,name,features,replaced)</p>
+	<p>URL(HTML 페이지 URL)/name(윈도우 간 통신에 사용하는 이름)/features(윈도우 형태 옵션)/replaced(히스토리 리스트 옵션)</p>
+	<p>객체 생성시 생성한 객체를 반환하기 때문에 변수에 입력해서 자유롭게 수정 가능</p>
+	<p></p>
 	<script type="text/javascript">
 	//alert(window); //[object Window]
 	
@@ -21,6 +30,7 @@
 	//alert("경고창을 이용하여 메세지를 출력하는 메소드");
 	
 	//window.prompt(message[,value]): 입력창을 이용하여 사용자로부터 문자값을 입력받아 반환하는 메소드
+	//value: 아무것도 입력하지 않았을 때 기본값
 	//var input=prompt("숫자를 입력해 주세요.", 100);
 	//alert("input = "+input);
 	
