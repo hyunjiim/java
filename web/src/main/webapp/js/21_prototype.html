@@ -63,11 +63,13 @@
 			this.name=name;
 			this.address=address;
 		}
-		 */
-		 
+		*/
+		
+		
+		//클래스 안에서 this 키워드는 객체를 나타내며, this를 사용하지 않으면 일반 변수가 되어 오류 발생
 		Student.prototype = {
 			"display" : function() {
-				alert("학번 = " + num + ", 이름 = " + name + ", 주소 = " + address);
+				alert("학번 = " + this.num + ", 이름 = " + this.name + ", 주소 = " + this.address);
 			},
 			"setValue" : function(num, name, address) {
 				this.num = num;
@@ -75,8 +77,8 @@
 				this.address = address;
 			}
 		}
-		 
-		/*
+	
+		
 		//생성된 객체에는 프로퍼티만 따로 저장되고 메소드는 하나만 생성되어 모든 객체가 공유하여 사용
 		var student1 = new Student(1000, "홍길동", "서울시 강남구");
 		var student2 = new Student(2000, "임꺽정", "서울시 종로구");
@@ -85,9 +87,9 @@
 		student1.display();
 		student2.display();
 		student3.display();
-		*/
 		
-		var student=new Student(1000, "홍길동", "서울시 강남구");
+		
+		//var student=new Student(1000, "홍길동", "서울시 강남구");
 		//student.display();
 		//student.setValue(2000, "임꺽정", "서울시 종로구");
 		//student.display();
@@ -118,13 +120,14 @@
 			}
 		}
 		*/
-		
+		/*
 		//with 구문을 사용하여 블럭 내부에서 객체 요소를 변수처럼 사용하는 기능 제공
 		//형식)with(객체변수) { 명령; 명령; ... }
 		//alert("학번 = " + student.num + ", 이름 = " + student.name + ", 주소 = " + student.address);
 		with(student){
 			alert("학번 = " + num + ", 이름 = " + name + ", 주소 = " + address);
 		}
+		*/
 	</script>
 </body>
 </html>
