@@ -40,14 +40,11 @@ div {
 	<script type="text/javascript">
 	$("ul li").click(function() {
 		//이벤트 처리 함수에서 this 키워드는 이벤트가 발생된 태그(Element 객체)를 표현
-      //$(this) >> element 객체가 jquery 객체로 바뀌어야 jquery 객체 호출 가능
+        //$(this) >> element 객체가 jquery 객체로 바뀌어야 jquery 객체 호출 가능
 		var choice=$(this).text(); //이벤트가 발생된 태그의 태그내용을 반환받아 변수에 저장
 		
 		$("#menu").text(choice); //선택자로 검색된 태그의 태그내용 변경
-		
-		
-		
-	})	
+	});	
 	
 	
 	</script>
