@@ -34,11 +34,30 @@
 		
 		var output="당신은 [";
 		$checkList.each(function(i) {
-			
-		})
+			//선택된 태그의 입력값을 반환받아 변수에 추가 저장
+			output+=$(this).val();
+			if($checkList.length-1 != i){
+				//입력값을 구분하기 위한 구분 문자값을 변수에 추가 저장
+				output+=", ";
+			}
+		});
 		
 		output+="]을 좋아합니다.";
+		
+		$("#displayDiv").text(output)
 	});
+	
+	$("#allCheck").change(function() {
+		if ($(this).is(":checked")) {
+			//$(selector).prop(name, value) : 선택자로 선택된 태그(입력태그)의 상태를 변경하는 메소드
+			// => 입력태그는 input 태그(type 속성값이 checkbox 또는 radio)와 select 태그(option 태그)에서만 사용 가능
+			//$("#checkboxList").children().prop("checked", true);
+			$(".session").prop("checked", true);
+		} else {
+			//$("#checkboxList").children().prop("checked", false);
+			$(".session").prop("checked", false);
+		}
+	})
 	</script>
 </body>
 </html>
