@@ -147,7 +147,7 @@ legend {
 			result=false;
 		}
 		
-		var passwdReg=/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_-]).{6,30}$/g;
+		var passwdReg=/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_-]).{5,30}$/g;
 		if($("#passwd").val()=="") {
 			$("#passwdMsg").text("비밀번호를 반드시 입력해 주세요.");
 			result=false;

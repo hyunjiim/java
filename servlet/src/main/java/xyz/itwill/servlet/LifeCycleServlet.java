@@ -27,6 +27,7 @@ public class LifeCycleServlet extends HttpServlet {
 	
 	//서블릿 클래스로 객체를 생성하기 위한 생성자
 	// => 객체를 생성하면서 실행된 명령 작성 - 초기화 처리
+	//서블릿은 인스턴스를 딱 하나만 생성(싱글톤)하므로 생성자도 딱 하나만 필요ㅜ
 	public LifeCycleServlet() {
 		//name="홍길동";
 		System.out.println("### LifeCycleServlet 클래스의 생성자 호출 - 객체 생성 ###");

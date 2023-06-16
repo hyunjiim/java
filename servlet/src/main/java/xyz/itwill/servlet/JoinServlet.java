@@ -50,7 +50,18 @@ public class JoinServlet extends HttpServlet {
 			out.println("alert('비정상적으로 페이지를 요청하였습니다.');");
 			out.println("location.href='form.html';");
 			out.println("</script>");
+			return;
 		}
+		
+		//서블릿을 POST 방식으로 요청한 경우 사용자 입력값을 리퀘스트 메세지 몸체부에 저장하여 전달
+		// => 리퀘스트 메세지 몸체부에 저장되어 전달되는 값은 기본적으로 문자형태를 서유럽어(ISO-8859-1)
+		//를 반환받아 사용
+		// => 리퀘스트 메세지 몸체부에 저장되어 전달되는 값에 대한 캐릭터셋 변경
+		//HttpServletRequest.setCharacterEncoding(String encoding): 리퀘스트 메세지 몸체부에 저장되어
+		// 전달되는 값에 대한 문자형태를 변경하는 메소드
+		// => GET 방식으로 요청한 경우 리퀘스트 메세지 몸체부를 사용하지 않으므로 메소드 사용 불필요
+		request.setCharacterEncoding("utf-8");
+		
 		
 		//서블릿을 요청할 때 전달된 값을 반환받아 저장
 		//HttpServletRequest.getParameter(String name): 매개변수로 전달받은 이름의 전달값을 
@@ -61,17 +72,23 @@ public class JoinServlet extends HttpServlet {
 		String name=request.getParameter("name");
 		String email=request.getParameter("email");
 		String gender=request.getParameter("gender");
-		String hobby=request.getParameter("hobby");
+		//동일한 이름으로 전달되는 값이 여러개 있는 경우 getParameterValues() 메소드 호출
+		//String hobby=request.getParameter("hobby"); //첫번째 전달값만 반환받아 저장
+		//HttpServletRequest.getParameterValues(String name): 매개변수로 전달받은 이름의 모든
+		//전달값을 문자열 배열(String[])로 반환하는 메소드
+		String[] hobby=request.getParameterValues("hobby");
 		String job=request.getParameter("job");
 		String profile=request.getParameter("profile");
 		
 		/*
 		if(id==null || id.equals("")) { //전달값이 없는 경우
-			
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST); 
+			return;
 		}
 		
 		if(Pattern.matches("^[a-zA-Z]\\w{5,19}", id)) { //전달값이 정규표현식 패턴과 맞지 않는 경우
-			
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			return;
 		}
 		*/
 
@@ -88,9 +105,16 @@ public class JoinServlet extends HttpServlet {
 		out.println("<p>이름: "+name+"</p>");
 		out.println("<p>이메일: "+email+"</p>");
 		out.println("<p>성별: "+gender+"</p>");
-		out.println("<p>취미: "+hobby+"</p>");
+		out.println("<p>취미: ");
+		for(int i=0;i<hobby.length;i++) {
+			out.println(hobby[i]);
+			if(i < hobby.length-1) {
+				out.println(", ");
+			}
+		}
+		out.println("</p>");
 		out.println("<p>직업: "+job+"</p>");
-		out.println("<p>자기소개: "+profile+"</p>");
+		out.println("<p>자기소개: <br>"+profile.replace("\n", "<br>")+"</p>");
 		out.println("</body>");
 		out.println("</html>");
 	}
