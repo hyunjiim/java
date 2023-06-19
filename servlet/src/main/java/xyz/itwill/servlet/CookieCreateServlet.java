@@ -32,14 +32,33 @@ public class CookieCreateServlet extends HttpServlet {
 		Cookie countCookie= new Cookie("count", "0"); //String으로 작성되어야 함
 		
 		//클라이언트에 전달되어 저장될 쿠키의 유지시간 변경
-		//Cookie.setMaxAge(int ex)
+		//Cookie.setMaxAge(int expiry): 쿠키의 유지시간을 변경하는 메소드
+		// => 매개변수에 쿠키를 유지하기 위한 시간(초)를 전달하면 클라이언트는 해당 시간 동안 쿠키 유지
+		//setMaxAge() 메소드를 호출하지 않은 경우 쿠키의 유지시간에 대한 기본값은 [-1]로 설정
+		// => 유지시간이 [-1]로 설정된 쿠키는 브라우저 종료시 자동 소멸
 		idCookie.setMaxAge(24*60*60); //쿠키의 유지시간을 1일로 변경
 		
+		//클라이언트에게 Cookie 객체 전달 - 클라이언트에 쿠키 저장
+		// => Cookie 객체의 유지시간이 [-1]인 쿠키는 클라이언트 브라우저 메모리에 저장 - 브라우저 종료시 소멸
+		// => Cookie 객체의 유지시간이 [-1]이 아닌 쿠키는 클라이언트에 쿠키파일로 저장 - 유지시간 경과 후 소멸
+		//HttpServletResponse.addCookie(Cookie cookie): 클라이언트에게 Cookie 객체를 전달하는 메소드
+		response.addCookie(idCookie);
+		response.addCookie(countCookie);
 		
-		
-		
-		
-		
+		out.println("<!DOCTYPE html>");
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<meta charset='UTF-8'>");
+		out.println("<title>Servlet</title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<h1>쿠키 생성</h1>");
+		out.println("<hr>");
+		out.println("<p>네 안에 쿠키 있다.</p>");
+		out.println("<hr>");
+		out.println("<p><a href='read.itwill'>쿠키 읽기</a></p>");
+		out.println("</body>");
+		out.println("</html>");
 		
 	}
 
