@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
-//Apache 그룹에서 제공하는 DBCP 라이브러리(tomcat-dbcp)의 클래스를 이용하여 DBCP 객체를 생
+//DBCP(DataBase Connection Pool): 다수의 Connection 객체를 미리 생성하여 저장하고 제공하기 위한 객체
+
+//Apache 그룹에서 제공하는 tomcat-dbcp 라이브러리의 클래스를 이용하여 DBCP 객체를 생성해 미리 생성된
+//Connection 객체를 제공받아 Connection 객체의 정보를 클라이언트에게 전달하여 응답하는 서블릿
+
 @WebServlet("/dbcp.itwill")
 public class DataSourceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,17 +26,17 @@ public class DataSourceServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out=response.getWriter();
 		
-		//BasicDataSource 객체(DataSource 객체) 생성
+		//org.apache.commons.dbcp2에 있는 BasicDataSource를 이용하여 데이터베이스 커넥션 풀 생성
 		BasicDataSource dataSource=new BasicDataSource();
 		
 		//BasicDataSource 객체(DataSource 객체)에 저장될 다수의 Connection 객체를 생성하기
-		//위한 정보를 메소드를 호출하여 변경 처리
+		//위한 정보를 메소드를 호출하여 변경 처리 - DataSource 객체의 필드값 변경
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
 		dataSource.setUsername("scott");
 		dataSource.setPassword("tiger");
-		dataSource.setInitialSize(10); //최초로 생성될 Connection 객체의 갯수 변경(default 값: 20개)
-		dataSource.setMaxIdle(10); //대기 상태의 Connection 객체의 최대 갯수 변경
+		dataSource.setInitialSize(10); //최초 생성될 Connection 객체의 갯수 변경
+		dataSource.setMaxIdle(10); //대기상태의 Connection 객체의 최대 갯수 변경
 		dataSource.setMaxTotal(15); //생성 가능한 Connection 객체의 최대 갯수 변경
 		
 		out.println("<!DOCTYPE html>");
@@ -45,7 +49,7 @@ public class DataSourceServlet extends HttpServlet {
 		out.println("<h1>DBCP</h1>");
 		out.println("<hr>");
 		try {
-			//DataSource.getConnection() : DataSource 객체에 저장된 다수의 Connection 객체 중
+			//DataSource.getConnection(): DataSource 객체에 저장된 다수의 Connection 객체 중
 			//하나를 제공받아 반환하는 메소드
 			Connection con=dataSource.getConnection();
 			out.println("<p>con: "+con+"</p>");
