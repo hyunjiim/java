@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-/*
+/* [55day]
  * 4. WAS가 start 할 때 Connection 객체들을 미리 생성(DBCP)하고
  *  필요할 때 WAS에게 객체를 제공받음 - JNDI 서비스
  */
