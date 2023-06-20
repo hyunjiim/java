@@ -2,6 +2,7 @@ package xyz.itwill.dto;
 
 
 /*방명글 게시글을 저장하기 위한 GUEST 테이블 생성
+
 create table guest(num number primary key, writer varchar2(50), subject varchar2(200)
 , content varchar2(100), regdate date);
 
