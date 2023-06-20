@@ -18,6 +18,7 @@ public abstract class JdbcDAO {//상속만을 목적으로 작성된 클래스
 	
 	static {
 		try {
+			//JNDI 서비스를 사용하여 WAS에게 Connection 객체들이 미리 생성되어 있는 DataSource 객체 요청
 			dataSource=(DataSource)new InitialContext().lookup("java:comp/env/jdbc/oracle");
 		} catch (NamingException e) {
 			e.printStackTrace();
