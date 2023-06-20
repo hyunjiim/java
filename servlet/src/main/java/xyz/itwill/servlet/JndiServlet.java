@@ -14,7 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-//JNDI(Java Naming Directory Interface): WAS 프로그램에 의해 관리되는 객체를 미리 생성하여 저장하고
+/*
+ * 4. WAS가 start 할 때 Connection 객체들을 미리 생성(DBCP)하고
+ *  필요할 때 WAS에게 객체를 제공받음 - JNDI 서비스
+ */
+
+//JNDI(Java Naming Directory Interface) 서비스: WAS 프로그램에 의해 관리되는 객체를 미리 생성하여 저장하고
 //웹프로그램에서 필요한 경우 WAS 프로그램에 등록된 객체의 이름을 이용하여 객체를 제공받아 사용하기 위한 기능
 // => WAS 프로그램에 의해 관리되는 객체에 대한 정보를 scr/main/webapp/META-INF/context.xml 파일에 작성
 
@@ -35,7 +40,8 @@ public class JndiServlet extends HttpServlet {
 			//InitialContext.lookup(String name): 매개변수로 전달받은 이름의 객체를 반환하는 메소드
 			// => 검색된 객체는 Object 객체로 반환하므로 반드시 명시적 객체 형변환 처리하여 사용
 			// => 매개변수로 전달받은 이름의 객체가 없는 경우 NamingException 발생 - 예외처리
-			DataSource dataSource=(DataSource)new InitialContext().lookup("java:comp/env/jdbc/oracle"); //?
+			DataSource dataSource=(DataSource)new InitialContext().lookup("java:comp/env/jdbc/oracle"); 
+			// => java라는 영역안의 comp폴더 안의 env폴더 안에 있는 jdbc/oracle이란 이름의 객체를 찾아 Object 객체로 반환
 			
 			Connection con=dataSource.getConnection();
 

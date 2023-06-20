@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import xyz.itwill.dao.StudentDAO;
 import xyz.itwill.dto.StudentDTO;
 
+/* [55day]
+ * 2. StudentDisplayNew - DAO,DTO 클래스 만들어 JDBC 구현
+ */
+
 //STUDENT 테이블에 저장된 모든 학생정보를 검색하여 클라이언트에게 전달하여 응답하는 서블릿 - DAO
 @WebServlet("/new.itwill")
 public class StudentDisplayNewServlet extends HttpServlet {

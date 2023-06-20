@@ -12,6 +12,7 @@ ADDRESS           VARCHAR2(100)
 BIRTHDAY          DATE          
  */
 
+//STUDENT 테이블의 학생정보(행)를 저장하여 전달하기 위한 클래스
 public class StudentDTO {
 	private int no;
 	private String name;

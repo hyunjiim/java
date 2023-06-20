@@ -1,6 +1,7 @@
 package xyz.itwill.servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,6 +15,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/* [55day]
+ 1. StudentDisplayOldServlet - JDBC 기능 구현
+- DBMS 서버에 접속(Driver 클래스)
+  => OracleDriver을 사용하기 위해 ojdbc 라이브러리 빌드 처리
+  =>클래스로더로 OracleDriver 클래스를 읽어들여 메소드 메모리 영역에 클래스 저장
+  => OracleDriver를 JDBC Driver로 등록
+  => JDBC Driver로 DBMS 서버에 접속하여 Connection 객체 반환
+- 검색명령 전달
+  => Connection 객체로 부터 sql 명령이 저장된 PreparedStatement 객체 반환
+- 결과를 받아 클라이언트에게 전달
+  => excuteQuery 메소드를 통해 DBMS에 SQL 명령 전달하여 검색 결과 반환
+
+ */
+
+/*
+1번의 문제점 - 가독성 좋지 않고 유지보수 효율성, 생산성 떨어짐
+try 안에 servlet을 적어줘야 하기 때문에 예외가 발생하는지 지켜봐야 해 속도가 느림
+코드 중복, 만드는 속도 느림
+servlet은 서버에 만들어지는 간단한 프로그램인데 많이 복잡해짐 간단한 프로그램이라 보기 어려움
+=> 비권장
+
+ */
+
+
 //STUDENT 테이블에 저장된 모든 학생정보를 검색하여 클라이언트에게 전달하여 응답하는 서블릿
 // => JDBC 프로그램을 작성하기 위해서는 JDBC 관련 라이브러리 파일(ojdbc 라이브러리)을 프로젝트 빌드처리
 @WebServlet("/old.itwill")
@@ -21,7 +46,7 @@ public class StudentDisplayOldServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//가장 맨 위에 작성하는 것이 좋음, 중간에 적게되면 변경이 안될 수 있음
+		//가장 맨 위에 작성해야 함 헤더에서 전달되기 때문 중간에 적게되면 변경이 안될 수 있음
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out=response.getWriter();
 		
@@ -36,7 +61,7 @@ public class StudentDisplayOldServlet extends HttpServlet {
 			
 			//2. DriverManager 클래스에 등록된 JDBC 드라이버를 이용하여 DBMS 서버에 접속해
 			//접속정보가 저장된 Connection 객체를 반환받아 저장
-			String url="jdbc:oracle:thin:@localhost:1521:xe";
+			String url="jdbc:oracle:thin:@localhost:1521:xe"; //xe라는 데이터베이스에 접속
 			String username="scott";
 			String password="tiger";
 			con=DriverManager.getConnection(url, username, password);
@@ -85,6 +110,7 @@ public class StudentDisplayOldServlet extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println("[에러]JDBC 관련 오류"+e.getMessage());
 		} finally {
+			//6. JDBC 관련 객체 제거
 			try {
 				if(rs!=null) rs.close();
 				if(pstmt!=null) pstmt.close();

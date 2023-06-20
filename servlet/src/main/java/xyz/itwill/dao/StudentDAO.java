@@ -18,9 +18,10 @@ public class StudentDAO extends JdbcDAO {
 	private static StudentDAO _dao;
 	
 	public StudentDAO() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
+	//정적영역에 선언된 명령은 한번만 실행할 수 있다 -DAO 객체 하나만 생성
 	static {
 		_dao=new StudentDAO();
 	}
@@ -30,7 +31,7 @@ public class StudentDAO extends JdbcDAO {
 	}
 
 	//STUDENT 테이블에 저장된 모든 학생정보를 검색하여 반환하는 메소드
-	public List<StudentDTO> selectStudentList(){
+	public List<StudentDTO> selectStudentList(){ //하나의 학생 정보를 나타내는 DTO 객체들을 List로 전달
 		Connection con=null; //DB Connection 객체
 		PreparedStatement pstmt=null; //Connection 객체로 부터 쿼리를 수행하기 위한 PreparedStatement 객체
 		ResultSet rs=null; //executeQuery를 수행한 결과를 저장할 ResultSet 객체
