@@ -11,7 +11,7 @@
 	}
 	
 	String headerPath="";	//Header 영역에 포함된 파일의 경로를 저장하기 위한 변수
-	String master="";
+	String master="";	//페이지 관리자 정보를 저장하기 위한 변수
 	
 	//전달값이 있으면 전달값을 비교하여 Header 영역에 포함될 파일의 경로 및 관리자를 구분하여 저장
 	if(category.equals("mail")){
@@ -94,6 +94,9 @@
 	<%-- => 요청 JSP 문서에서 다른 JSP 문서로 스레드를 이동할 경우 요청 JSP 문서의
 	request 객체와 response 객체를 스레드가 이동되는 JSP 문서로 전달하여 사용 --%>
 	<%-- => param 태그를 사용하면 request 객체의 몸체부에 값을 저장하여 전달 --%>
+	<%-- include 태그와 forward 태그의 하위태그로 param 태그를 제외한 문장이 존재할 경우
+	에러 발생 - JSP 주석 제외 - 주석도 이젠 오류남 --%>
+	<%-- enter만 있어도 에러 --%>
 	<jsp:include page="footer.jsp">
 		<jsp:param value="<%=master %>" name="master"/>
 	</jsp:include>
