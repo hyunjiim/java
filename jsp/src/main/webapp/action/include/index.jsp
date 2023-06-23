@@ -49,7 +49,7 @@
 	<%-- include Directive의 file 속성값으로 JSP의 표현식(Expression) 사용 불가능 --%>
 	<%-- => include Directive의 file 속성값으로 설정된 외부파일의 소스코드만 포함 - 정적포함 --%>
 	<%-- <%@include file="header.jspf" %> --%>
-	<%-- 에러 --%>
+	<%-- 밑의 코드의 경우 에러 --%>
 	<%-- <%@include file="<%=headerPath %>" %> --%>
 	
 	<%-- include Tag: 요청 JSP 문서에서 다른 JSP 문서를 스레드를 이용하여 실행될 결과를
