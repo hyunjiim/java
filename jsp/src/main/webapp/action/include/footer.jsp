@@ -16,7 +16,6 @@ response 객체를 전달받아 사용 --%>
 	if(master==null){
 		//response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 		response.sendRedirect("../standard_action.jsp");
-		
 		return;
 	}
 %>
