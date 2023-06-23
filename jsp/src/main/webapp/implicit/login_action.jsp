@@ -33,7 +33,7 @@
 		*/
 		
 		//바인딩된 세션에 에러메세지 저장
-		session.setAttribute("message", "비정상적인 방법으로 페이지를 요청하였습니다.")
+		session.setAttribute("message", "비정상적인 방법으로 페이지를 요청하였습니다.");
 		response.sendRedirect("login_form.jsp");
 		return;
 		
