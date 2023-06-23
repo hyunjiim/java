@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- 로그인 상태의 사용자에게 환영메세지를 전달하여 응답하는 JSP 문서 --%>
-<%-- => 비로그인 상태의 사용자인 경우 [login_form.jsp] 문서를 요청할 수 있는 URL 주소를 전달하여 --%>
+<%-- => 비로그인 상태의 사용자인 경우 [login_form.jsp] 문서를 요청할 수 있는 URL 주소를 전달하여 응답 --%>
+<%-- => [로그아웃] 태그를 클릭한 경우 [logout_action.jsp] 문서를 요청하여 페이지 이동 --%>
+<%-- => [메인으로] 태그를 클릭한 경우 [login_form.jsp] 문서를 요청하여 페이지 이동 --%>
 <%
 	//session.getAttribute(String attributeName): 클라이언트의 정보(JSESSIONID 쿠키)로
 	//바인딩된 세션(session)에서 매개변수로 전달된 속성명의 속성값을 반환하는 메소드
@@ -53,5 +55,11 @@
 	<%-- => 절대경로: 최상위 디렉토리를 기준으로 웹자원의 경로 표현 --%>
 	<%-- => 웹프로젝트의 파일이 저장된 컨텍스트 디렉토리의 경로 변경 가능 --%>
 	<img alt="코알라" src="/jsp/images/koala.png" width="200">
+	
+	<%-- 404 Error 방지 --%>
+	<%-- 절대경로에서 웹자원이 저장된 컨텍스트 디렉토리 경로는 request 객체의 getContextPath()
+	메소드를 호출하여 반환받아 사용 --%>
+	<%-- request.getContextPath(): 컨텍스트 디렉토리 경로를 반환하는 메소드 --%>
+	<img alt="코알라" src="<%=request.getContextPath()%>/images/Koala.png" width="200">
 </body>
 </html>
