@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- useBean Tag 사용 이유: JSP 문서의 간결성을 위해 스클립틀릿 같은 Java 코드를 최소화하는 방법 --%>
 <%-- useBean을 사용하지 않고 작성하는 방법 --%>
 <%-- 사용자로부터 회원정보를 입력받기 위한 JSP 문서 --%>
 <%-- => [회원등록] 태그를 클릭한 경우 [non_useBean_action.jsp] 문서를 요청하여 이동 - 입력값(회원정보) 전달 --%>
