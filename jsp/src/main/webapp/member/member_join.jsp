@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%-- 회원정보를 입력받기 위한 JSP 문서 --%>
 <%-- => [회원가입] 태그를 클릭한 경우 [member/member_join_action.jsp] 문서 요청 - 입력값(회원정보) 전달 --%>
-<%-- => [아이디 중복 검사] 태그를 클릭한 경우 팝업창을 실행하여 [id_check.jsp] 문서 요청 - 아이디 전달 --%>    
+<%-- => [아이디 중복 검사] 태그를 클릭한 경우 팝업창을 실행하여 [id_check.jsp] 문서 요청 - 아이디 전달 --%>
+<%-- => [우편번호] 태그를 클릭한 경우 Daum 우편번호 서비스(JavaScript)를 사용하여 입력태그에 입력값으로 사용 --%>    
 <style type="text/css">
 fieldset {
 	text-align: left;
@@ -52,9 +53,9 @@ legend {
 }
 </style>
 <form id="join" action="<%=request.getContextPath() %>/member/member_join_action.jsp" method="post">
-<%-- 아이디 중복 검삭 결과를 저장하기 위한 입력태그 --%>
-<%-- => 0 : 아이디 중복 검사 미실행 또는 아이디 중복 - 아이디 사용 불가능 --%>
-<%-- => 1 : 아이디 중복 검사 실행 및 아이디 미중복 - 아이디 사용 가능 --%>
+<%-- 아이디 중복 검사 결과를 저장하기 위한 입력태그 --%>
+<%-- => 0: 아이디 중복 검사 미실행 또는 아이디 중복 - 아이디 사용 불가능 --%>
+<%-- => 1: 아이디 중복 검사 실행 및 아이디 미중복 - 아이디 사용 가능 --%>
 <input type="hidden" id="idCheckResult" value="0">
 <fieldset>
 	<legend>회원가입 정보</legend>
@@ -126,13 +127,16 @@ legend {
 	<button type="reset">다시입력</button>
 </div>
 </form>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 $("#id").focus();
 
+//join form 태그 submit
 $("#join").submit(function() {
+	//전송결과: true(전송), false(미전송)
 	var submitResult=true;
 	
-	$(".error").css("display","none");
+	$(".error").css("display","none"); //error 메세지 미출력
 
 	var idReg=/^[a-zA-Z]\w{5,19}$/g;
 	if($("#id").val()=="") {
@@ -204,45 +208,46 @@ $("#join").submit(function() {
 	return submitResult;
 });
 
+<%-- [아이디중복] 태그를 클릭하면 --%>
 $("#idCheck").click(function() {
 	//아이디 관련 에러메세지가 보여지지 않도록 설정	
-	$("#idMsg").css("display","none");
-	$("#idRegMsg").css("display","none");
+	$("#idMsg").css("display","none"); //아이디를 입력해주세요
+	$("#idRegMsg").css("display","none"); //정규표현식 메세지
 	
+	//정규표현식 검사
 	var idReg=/^[a-zA-Z]\w{5,19}$/g;
 	if($("#id").val()=="") {
-		$("#idMsg").css("display","block");
+		$("#idMsg").css("display","block"); //아이디가 입력되지 않았을때 
 		return;
-	} else if(!idReg.test($("#id").val())) {
+	} else if(!idReg.test($("#id").val())) { //정규표현식과 일치하지 않은 입력값일 때
 		$("#idRegMsg").css("display","block");
 		return;
 	}
-	
+			
 	//팝업창을 실행하여 [id_check.jsp] 문서 요청
+	//window.open('팝업주소','팝업창 이름','팝업창 설정')
 	window.open("<%=request.getContextPath()%>/member/id_check.jsp?id="+$("#id").val()
-			,"idCheck", "width=450, height=130, left=700, top=400");
+			,"idCheck","width=450, height=130, left=700, top=400");
 });
+
+
 
 //입력태그(아이디)의 입력값이 변경된 경우 호출되는 이벤트 처리 함수 등록
 $("#id").change(function() {
 	//아이디 중복 검사 결과값을 저장한 입력태그의 입력값 변경 - 아이디 중복 검사 미실행
 	$("#idCheckResult").val("0");
 });
+
+$("#postSearch").click(function() {
+	new daum.Postcode({
+    	oncomplete: function(data) {
+        	// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+        	// 예제를 참고하여 다양한 활용법을 확인해 보세요.
+        	// [http://postcode.map.daum.net/guide] >> 기본 사용법 >> 원하는 코드 복사해오기
+    		$("#zipcode").val(data.zonecode);
+    		$("#address1").val(data.address);
+    	}
+	}).open();	
+});
+    
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
