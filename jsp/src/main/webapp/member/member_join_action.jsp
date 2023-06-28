@@ -19,7 +19,7 @@
 	//전달값을 반환받아 저장
 	String id=request.getParameter("id");
 	
-	String passwd=Utility.encrypt(request.getParameter("passwd")); //전달값을 암호화 처리하여 저장
+	String passwd=Utility.encrypt(request.getParameter("passwd")); //전달값을 암호화 처리하여 저장-[xyz.itwill.util/Utility.java]
 	String name=request.getParameter("name");
 	String email=request.getParameter("email");
 	String mobile=request.getParameter("mobile1")+"-"
@@ -42,6 +42,6 @@
 	//회원정보를 전달받아 MEMBER 테이블에 삽입하는 DAO 클래스의 메소드 호출
 	MemberDAO.getDAO().insertMember(member);
 	
-	//페이지 이동
+	//페이지 이동 - GET 방식
 	response.sendRedirect(request.getContextPath()+"/index.jsp?group=member&worker=member_login");
 %>
