@@ -45,7 +45,7 @@
 	
 	//페이지 이동
 	if(returnUrl.equals("")){ //반환받은 요청 JSP 문서의 URL 주소가 없는 경우 - 메인페이지 이동
-		response.sendRedirect(request.getContextPath()+"/index.jsp?group=main&worker=main_page")
+		response.sendRedirect(request.getContextPath()+"/index.jsp?group=main&worker=main_page");
 		
 	} else {
 		response.sendRedirect(returnUrl);

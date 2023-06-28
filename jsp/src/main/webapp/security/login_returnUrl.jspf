@@ -13,7 +13,7 @@ MemberDTO loginMember = (MemberDTO) session.getAttribute("loginMember");
 // => 로그인 후 기존 요청 JSP 문서로 이동되도록 설정
 if (loginMember == null) { //비로그인 상태인 경우
 	//request.getRequestURL(): 요청 URL 주소에서 JSP 문서의 경로를 반환하는 메소드
-	String requtUrl = request.getRequestURL();
+	String requestURI=request.getRequestURI();
 	//System.out.println("requestURI = "+requestURI);//requestURI = /jsp/index.jsp
 
 	//request.getQueryString() : 요청 URL 주소에서 질의문자열(QueryString)을 반환하는 메소드 
