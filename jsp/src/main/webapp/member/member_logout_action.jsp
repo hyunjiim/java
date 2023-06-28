@@ -4,5 +4,6 @@
 <%
 	//바딩된 세션에서 권한 관련 정보의 속성값을 삭제 처리 - 로그아웃 처리
 	session.removeAttribute("loginMember");
+
 	response.sendRedirect(request.getContextPath()+"/index.jsp?group=member&worker=member_login");
 %>

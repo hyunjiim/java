@@ -25,11 +25,6 @@
 		session.setAttribute("id", id);
 		response.sendRedirect(request.getContextPath()+"/index.jsp?group=member&worker=member_login");
 		return;
-	}else if(member.getPasswd()!=passwd){
-		session.setAttribute("message", "비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.");
-		session.setAttribute("id", id);
-		response.sendRedirect(request.getContextPath()+"/index.jsp?group=member&worker=member_login");
-		return;
 	}
 	
 	//비밀번호 비교?
