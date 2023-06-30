@@ -84,19 +84,21 @@ public class ReviewDAO extends JdbcDAO{
 				 * 
 				 *  => temp.*: 임시저장공간변수를 만들어주는 임시폴더?
 				 * */
-				String sql="select * from (select rownum rn, temp.* from (select * from"
-						+ " review join member on reviewid=id order by ref desc, restep) temp)"
-						+ " where rn between ? and ?";
+				String sql="select * from (select rownum rn, temp.* from (select num, reviewid"
+						+ ", name, subject, content, reviewimg, regdate, readcount, ref, restep"
+						+ ", relevel,ip, status from review join member on reviewid=id order by"
+						+ " ref desc, restep) temp) where rn between ? and ?";
 				// => StringBuffer를 사용하여 sql문 더 쉽게 구현 가능
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, startRow);
 				pstmt.setInt(2, endRow);
 			}else { //게시글 검색 기능을 사용한 경우
 				
-				String sql="select * from (select rownum rn, temp.* from (select * from "
-						+ "review join member on reviewid=id where "+search
-						+ " like '%'||?||'%' and status <> 0 order by ref desc, restep) temp)"
-						+ " where rn between ? and ?";
+				String sql="select * from (select rownum rn, temp.* from (select num, reviewid"
+						+ ", name, subject, content, reviewimg, regdate, readcount, ref, restep"
+						+ ", relevel,ip, status from review join member on reviewid=id where "
+						+ search + " like '%'||?||'%' and status <> 0 order by ref desc, restep)"
+						+ " temp) where rn between ? and ?";
 					pstmt=con.prepareStatement(sql);
 					pstmt.setString(1, keyword);
 					pstmt.setInt(2, startRow);
