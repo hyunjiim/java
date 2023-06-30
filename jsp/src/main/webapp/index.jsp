@@ -5,6 +5,10 @@
 <%-- => 템플릿 페이지의 몸체부에는 클라이언트 요청에 의해 전달된 값을 이용하여 JSP 문서의 실행
 결과를 제공받아 포함 --%>
 <%
+	//템플릿 페이지 몸체부에 포함되는 JSP 문서에서는 request 객체의 정보 변경 불가능
+	// => 템플릿을 제공하는 jsp 문서에 적어야 템플릿 request 객체 정보 변경 가능 
+	request.setCharacterEncoding("utf-8");
+
 	String group=request.getParameter("group");
 	if(group==null) group="main";
 	
