@@ -186,4 +186,25 @@ public class ReviewDAO extends JdbcDAO{
 		}
 		return rows;
 	}
+	
+	//[주석변경]부모글 관련 정보를 전달받아 REVIEW 테이블에 저장된 RESTEP 컬럼값을 변경하고 변경행의 갯수를 반환하는 메소드
+	public int updateRestep(int ref, int restep) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rows=0;
+		try {
+			con=getConnection();
+			//최신글이 맨 위에 배치되도록 하기 위해 부모글의 글그룹번호(ref)와 같고 글그룹 내부 순서가
+			//부모 글순서(0)보다 큰 모든 컬럼(모든 답글)의 restep(글순서) 1씩 증가
+			String sql="update review set restep=restep+1 where ref=? and restep>?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, ref);
+			pstmt.setInt(2, restep);
+			rows=pstmt.executeUpdate();
+		}catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return rows;
+	}
 }

@@ -136,7 +136,7 @@ td {
 	
 	<%if(loginMember!=null) { //로그인 상태의 사용자인 경우%>
 	<div style="text-align: right;">
-		<button type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp?group=review&worker=review_wirte.jsp';">글쓰기</button>
+		<button type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp?group=review&worker=review_write';">글쓰기</button>
 	</div>
 	<%}%>
 	
@@ -269,9 +269,8 @@ td {
    		</select>
    		<input type="text" name="keyword">
 		<button type="submit">게시글 검색</button>
-   </form>
-   
-   
+   </form>   
+</div>
    
    
    

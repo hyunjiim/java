@@ -61,7 +61,7 @@ td {
 			<th>내용</th>
 			<td>
 				<%-- id 속성값 동일하지 않게 작성되도록 주의 --%>
-				<textarea rows="7" cols="6" name="content" id="rContent"></textarea>
+				<textarea rows="7" cols="60" name="content" id="rContent"></textarea>
 			</td>
 		</tr>
 		<tr>
