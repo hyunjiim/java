@@ -11,6 +11,7 @@
 <%-- => [페이지 번호] 태그를 클릭한 경우 [review/review_list.jsp] 문서 요청 - 페이지 번호, 검색대상, 검색단어 전달 --%>
 <%-- => [검색] 태그를 클릭한 경우 [review/review_list.jsp] 문서 요청 - 검색대상, 검색단어 전달 --%>
 <%-- => [글쓰기] 태그를 클릭한 경우 [review/review_write.jsp] 문서 요청 - 로그인 상태의 사용자에게만 링크 제공 --%>
+<%-- => 게시글의 [제목] 태그를 클릭한 경우 [review/review_detail.jsp] 문서 요청 - 글번호, 페이지번호, 검색대상, 검색단어 전달 --%>
 <%
 	//게시글 검색 기능에 필요한 전달값(검색대상과 검색단어)을 반환받아 저장
 	String search=request.getParameter("search");
@@ -202,7 +203,7 @@ td {
 							<%=review.getRegdate() %>
 						<% } %>
 					</td>
-				<% } else { %>
+				<% } else { //삭제 게시글인 경우 %>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
@@ -230,34 +231,29 @@ td {
 		}
 	%>
 	<div id="page_list">
-	<%-- startPage:1,6,11,16,... 번호가 blockSize(5)보다 클때 --%>
-	<% if(startPage>blockSize) { %> 
-		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=1&search=<%=search %>&keyword=<%=keyword %>">[처음]</a>
-		<%-- startPage-blockSize: 이전 블록의 첫 페이지 번호 ex) 16페이지라면 16-5해서 11페이지로 이동 --%>
-		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=startPage-blockSize %>&search=<%=search %>&keyword=<%=keyword %>">[이전]</a>
-   	<%}else{ %>
-      	[처음][이전]
-   	<%}%>
+	<% if(startPage>blockSize) { %>
+		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=startPage-blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[이전]</a>
+	<% } else { %>
+		[이전]
+	<% } %>
 
 	
 	<% for(int i=startPage;i<=endPage;i++) { %>
 		<% if(pageNum!=i) { %>
-			<%-- 요청 페이지 번호와 이벤트가 발생된 페이지 번호가 다른 경우 --%>
-			<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=i %>&search=<%=search %>&keyword=<%=keyword %>">[<%=i %>]</a>
+			<%-- 요청 페이지 번호와 이벤트가 발생된 페이지 번호가 다른 경우 링크 제공 --%>
+			<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=i%>&search=<%=search%>&keyword=<%=keyword%>">[<%=i %>]</a>
 		<% } else { %>
 			<%-- 요청 페이지 번호와 이벤트가 발생된 페이지 번호가 같은 경우 링크 미제공 --%>
-			<%-- => 1페이지에서 페이지 번호 1을 클릭한 경우 --%>
 			[<%=i %>]
 		<% } %>
 	<% } %>
 	
-	 <% if(endPage!=totalPage){   %>
-      <a href="<%= request.getContextPath() %>/index.jsp?group=review&worker=review_list&pageNum=<%=startPage+blockSize %>&search=<%=search %>&keyword=<%=keyword %>">[다음]</a>
-      <a href="<%= request.getContextPath() %>/index.jsp?group=review&worker=review_list&pageNum=<%=totalPage %>&search=<%=search %>&keyword=<%=keyword %>">[마지막]</a>
-   <%}else{ %>
-      [다음][마지막]
-   <%}%>
-   </div>
+	<% if(endPage!=totalPage) { %>
+		<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=startPage+blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[다음]</a>
+	<% } else { %>
+		[다음]
+	<% } %>
+	</div>
    
    <%-- 사용자로부터 검색어를 입력받아 게시글 검색 기능 구현 --%>
    <form action="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list" method="post">
@@ -268,15 +264,8 @@ td {
    			<option value="content">&nbsp;내용&nbsp;</option>
    		</select>
    		<input type="text" name="keyword">
-		<button type="submit">게시글 검색</button>
+		<button type="submit">검색</button>
    </form>   
 </div>
-   
-   
-   
-   
-   
-   
-   
-   
+
    

@@ -35,7 +35,9 @@
 		<%-- <jsp:include page="header_main.jsp"/> --%>
 		<jsp:include page="<%=headerPath %>"/>
 	</div>
-	
+	<%-- jsp:include로 포함시킨 문서에서는 response.sendRedirect가 작동하지 않음 --%>
+	<%-- => <%%> 사이에서 request와 response 등의 요청 응답이 종료되므로 response 상태 변화 불가능 --%>
+	<%-- => 페이지 생성 순서: <%%>로 감싸져 있는 스크립틀릿 - <jsp/>로 시작되는 액션태그 - <html>,<style>,<script> --%>
 	<div id="content">
 		<jsp:include page="<%=contentPath %>"/>
 	</div>
