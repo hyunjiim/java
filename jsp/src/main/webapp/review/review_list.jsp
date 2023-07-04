@@ -1,3 +1,5 @@
+<%-- 내가 해봐야 하는 것: 페이징 처리 시 사용자 입력값을 받아 게시글 목록이 5,10,20개씩 보이도록 추가 --%>
+
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="xyz.itwill.dto.MemberDTO"%>

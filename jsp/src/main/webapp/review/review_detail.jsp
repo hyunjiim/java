@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- 글번호를 전달받아 REVIEW 테이블에 저장된 게시글을 검색하여 클라이언트에게 전달하여 응답하는 JSP 문서 --%>
-<%-- => 전달된 페이지번호, 검색대상, 검색단어는 반환받아 [review_list.jsp] 문서를 요청할 때 전달 --%>
+<%-- => 전달된 페이지번호, 검색대상, 검색단어는 반환받아 [review_list.jsp] 문서를 요청할 때 다시 전달 --%>
 <%-- => [글변경] 태그를 클릭한 경우 [review/review_modify.jsp] 문서 요청 - 글번호, 페이지번호, 검색대상, 검색단어 전달 --%>
 <%-- => [글삭제] 태그를 클릭한 경우 [review/review_remove_action.jsp] 문서 요청 - 글번호 전달 --%>
 <%-- => [답글쓰기] 태그를 클릭한 경우 [review/review_write.jsp] 문서 요청 - 답글번호, 답글순서, 답글깊이, 페이지번호 전달 --%>
@@ -12,6 +12,7 @@
 <%-- => [글변경] 태그와 [글삭제] 태그는 게시글 작성자 또는 관리자에게만 링크를 제공하고 [답글쓰기] 테그는 로그인 사용자에게만 링크 제공 --%>
 <%
 	//몸체부에 jsp:include 태그를 사용한 템플릿에서 redirect 요청 불가
+	//클라이언트의 요청으로 처리되어야 하는데 리다이렉트 요청은 서버가 처리하는 것이기 때문에(?)
 	if(request.getParameter("num")==null){ //전달값이 없는 경우 - 비정상적인 요청
 		out.println("<script type='text/javascript>'");
 		out.println("location.href="+request.getContextPath()+"/index.jsp?group=error&worker=error_400");
@@ -37,7 +38,7 @@
 	
 	//세션에 저장된 권한 관련 속성값을 객체로 반환받아 저장
 	// => 검색된 게시글이 비밀글인 경우 권한을 비교하기 위해 필요
-	MemberDTO loginMember=(MemberDTO)session.getAttribute("loginMember");
+	MemberDTO loginMember=(MemberDTO)session.getAttribute("loginMember"); //권한 부여 여부를 확인하기 위핸
 	
 	if(review.getStatus()==2){ //검색된 게시글이 비밀글인 경우
 		//게시글을 검색한 사용자가 비로그인 상태의 사용자이거나 로그인 상태의 사용자가 게시글
