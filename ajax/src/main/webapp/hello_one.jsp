@@ -18,6 +18,7 @@
 <body>
 	<h1>AJAX Programming</h1>
 	<hr>
+	<div id="display">Hello, AJAX!!!</div>
 	<div>
 		<button type="button" id="btn1">번역하기</button>
 		<button type="button" id="btn2">배경색 변경</button>
@@ -35,7 +36,7 @@
 	
 	//AJAX 프로그램: 비동기식 통신 기능을 이용하여 DHTML 기능을 구현한 프로그램
 	//XMLHttpRequest 객체를 저장하기 위한 전역변수 선언
-	// => XMLHttpRequest 객체: 비동기식(요청하고 응답받는 동안 다른 기능 처리)으로 웹프로그램을 요청하여 응답받아 처리하기 위한 객체
+	// => XMLHttpRequest 객체: 비동기식(요청하고 응답받는 동안 다른 작업 처리 가능)으로 웹프로그램을 요청하여 응답받아 처리하기 위한 객체
 	var xhr=null;
 	
 	//페이지에서 검색된 태그를 Element 객체로 반환받아 Click 이벤트가 발생될 경우 호출될 이벤트 처리 함수 등록
@@ -99,7 +100,7 @@
 			} else {//웹프로그램 요청에 대한 비정상적인 실행결과를 받은 경우 - 에러코드(4XX 또는 5XX)
 				alert("에러코드 = "+xhr.status);
 			}
-		} else {
+		} else { //대기 상태(요청 설정 상태, 요청 상태, 응답 대기 상태)일 경우 로딩화면을 보여줌
 			document.getElementById("display").innerHTML="<img src='images/loading.gif' width='50'>";
 		}
 	}
