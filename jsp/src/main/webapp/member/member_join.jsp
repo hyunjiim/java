@@ -184,7 +184,7 @@ $("#join").submit(function() {
 	var mobile2Reg=/\d{3,4}/;
 	var mobile3Reg=/\d{4}/;
 	if($("#mobile2").val()=="" || $("#mobile3").val()=="") {
-		$("#mobileMsg").css("display","block");
+		$("#mobileMsg").css("display","b lock");
 		submitResult=false;
 	} else if(!mobile2Reg.test($("#mobile2").val()) || !mobile3Reg.test($("#mobile3").val())) {
 		$("#mobileRegMsg").css("display","block");
