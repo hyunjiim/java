@@ -14,4 +14,4 @@
 <body>
 	<%=name %>[<%=id %>]님, 안녕하세요.
 </body>
-</html>
+</html> 
