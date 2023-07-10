@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/xml; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- 요청에 대한 실행결과를 XML 형식의 데이타를 응답하는 JSP 문서 --%>
-<%-- => 엘리먼트(태그)를 사용하여 값을 구분하여 표현 --%>    
+<%-- => 엘리먼트(태그)를 사용하여 값을 구분하여 표현 --%>     
 <newsList>
 	<news>
 		<title>손예진 출산 후 첫 근황, 공항 런웨이 만 여전한 청순美</title>
