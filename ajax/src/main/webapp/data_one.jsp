@@ -62,7 +62,7 @@
 		//해결법)전달값을 부호 처리화 전달하여 질의문자열로 전달
 		name=encodeURIComponent("name");
 		xhr.open("get", "data_two.jsp?name="+name, true);
-		xhr.send(null); //전달값이 없거나 get 방식은 무조건 null 전송 why?
+		xhr.send(null); 
 	}
 	
 	//[POST 방식의 요청] 태그를 클릭한 경우 호출되는 이벤트 처리 함수
@@ -99,7 +99,7 @@
 		//문제점)send() 메소드의 매개변수를 이용하여 값을 전달할 경우 [multipart/form-data] 형식으로 값 전달
 		// => 요청 웹프로그램에서 request.getParameter() 메소드로 전달값 반환 불가능
 		//해결법)[application/x-www-form-urlencoded] 형식으로 값이 전달되도록 리퀘스트 메세지의 헤더 정보 변경
-		xhr.open("post", "data_two.jsp");//async 매개변수에 전달값이 생략된 경우 자동으로 [true]로 처리
+		xhr.open("post", "data_two.jsp");//async 매개변수에 전달값이 생략된 경우 자동으로 [true]로 처리 - 비동기식 통신
 		//XMLHttpRequest.setRequestHeader(header, value) : XMLHttpRequest 객체를 이용하여
 		//웹프로그램 요청시 사용되는 리퀘스트 메세지의 헤더 정보를 변경하는 메소드
 		// => 리퀘스트 메세지 몸체부에 저장된 값이 문자데이타 표현되도록 헤더 정보 변경
