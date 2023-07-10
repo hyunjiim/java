@@ -21,7 +21,7 @@
 	
 	<script type="text/javascript">
 	$("#btn").click(function() {
-		var name=$("#name").val();
+		var name=$("#name").val(); 
 		
 		if(name==""){
 			$("#message").text("이름을 입력해 주세요.");

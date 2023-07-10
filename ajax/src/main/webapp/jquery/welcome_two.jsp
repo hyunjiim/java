@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>AJAX</title>
-</head>
+</head> 
 <body>
 	<%=name %>님, 환영합니다.
 </body>
