@@ -83,6 +83,7 @@
 	// => 요청에 대한 응답 결과를 제공받아 처리하는 함수
 	function changeHTML() {
 		/* 
+		readyState 프로퍼티: XMLHttpRequest 객체의 현재 상태
 		if(xhr.readyState==1) {
 			alert("요청 설정 상태");
 		} else if(xhr.readyState==2) {
@@ -98,6 +99,7 @@
 		//5. 실행결과를 응답받아 페이지의 태그 조작 - DHTML
 		if(xhr.readyState==4) {
 			//XMLHttpRequest.status: 웹프로그램 요청에 대한 응답의 상태코드(StateCode)를 저장한 프로퍼티
+			// 200: 서버에 문서가 존재함, 404: 서버에 문서가 존재하지 않음
 			if(xhr.status==200) { //웹프로그램 요청에 대한 정상적인 실행결과를 받은 경우
 				//XMLHttpRequest.responseText: 웹프로그램 요청에 대한 실행결과를 HTML 형식의
 				//텍스트로 응답받은 경우 응답결과를 저장한 프로퍼티

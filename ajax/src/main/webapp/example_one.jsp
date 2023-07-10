@@ -52,13 +52,15 @@
 		document.getElementById("id").value="";
 		document.getElementById("name").value="";
 		
+		//준비 상태의 XMLHttpRequest 객체가 저장된 xhr 변수
 		var xhr=new XMLHttpRequest();
 		
+		//XMLHttpRequest 객체의 준비상태(readyState)가 변할때마다 자동호출되는 함수
 		xhr.onreadystatechange= function() {
-			if(xhr.readyState==4){
-				if(xhr.status==200){
+			if(xhr.readyState==4){ //요청한 데이터 처리가 완료되어 응답할 준비가 완료됨
+				if(xhr.status==200){ //서버에 문서가 존재할 경우 - 정상적인 응답
 					document.getElementById("display").innerHTML=xhr.responseText; //XMLHttpRequest 객체의 응답결과에 대한 상태코드가 [200]인 경우
-				}else{
+				}else{ //서버에 문서가 존재하지 않을 경우
 					alert("에러코드 = "+xhr.status);
 				}
 			}
