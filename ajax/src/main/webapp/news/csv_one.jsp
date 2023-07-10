@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- [csv_two.jsp] 문서를 AJAX 기능으로 요청하여 CSV 형식 데이타로 응답받아 태그를 변경하여
+<%-- [csv_two.jsp] 문서를 AJAX 기능으로 요청하여 CSV 형식 데이터로 응답받아 태그를 변경하여
 클라이언트에게 전달하여 응답하는 JSP 문서 --%>
-<%-- => CSV 형식 데이타를 제공받아 HTML 태그로 변환하여 페이지 변경 - 파싱(Parsing) 처리 --%>
-<%-- CSV(Comma Separated Values) : 콤마(,)를 사용하여 값을 구분하여 제공하는 비구조적인 데이타 표현 방식 --%>     
+<%-- => CSV 형식 데이터를 제공받아 HTML 태그로 변환하여 페이지 변경 - 파싱(Parsing) 처리 --%>
+<%-- CSV(Comma Separated Values) : 콤마(,)를 사용하여 값을 구분하여 제공하는 비구조적인 데이터 표현 방식 --%>
+     
 <!DOCTYPE html>
 <html>
 <head>
