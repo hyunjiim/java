@@ -1,4 +1,3 @@
-<%@page import="java.net.http.HttpClient"%>
 <%@page import="org.apache.commons.httpclient.methods.GetMethod"%>
 <%@page import="org.apache.commons.httpclient.HttpClient"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
