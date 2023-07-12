@@ -43,7 +43,7 @@ function userLogin() {
 		return;
 	}	
 	
-	f.action = "user_login_action.jsp";
+	f.action = "<%=request.getContextPath() %>/login.do";
 	f.submit();
 }
 </script>
@@ -107,10 +107,10 @@ function userLogin() {
 	  <table width=590 border=0 cellpadding=0 cellspacing=0>
 		  <tr>
 			<td align=center>
-				<button type="button" onclick="location.href='user_list.jsp';">회원목록</button>
-				<button type="button" onclick="location.href='user_logout_action.jsp';">로그아웃</button>
+				<button type="button" onclick="location.href='<%=request.getContextPath() %>/list.do';">회원목록</button>
+				<button type="button" onclick="location.href='<%=request.getContextPath() %>/logout.do';">로그아웃</button>
 				<% if(loginUserinfo.getStatus()==9) { %>
-				<button type="button" onclick="location.href='user_write.jsp';">회원등록</button>
+				<button type="button" onclick="location.href='<%=request.getContextPath() %>/writeform.do';">회원등록</button>
 				<% } %>
 			</td>
 		  </tr>
