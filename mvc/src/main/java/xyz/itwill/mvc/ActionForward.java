@@ -11,7 +11,7 @@ public class ActionForward {
 	private boolean forward;
 	
 	//페이지 이동을 위한 웹프로그램의 URL 주소를 저장하기 위한 필드
-	// => 리다이렉트 이동: /XXX.do, 포워드: /XXX.jsp
+	// => 리다이렉트 이동: /XXX.do, 포워드: /XXX.jsp 
 	private String path;
 	
 	public ActionForward() {
