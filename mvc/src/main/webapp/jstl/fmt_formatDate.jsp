@@ -42,8 +42,17 @@
 	
 	<%-- type 속성 : date(날짜), time(시간), both(날짜와 시간) 중 하나를 속성값으로 설정 --%>
 	<%-- => type 속성값을 [both]로 설정한 경우 기본적으로 [yyyy.M.d. a h:mm:ss] 패턴의 문자열로 변환되어 제공 --%>
-	<p>now(시간) = <fmt:formatDate value="${now }" type="both"/></p>
-	<p>now(시간) = <fmt:formatDate value="${now }" type="time" timeStyle="short"/></p>
+	<p>now(날짜와 시간) = <fmt:formatDate value="${now }" type="both"/></p>
+	<p>now(날짜와 시간) = <fmt:formatDate value="${now }" type="both" dateStyle="full" timeStyle="full"/></p>
+	<p>now(날짜와 시간) = <fmt:formatDate value="${now }" type="both" dateStyle="short" timeStyle="short"/></p>
+	
+	<p>now(패턴) = <fmt:formatDate value="${now }" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+	
+	<%-- timeZone 태그: 타임존(TimeZone)을 변경하는 태그 --%>
+	<%-- value 속성: 변경할 타임존(대륙/도시)을 속성값으로 설정 --%>
+	<fmt:timeZone value="Asia/Hong_Kong">
+		<p>홍콩의 현재 날짜와 시간 = <fmt:formatDate value="${now }" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+	</fmt:timeZone>
 	
 </body>
 </html>
