@@ -19,8 +19,13 @@ public class ConnectionFactory {
 	public static Connection getConnection() {
 		Connection con=null;
 		try {
+			//Class.forName(): 클래스로더를 통해 해당 데이터베이스 드라이버를 로딩하여
+			//객체를 생성하고 DriverManager에 등록 - Driver 클래스를 찾지 못하면 ClassNotFoundException 예외 발생
+			//DriverManager 클래스: JDBC 드라이버를 통해 Connection 객체를 만드는 역할
+			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
+			//DriverManager.getConnection(): Connection 객체(데이터베이스와 연결 객체) 생성
 			String url="jdbc:oracle:thin:@localhost:1521:xe";
 			String user="scott";
 			String password="tiger";
