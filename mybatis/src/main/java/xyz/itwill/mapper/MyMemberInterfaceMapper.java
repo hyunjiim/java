@@ -26,7 +26,7 @@ public interface MyMemberInterfaceMapper {
 	
 	//@Delete: 추상메소드에 DELETE 명령을 등록하기 위한 어노테이션
 	@Delete("delete from mymember where id=#{id}")
-	int deleteMember(MyMember member);
+	int deleteMember(String id);
 	
 	//@Select : 추상메소드에 SELECT 명령을 등록하기 위한 어노테이션
 	@Select("select id, name, phone, email from mymember where id=#{id}")
