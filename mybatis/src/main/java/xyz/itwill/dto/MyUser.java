@@ -18,7 +18,7 @@ USER_NAME          VARCHAR2(50) - 이름
 public class MyUser {
 	//Java 자료형을 제외한 식별자는 카멜 표기법 사용
 	// => 카멜 표기법(CamelCase): 첫단어를 제외한 나머지 단어의 첫 문자를 대문자로 표현하여 식별자를 선언하는 방법
-	// => SQL 명령에서 스네이크 표기법을 사용한 것과 이름이 다르기 때문에 나중에 문제가 될 수 있음
+	// => SQL 명령에서 스네이크 표기법을 사용하는 것과 이름이 다르기 때문에 나중에 문제가 될 수 있음 - 자동매핑이 아닌 수동매핑 방법 사용
 	private String userId; 
 	private String userName;
 	
