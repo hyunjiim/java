@@ -31,6 +31,9 @@ typeAlias, typeHandlers, objectFactory, plugins, databaseIdProvider -->
 		<!-- callSettersOnNulls 기능을 [true]로 설정하면 UPDATE 명령 실행시 컬럼값을 [NULL]로
 		변경하는 기능을 허용 -->
 		<setting name="callSettersOnNulls" value="true"/>
+		<!-- mapUnderscoreToCamelCase 옵션을 [true]로 설정하면 SELECT 명령 실행시 스네이크 표기법으로 
+		작성된 컬럼명을 자동으로 카멜 표기법의 컬럼명으로 변환하여 검색하는 기능을 제공받아 사용  -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/> 
 	</settings>
 	
 	<!-- typeAliases : typeAlias 엘리먼트를 등록하기 위한 상위 엘리먼트 -->
@@ -95,7 +98,7 @@ typeAlias, typeHandlers, objectFactory, plugins, databaseIdProvider -->
 			<!-- 학생 기능 관련 StudentMapper.xml을 읽어들임 -->
 			<!-- XML 기반의 매퍼 파일의 장점 : 수동 매핑 설정과 동적 매핑 설정에 대한 기능 구현 편리 -->
 			<!-- XML 기반의 매퍼 파일의 단점 : SqlSession 객체로 SQL 명령을 제공받아 사용하기 불편 -->
-			<mapper resource="xyz/itwill/mapper/StudentMapper.xml"/>
+			<mapper resource="xyz/itwill/mapper/StudentMapper.xml"/> 
 			<mapper resource="xyz/itwill/mapper/MyMemberXMLMapper.xml"/>
 			
 			<!-- class 속성: Interface 기반의 매퍼 파일의 경로를 속성값으로 설정 -->
