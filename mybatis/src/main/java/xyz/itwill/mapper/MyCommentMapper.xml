@@ -123,5 +123,4 @@
 			from mycomment join myuser on comment_id=user_id order by comment_no desc
 	</select>
 	
-	
 </mapper>
