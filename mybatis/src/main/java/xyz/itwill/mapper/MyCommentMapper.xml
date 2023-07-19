@@ -53,10 +53,10 @@
 	<!-- => type 속성값으로 설정된 클래스의 기본 생성자를 이용하여 객체를 생성하고 id 엘리먼트 또는
 	result 엘리먼트를 사용하여 객체의 Setter 메소드를 호출하여 검색행의 컬럼값으로 필드값 변경 -->
 	<resultMap type="MyComment2" id="myComment2ResultMap">
-		<id column="comment_no" property="no"/>
-		<id column="comment_id" property="id"/>
-		<id column="comment_content" property="content"/>
-		<id column="comment_date" property="date"/>
+		<id column="comment_no" property="no"/> <!-- id의 경우 Primary Key 속성 -->
+		<result column="comment_id" property="id"/>
+		<result column="comment_content" property="content"/>
+		<result column="comment_date" property="date"/>
 	</resultMap>
 	
 	<!-- select 엘리먼트의 resultMap 속성을 사용하여 검색행을 Java 객체로 수동 매핑하여 제공 -->
