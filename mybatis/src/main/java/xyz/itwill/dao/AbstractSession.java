@@ -24,7 +24,6 @@ public abstract class AbstractSession {
 		}
 		
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-
 	}
 	
 	//protected : 상속받은 자식이 접근 가능한 메소드
