@@ -56,12 +56,12 @@
 	<!-- id 속성: resultMap 엘리먼트를 구분하기 위한 식별자를 속성값으로 설정 -->
 	<resultMap type="MyUser" id="myUserResultMap">
 		<!-- id: 검색행의 컬럼값을 필드에 저장하기 위한 엘리먼트 - Setter 메소드 호출 -->
-		<!-- => PK 제약조건이 설정된 컬럼의 값을 제공받아 필드에 저장하기 위해 사용 -->
+		<!-- => PK 제약조건이 설정된 컬럼의 값을 제공받아 필드에 저장하기 위해 사용 - id와 result의 차이점 -->
 		<!-- cloumn 속성: 검색행의 컬럼명을 속성값으로 설정 -->
 		<!-- property 속성: 클래스의 필드명을 속성값으로 설정 -->
-		<id column="user_id" property="userId"/>
+		<id column="user_id" property="userId"/> <!-- => user_id란 컬럼명을 userId 필드에 저장 -->
 		<!-- result: 검색행의 컬럼값을 필드에 저장하기 위한 엘리먼트 - Setter 메소드 호출 -->
-		<result column="user_name" property="userName"/>
+		<result column="user_name" property="userName"/> <!-- => user_id란 컬럼명을 userId 필드에 저장 -->
 	</resultMap>
 	
 	<!-- resultMap 속성: resultMap 엘리먼트의 식별자를 속성값으로 설정 -->

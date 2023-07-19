@@ -17,6 +17,8 @@
 		<selectKey resultType="int" keyProperty="commentNo" order="BEFORE">
 			select mycomment_seq.nextval from dual
 		</selectKey>
+		<!-- selectKey로 seq 번호를 검색하는 이유 - 글번호 검색
+		jsp 프로젝트 >> ReviewDAO의 selectNum 메소드와 같은 기능 - 답글을 위해 글번호와 ref번호를 동일하게 해줘야 함 -->
 		insert into mycomment values(#{commentNo}, #{commentId}, #{commentContent}, sysdate)
 	</insert>
 	
