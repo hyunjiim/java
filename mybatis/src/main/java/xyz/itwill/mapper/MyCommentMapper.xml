@@ -86,7 +86,7 @@
 			<!-- javaType 속성: 검색행의 컬럼값을 저장할 매개변수의 Java 자료형을 속성값으로 설정 -->
 			<!-- => Java 자료형 대신 typeAlias로 설정된 별칭 사용 가능 -->
 			<!-- int는 Integer 클래스 타입과 매핑된 별칭이기 때문에 int 원시형을 자료형으로 설정해야
-			할 경우 앞에 _를 붙여 _int로 작성해 줘야 함 -->
+			할 경우 앞에 _를 붙여 _int(별칭)로 작성해 줘야 함 -->
 			<idArg column="comment_no" javaType="_int"/>
 			<!-- arg: 검색행의 컬럼값을 생성자 매개변수에 전달하기 위한 엘리먼트 -->
 			<arg column="comment_id" javaType="string"/>
@@ -132,8 +132,8 @@
 	<resultMap type="MyCommentUser2" id="myCommentUser2ResultMap">
 		<!-- id와 result 엘리먼트는 값을 제공받아 setter 메소드를 호출해 필드에 값을 저장하는
 		것일 뿐 객체를 생성하여 제공하는 것은 불가능 -->
-		<!-- association: 1:1 관계의 테이블 조인에서 1개의 검색행을 Java 객체로 생성하여 type
-		속성값으로 설정된 클래스의 필드에 저장되도록 매핑 처리하는 엘리먼트 -->
+		<!-- association: 1:1 관계의 테이블 조인에서 1개의 검색행을 Java 객체로 생성하여 resultMap 
+		엘리먼트의 type 속성값으로 설정된 클래스의 객체 필드에 저장되도록 매핑 처리하는 엘리먼트 -->
 		<!-- => id 엘리먼트 또는 result 엘리먼트를 하위 엘리먼트로 사용하여 association 엘리먼트로
 		생성될 객체의 필드에 검색행의 컬럼값이 저장되도록 매핑 처리 -->
 		<!-- property 속성: 객체가 저장된 클래스의 필드명을 속성값으로 설정 -->

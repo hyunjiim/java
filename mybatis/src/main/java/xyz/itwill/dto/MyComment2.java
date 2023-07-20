@@ -10,6 +10,11 @@ public class MyComment2 {
 		// TODO Auto-generated constructor stub
 	}
 
+	public MyComment2(int no, String id) {
+		this.no = no;
+		this.id = id;
+	}
+
 	public MyComment2(int no, String id, String content, String date) {
 		this.no = no;
 		this.id = id;
