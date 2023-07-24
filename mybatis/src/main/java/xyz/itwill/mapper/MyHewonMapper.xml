@@ -201,7 +201,8 @@
 	<!-- ${변수명|필드명|맵키} : 전달값 - 전달값을 SQL 명령에서 SQL 문장으로 사용 -->
 	<!-- => ibitis 프레임워크에서는 $변수명|필드명|맵키$ 형식으로 표현 -->
 	<!-- => $표현식은 InSQL 공격에 취약하므로 사용하는 것을 비권장 -->
-	<!-- $ 표현식은 정렬과 조건에서 많이 사용 -->
+	<!-- $ 표현식은 정렬(order by)과 조건(where)에서 많이 사용 - 보안상 input 타입에선 사용하지
+	않는 것을 권장하며 select 태그와 같이 선택하는 태그에서 사용하는 것이 적합 -->
 	<!--  
 	<select id="selectSearchHewonList" parameterType="map" resultMap="myHewonResultMap">
 	-->
@@ -279,26 +280,6 @@
 	</select>
 	-->
 	
-	<!-- 해결법-1) 아이디와 이름을 모두 전달받아도 하나의 WHERE 문장만 포함되도록 동적 SQL 기능 작성 -->
-	<!-- choose : 조건에 맞는 하나의 엘리먼트 내용(SQL의 부분 명령)이 SQL 명령에 포함되도록 설정하는 엘리먼트 -->
-	<!-- => 하위 엘리먼트: when 엘리먼트(1개 이상), otherwise 엘리먼트(0개 또는 1개) -->
-	<!-- when : 조건에 의해 엘리먼트 내용을 SQL 명령에 포함하는 엘리먼트 -->
-	<!-- when 엘리먼트의 조건에 맞는 엘리먼트 내용을 SQL 명령에 포함한 후 choose 엘리먼트[주석] -->
-	<!-- test 속성: false(엘리먼트 내용 미포함) 또는 true(엘리먼트 내용 포함) 중 하나를 속성값으로 설정 -->
-	<!-- otherwise: when 엘리먼트의 모든 조건이 거짓인 경우 엘리먼트 내용을 SQL 명령에 포함하는 [주석] -->
-	<select id="selectDynamicHewonList" parameterType="map" resultMap="myHewonResultMap">
-		select hewon_id, hewon_name, hewon_phone, hewon_email, hewon_status from myhewon
-		<choose>
-		<when test="id!=null and id!=''">
-			where hewon_id = #{id}
-		</when>
-		<when test="name!=null and name!=''">
-			${choice} hewon_name = #{name}
-		</when>
-		</choose>
-		order by hewon_id
-	</select>
-
 	<!-- 해결법-1) 아이디와 이름을 모두 전달받아도 하나의 WHERE 문장만 포함되도록 동적 SQL 기능 작성 -->
 	<!-- choose : 조건에 맞는 하나의 엘리먼트 내용(SQL의 부분 명령)이 SQL 명령에 포함되도록 설정하는 엘리먼트 -->
 	<!-- => 하위 엘리먼트: when 엘리먼트(1개 이상), otherwise 엘리먼트(0개 또는 1개) -->
