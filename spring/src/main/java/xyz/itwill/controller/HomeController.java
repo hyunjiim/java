@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 
-//sts ´Ù¿î: Eclipse Marketplace >> sts °Ë»ö ÈÄ sts3(Spring Boot, Spring Framework)´Ù¿î
-//Spring MVC project°¡ ¾È³ª¿À´Â ¹®Á¦ ¹ß»ý - ÀÌÅ¬¸³½ºÀÇ ¹ö±×, ¹öÀü È£È¯ ¹®Á¦
-// => https://docs.spring.io/sts/nan/v3915/NewAndNoteworthy.html¿¡¼­ sts3 Á÷Á¢ ´Ù¿î >> ¹ÝµðÁýÀ¸·Î ¾ÐÃà Ç®±â >> sts.exe ½ÇÇà
+//sts3 ì„¤ì¹˜: Eclipse Marketplace >> sts3 ë‹¤ìš´(Spring Boot, Spring Framework)
+//Spring MVC projectê°€ ëœ¨ì§€ ì•ŠëŠ” ì—ëŸ¬ ë°œìƒ - ì´í´ë¦½ìŠ¤ì˜ ë²„ê·¸ë¡œ ì˜ˆìƒ, í˜¸í™˜ì„± ë¬¸ì œ
+// => https://docs.spring.io/sts/nan/v3915/NewAndNoteworthy.htmlì—ì„œ sts3 ì§ì ‘ ë‹¤ìš´ë¡œë“œ >> ë°˜ë””ì§‘ìœ¼ë¡œ ì••ì¶• í’€ê¸° >> STS.exe íŒŒì¼ ì‹¤í–‰í•˜ì—¬ ì„¤ì¹˜
 
-//ÃÖ»óÀ§ ÆÐÅ°Áö: Controller or Model ¿ªÇÒÀ» ÇÏ´Â Å¬·¡½ºµéÀ» ¸ð¾ÆµÐ ÆÐÅ°Áö
-
-//Spring FrameworkÀÇ ´ÜÁ¡: È¯°æ¼³Á¤ ÆÄÀÏ¿¡¼­ ÇÊ¿äÇÑ ¶óÀÌºê·¯¸®µéÀ» Á÷Á¢ ¼³Á¤ÇØÁà¾ßÇÏ´Â ºÒÆíÇÔÀÌ ÀÖÀ½
+//Spring Frameworkì˜ ë‹¨ì : ì§ì ‘ í™˜ê²½íŒŒì¼ì—ì„œ ì‚¬ìš©í•  ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ë¹Œë“œì²˜ë¦¬í•´ì¤˜ì•¼ í•˜ëŠ” ë²ˆê±°ë¡œì›€
 @Controller
 public class HomeController {
 	
