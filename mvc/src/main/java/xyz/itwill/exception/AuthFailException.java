@@ -11,4 +11,5 @@ public class AuthFailException extends Exception {
 	public AuthFailException(String message) {
 		super(message);
 	}
+	
 }
