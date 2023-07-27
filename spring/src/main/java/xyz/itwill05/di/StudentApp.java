@@ -31,6 +31,22 @@ public class StudentApp {
 		Student student6=context.getBean("student6", Student.class);
 		System.out.println(student6);
 		System.out.println("==========================================================");
+		//프로그램 실행에 필요한 데이터 처리 기능을 제공하는 Sercive 객체를 제공받아 저장
+		//StudentServiceImpl service=context.getBean("studentServiceImpl", StudentServiceImpl.class);
+		
+		//클래스로 참조변수(필드)를 생성하여 저장하는 것보다 인터페이스로 참조변수(필드)를
+		//생성하여 객체를 저장하는 것이 유지보수 효율성을 증가하는 방법
+		StudentService service=context.getBean("studentServiceImpl", StudentService.class);
+		
+		//Service 객체의 메소드를 호출하여 데이터 처리 기능 구현
+		// => java.lang.NullPointerException 발생
+		// => ServiceImple의 메소드에 있는 studentDAO에 객체가 저장되어 있지 않기 때문 - 의존관계 생성되지 않음
+		service.addStudent(student1);
+		service.modifyStudent(student1);
+		service.removeStudent(1000);
+		service.getStudent(2000);
+		service.getStudentList();
+		System.out.println("==========================================================");
 		((ClassPathXmlApplicationContext)context).close();
 		
 	}
