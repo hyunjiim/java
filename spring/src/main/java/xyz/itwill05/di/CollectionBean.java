@@ -5,13 +5,13 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-//
+//Set(거의 사용하지 않음), List, Map, Properties 등 Collection 객체를 저장하는 DAO 클래스
 public class CollectionBean {
 	private Set<String> nameSet;
 	private List<String> nameList;
 	//Collection 객체의 제네릭을 인터페이스로 설정하면 Collection 객체의 요소에는 
 	//인터페이스를 상속받은 자식클래스로 생성된 객체를 요소로 추가 가능
-	// => ListController, LogoutController, LoginController를 저장 가능 
+	// => ListController, LogoutController, LoginController를 저장 가능 - Spring Controller가 관리할 수 있게 bean 엘리먼트를 사용하여 객체로 생성
 	private Set<Controller> controllerSet;
 	private List<Controller> controllerList;
 	private Map<String, Controller> controllerMap;

@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- Controller를 Spring Bean으로 등록 -->
 	<bean class="xyz.itwill05.di.LoginController" id="loginController"/>
 	<bean class="xyz.itwill05.di.LogoutController" id="logoutController"/>
 	<bean class="xyz.itwill05.di.ListController" id="listController"/>
@@ -58,10 +59,10 @@
 				<entry>
 					<!-- key : 엔트리의 맵키(MapKey)를 설정하기 위한 엘리먼트 -->
 					<key>
-						<value>login</value>
+						<value>login</value> <!-- KEY -->
 					</key>
 					<!-- ref : 엔트리의 맵값(MapValue - Controller)를 설정하기 위한 엘리먼트 -->
-					<ref bean="loginController"/>
+					<ref bean="loginController"/> <!-- VALUE -->
 				</entry>
 				<entry>
 					<key>
@@ -78,15 +79,16 @@
 			</map>
 		</property>
 		<property name="controllerProperties">
-			<!-- Properties는 Map 안의 제네릭이 Key랑 Value 모두 String인 것과 같음 -->
+			<!-- Properties는 Map 안의 제네릭이 Key랑 Value 모두 String 자료형인 것과 같음  -->
 			<!-- props : Properties 객체(Map 객체)를 생성하여 필드에 저장하기 위한 엘리먼트 -->
 			<!-- => 필드의 자료형인 Map<String, String>인 경우 props 엘리먼트로 Map 객체를 생성하여
-			객체 필드에 [주석] -->
+			객체 필드에 저장 가능 -->
+			<!-- => Map<String, String>과 같기 때문에 props 엘리먼트 대신 map 엘리먼트를 사용할 수 있음 -->
 			<props>
 			<!-- prop : Properties 객체에 엔트리를 추가하는 엘리먼트 -->
 			<!-- => prop 엘리먼트의 내용을 엔트리의 맵값으로 사용 -->
 			<!-- key 속성: 엔트리의 맵키를 속성값으로 설정 -->
-				<prop key="login">xyz.itwill05.di.LoginController</prop>
+				<prop key="login">xyz.itwill05.di.LoginController</prop>	
 				<prop key="logout">xyz.itwill05.di.LogoutController</prop>
 				<prop key="list">xyz.itwill05.di.ListController</prop>
 			</props>

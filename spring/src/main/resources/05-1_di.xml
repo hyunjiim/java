@@ -2,7 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+	<!-- Dependency Injection(DI): 스프링 컨테이너가 Spring Bean 객체를 생성할 때 Spring Bean 객체끼리 의존 관계를 형성할 수 있도록
+	하는 기능 -->
+	<!-- Spring IO, Spring DI 등 -->
 
 	<!-- 스프링 컨테이너는 클래스의 기본 생성자를 사용하여 객체 생성 -->
 	<!-- => 객체 필드에는 기본값(숫자형: 0 , 논리형: false , 참조형: null)이 저장 -->

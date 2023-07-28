@@ -9,14 +9,15 @@ import java.util.List;
 //DAO 클래스는 하나의 행 삽입,삭제,변경,검색하는 기능만을 제공
 // => Service는 실제 데이터 처리 기능을 담당하는 클래스
 // => Service 클래스의 메소드는 다수의 DAO 객체로 메소드를 호출하여 작성 - DAO 모듈화
-// => Service 클래스의 메소드에서 DAO 객체를 사용하기 위해 포함관계(의존관계)로 설정 - TV/리모컨
+// => Service 클래스의 메소드에서 DAO 객체를 사용하기 위해 DAO 클래스와 포함관계(의존관계)로 설정 - TV/리모컨
+// => 포함관계(의존관계)를 설정하기 위해 보통 필드를 사용
 // => Service가  변경돼도 Service 클래스를 사용하는 클래스(Controller - Model)에 영향을 최소화
 //하기 위해 반드시 인터페이스를 상속받아 작성 - 결합도를 낮춰 유지보수의 효율성 증가
 public class StudentServiceImpl implements StudentService {
-	//StudentJdbcDAO 클래스로 필드 선언 - StudentJdbcDAO 객체만 저장 가능한 필드
+	//StudentJdbcDAO 클래스로 필드 선언 : 클래스와 클래스가 직접적으로 관계 형성 - StudentJdbcDAO 객체만 저장 가능한 필드
 	// => 필드에 StudentJdbcDAO 객체를 저장해야만 포함관계(의존관계)가 완성
 	// => StudentServiceImpl 클래스의 메소드에서 필드에 저장된 객체로 StudentJdbcDAO 객체로 메소드 호출
-	//문제점)만약 StudentJdbcDAO가 아닌 다른 DAO를 사용한다면?
+	//문제점)만약 StudentJdbcDAO가 아닌 다른 DAO 클래스와 의존/포함 관계를 형성한다면?
 	// => DAO 클래스가 변경될 경우 Service 클래스의 필드 및 메소드 변경 가능
 	// => 결합도가 높아 유지보수의 효율성 감소
 	//private StudentJdbcDAO studentJdbcDao;
@@ -46,6 +47,7 @@ public class StudentServiceImpl implements StudentService {
 		System.out.println("*** StudentServiceImpl 클래스의 setStudentDAO(StudentDAO studentDAO) 메소드 호출 ***");
 	}
 
+	//필드에 객체가 저장되어 있지 않으면 NullPointerException 발생
 	@Override
 	public void addStudent(Student student) {
 		System.out.println("*** StudentServiceImpl 클래스의 setStudentDAO(StudentDAO studentDAO) 메소드 호출 ***");

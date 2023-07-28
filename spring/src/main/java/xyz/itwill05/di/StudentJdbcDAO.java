@@ -3,7 +3,7 @@ package xyz.itwill05.di;
 import java.util.List;
 
 //DAO 클래스 : 저장매체(File, DBMS 등)의 행에 대한 삽입, 변경, 삭제, 검색 기능을 제공하는 클래스
-// => 저장매체의 종류 또는 방법에 따라 DAO 클래스 변경 가능
+// => 저장매체의 종류 또는 방법(시스템의 변경)에 따라 DAO 클래스 변경 가능
 // => DAO 클래스가 변경돼도 DAO 클래스를 사용하는 클래스(Service 클래스)에 영향을 최소화
 //하기 위해 반드시 인터페이스를 상속받아 작성 - 결합도를 낮춰 유지보수 효율성 증가
 public class StudentJdbcDAO implements StudentDAO {
