@@ -13,7 +13,7 @@ public class MemberApp {
 		System.out.println("===============================================================");
 		//Member 객체를 new 연산자가 아닌 builder() 메소드를 통해 생성
 		//클래스명.builder() : 클래스 내부에 작성된 Builder 클래스로 객체를 생성하여 반환하는 메소드
-		// => Builder 객체로 필드명과 같은 이름의 메소드를 호출하여 필드값 변경
+		// => Builder 객체로 필드명과 같은 이름의 메소드를 호출하여 필드값 변경 - Builder 객체 반환
 		// => Builder.build() : 클래스로 객체를 생성하여 반환하는 메소드
 		Member member2=Member.builder()
 				.id("xyz789")
