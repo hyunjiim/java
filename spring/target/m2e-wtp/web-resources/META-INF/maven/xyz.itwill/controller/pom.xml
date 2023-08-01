@@ -59,14 +59,29 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 				
-		<!-- AspectJ -->
+		<!-- AspectJ  => Spring AOP 기능을 제공하기 위한 라이브러리 -->
+		<!-- 따로 빌드처리하지 않아도 기본 제공하는 라이브러리 - 예외처리, 트랜잭션 처리 등 -->
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+		<!-- => AspectJ 컴파일러로 생성된 Proxy 클래스를 실행하기 위한 라이브러리 -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>	
 		
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<!-- => AspectJ 컴파일러로 핵심관심코드와 횡단관심코드가 결합된 클래스(Proxy 클래스)를
+		생성하기 위한 라이브러리 -->
+		<dependency>
+    		<groupId>org.aspectj</groupId>
+    		<artifactId>aspectjweaver</artifactId>
+    		<version>${org.aspectj-version}</version>
+    		<scope>runtime</scope>
+		</dependency>
+		
+		
 		<!-- Logging -->
+		<!-- => 로그 관련 기능을 제공하기 위한 라이브러리 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -161,8 +176,23 @@
     		<version>1.18.28</version>
     		<scope>provided</scope>
 		</dependency>
-	</dependencies>
 	
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<!-- => Spring Context의 확장 기능을 제공하는 라이브러리  -->
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-context-support</artifactId>
+    		<version>${org.springframework-version}</version>
+		</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+		<!-- => Java Mail 기능을 제공하는 라이브러리 -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+	    	<artifactId>javax.mail-api</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+	</dependencies>
 	
 	
     <build>
