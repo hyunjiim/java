@@ -14,7 +14,7 @@ public class JoinPointAdvice {
 	// => Advice 클래스의 메소드에서 타겟 메소드 관련 정보가 필요한 경우 매개변수를 선언하여 
 	//JoinPoint 객체를 전달받아 메소드를 호출하여 필요한 정보를 반환받아 사용 가능
 	
-	//Before Advice Method
+	//Before Advice Method - 반환형: void, 매개변수: 작성하지 않거나 JoinPoint 객체
 	public void beforeDisplay(JoinPoint joinPoint) {
 		//System.out.println("### [before]핵심관심코드 실행 전 삽입되어 실행될 횡단관심코드 ###");
 		
@@ -48,7 +48,7 @@ public class JoinPointAdvice {
 		System.out.println(") 메소드 호출 ###");
 	}
 
-	//After Advice Method
+	//After Advice Method - 반환형: void, 매개변수: 작성하지 않거나 JoinPoint 객체
 	public void displayMessage(JoinPoint joinPoint) {
 		//System.out.println("### [after]핵심관심코드 실행 후 무조건 삽입되어 실행될 횡단관심코드 ###");
 		
@@ -56,11 +56,11 @@ public class JoinPointAdvice {
 		System.out.println("### [after]사원번호가 "+params[0]+"인 사원정보를 삭제 하였습니다. ");
 	}
 	
-	//After Returning Advice Method
+	//After Returning Advice Method - 반환형: void
 	// => JoinPoint 인터페이스의 매개변수 외에 Object 클래스의 매개변수 선언 가능
 	// => 스프링 컨테이너는 Object 클래스의 매개변수에 타겟 메소드의 반환값을 제공받아 전달
 	// => 꼭 [Object] 자료형을 사용해야 하나? - 타겟메소드에서 반환되는 값(객체)의 자료형이 고정되어
-	//있는 경우 Object 클래스 대신 반환되는 값(객체)의 자료형으로 매개변수 작성 가능
+	//있는 경우 Object 클래스 대신 반환되는 값(객체)의 자료형으로 매개변수 작성 가능 - int, String 등
 	//Object 클래스의 매개변수가 선언된 경우 Spring Bean Configuration File의 AOP 설정에서
 	//after-returning 엘리먼트에 반드시 returning 속성을 사용하여 반환값을 저장할 매개변수의
 	//이름을 속성값으로 지정
@@ -83,7 +83,7 @@ public class JoinPointAdvice {
 	//매개변수의 이름을 속성값으로 지정
 	// => after-throwing 엘리먼트에 throwing 속성이 없거나 속성값이 잘못된 경우 IllegalArgumentException 발생
 	
-	//After Throwing Advice Method
+	//After Throwing Advice Method - 타겟메소드 실행시 예외가 발생한 경우
 	public void exceptionHandle(JoinPoint joinPoint, Exception exception) {
 		//System.out.println("### [after-throwing]핵심관심코드 실행시 예외가 발생된 경우 삽입되어 실행될 횡단관심코드 ### ");
 		
@@ -93,6 +93,7 @@ public class JoinPointAdvice {
 					+exception.getMessage());
 	}
 	
+	
 	//Around Advice Method는 반환형을 Object 클래스로 작성(일반적으로)하고 매개변수는 ProceedingJoinPoint
 	//인터페이스로 작성하여 선언
 	// => 타겟메소드의 반환값을 제공받아 반환 처리하기 위해 Object 클래스로 반환형 작성
@@ -101,7 +102,7 @@ public class JoinPointAdvice {
 	//ProceedingJoinPoint 객체: 타겟메소드 관련 정보를 저장하기 위한 객체
 	// => JointPoint 객체와 다른점은 타겟메소드를 직접 호출하기 위한 메소드 제공
 	
-	//Around Advice Method
+	//Around Advice Method - 반환형 : Object
 	public Object display(ProceedingJoinPoint joinPoint) throws Throwable {
 		System.out.println("### [around]핵심관심코드 실행 전 삽입되어 실행될 횡단관심코드 ###");
 		//ProceedingJoinPoint.proceed(): 타겟메소드를 호출하는 메소드 - 핵심관심코드 실행
