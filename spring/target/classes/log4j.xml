@@ -99,6 +99,10 @@
 		<level value="info" />
 	</logger>
 	
+	<logger name="xyz.itwill07.aop" >
+		<level value="info" />
+	</logger>
+	
 	
 
 	<!-- Root Logger -->
