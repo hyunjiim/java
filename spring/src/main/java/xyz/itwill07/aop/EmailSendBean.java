@@ -8,20 +8,27 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import lombok.Setter;
 
-//비밀번호 찾기 >> 회원가입한 이메일로 비밀번호 보내기에 사용
+//비밀번호 찾기 >> 회원가입한 이메일로 비밀번호 보내기 & 광고 메일 전송에 활용
 
 //JavaMail 기능을 구현하기 위해 spring-context-support 라이브러리와 javax.mail 라이브러리가
-//프로젝트에 빌드되도록 처리 - 메이븐 이용 : pom.xml
+//프로젝트에 빌드되도록 처리 - 메이븐 이용 : pom.xml (185 줄에 빌드처리)
+
+//spring-context-support 라이브러리 : Spring Context의 확장 기능 제공
+//javax.mail 라이브러리 : Java Mail 기능을 제공
 
 
 //메일 전송 기능을 제공하기 위한 클래스 - 메일 서버의 SMTP 서비스를 사용하여 메일 전송
 // => 메일 서버(Mail Server): 메일을 송수신하는 서비스를 제공하는 컴퓨터
-// => SMTP(Simple Message Transfer Protocol) 서비스로 메일을 보내고 POP3(Post Office Protocol 3)
-//서비스나 IMAP(Internet Message Access Protocol) 서비스로 메일을 받아 사용자에게 전달
+// => SMTP(Simple Message Transfer Protocol - 25) 서비스로 메일을 보내고 POP3(Post Office Protocol 3 - 110)
+//서비스나 IMAP(Internet Message Access Protocol - 143) 서비스로 메일을 받아 사용자에게 전달
+
+//POP3 : 하나의 기기에서 메일을 확인, 한번만 전달 => 스마트폰이나 다른 기기에서도 메일을 확인해야할 필요성 증대
+// => IMAP : 여러 기기에서 메일 확인 가능 
+// => 사용하기 위해 메일 서버와 DNS 서버 구현
+
 public class EmailSendBean {
-	//JavaMailSender 객체를 저장하기 위한 필드 선언
+	//JavaMailSender 객체를 저장하기 위한 필드 선언 - Setter Injection을 위해 @Setter 어노테이션 사용
 	// => JavaMailSender 객체: SMTP 서비스를 제공하는 서버의 정보를 저장하기 위한 객체
-	// => Setter Injection을 위해 @Setter 어노테이션 사용
 	@Setter
 	private JavaMailSender javaMailSender;
 	
@@ -51,6 +58,7 @@ public class EmailSendBean {
 		//MimeMessage.setRecipient(RecipientType type, Address[] address) : MimeMessage 객체의
 		//메일을 받는 사람들의 이메일 주소 관련 정보를 변경하는 메소드 - 다수의 사람에게 메일 전달
 		message.setRecipient(RecipientType.TO, new InternetAddress(email));
+		//message.setRecipient(RecipientType.CC, new InternetAddress(email)); - CC : 함께 받는 사람을 나타내는 상수
 		
 		//JavaMailSender.send(MailMessage message) : SMTP 서비스를 사용하여 메일을 전송하는 메소드
 		javaMailSender.send(message);
