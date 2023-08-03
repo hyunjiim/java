@@ -204,6 +204,7 @@
 	
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
 		<!-- => SpringDAO 관련 기능을 제공하는 라이브러리 - DataSource 관련 클래스 제공 -->
+		<!-- jdk 버전과 동일한 것 사용 -->
 		<!-- => 라이브러리 의존 관계에 의해 spring-tx 라이브러리(트랜잭션 처리) 빌드 처리 -->
 		<dependency>
 	    	<groupId>com.oracle.database.jdbc</groupId>
