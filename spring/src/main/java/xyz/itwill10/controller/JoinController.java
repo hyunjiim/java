@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class JoinController {
-	//회원정보를 입력받기 위한 JSP 문서의 뷰이름을 반환하는 요청 처리 메소드	
+	//회원정보를 입력받기 위한 JSP 문서의 뷰이름을 반환하는 요청 처리 메소드
+	// => join 페이지가 get 방식으로 요청되었다면 join_form 페이지가 응답
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
 		return "join_form";
 	}
 	
 	/*
+	 * 전달값을 주고받는 중요한 방법 - 전달값이 1,2개 일 경우 사용
 	//전달값(회원정보)을 제공받아 Request Scope 속성값으로 저장하고 속성값을 출력하는 JSP 문서의
 	//뷰이름을 반환하는 요청 처리 메소드
 	// => 전달값과 같은 이름의 매개변수를 선언하여 전달값을 제공받아 요청 처리 메소드에서 사용
@@ -37,7 +39,7 @@ public class JoinController {
 	//전달값(회원정보)을 제공받아 Request Scope 속성값으로 저장하고 속성값을 출력하는 JSP 문서의
 	//뷰이름을 반환하는 요청 처리 메소드
 	// => 전달값과 같은 이름의 매개변수를 선언하여 전달값을 제공받아 요청 처리 메소드에서 사용
-	// => 매개변수에 @RequestParam 어노테이션 대신 @ModelAttribute 어노테이션 사용 가능
+	// => 매개변수에 @RequestParam 어노테이션 대신 @ModelAttribute 어노테이션 사용 가능 - @RequestParam을 사용하는 것이 정석
 	//@ModelAttribute : 객체(값)을 뷰에게 제공하기 위한 어노테이션
 	// => @ModelAttribute 어노테이션을 메소드에 사용하면 메소드의 반환값을 요청 처리 클래스의
 	//모든 요청 처리 메소드의 뷰에게 제공
@@ -78,12 +80,14 @@ public class JoinController {
 	*/
 	
 	/*
-	//요청 처리 메소드의 매개변수를 VO(STO) 클래스로 작성하면 Front Controller는 VO(DTO) 
+	 * 전달값을 주고받는 두번째 중요한 방법 - 전달값 2개 이상일 때 사용(Command 객체로 전달)
+	 * Command 객체의 자료형(클래스)이 존재하지 않으면? -> 세번째 방법 사용
+	//요청 처리 메소드의 매개변수를 VO(DTO) 클래스로 작성하면 Front Controller는 VO(DTO) 
 	//클래스로 객체를 생성하여 매개변수에 저장되도록 제공
 	// => 페이지 요청시 전달값과 같은 이름의 필드에 전달값을 제공받아 저장하여 매개변수에 
 	//VO(DTO) 클래스의 객체를 저장
 	//Command 객체 : 전달값을 제공받아 필드에 저장된 객체로 속성값으로 저장되어 요청 처리
-	//메소드의 뷰에세 사용될 수 있도록 제공
+	//메소드의 뷰에서 사용될 수 있도록 제공
 	// => Command 객체를 저장하기 위한 매개변수에 @ModelAttribute 어노테이션 사용
 	// => @ModelAttribute 어노테이션을 생략해도 자동으로 @ModelAttribute 어노테이션이 설정된 것과 동일하게 처리
 	// => @ModelAttribute 어노테이션의 value 속성을 생략하면 Command 객체의 자료형(클래스)을
@@ -94,7 +98,7 @@ public class JoinController {
 	}
 	*/
 	
-	/*
+	/*전달값을 주고받는 세번째 중요한 방법 - 전달값 2개 이상일 때 사용(Map으로 전달)
 	//@ModelAttribute 어노테이션의 value 속성을 사용하여 뷰에게 제공될 속성값의 속성명을 변경 가능
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(@ModelAttribute("mem") Member member, Model model) {
@@ -109,7 +113,7 @@ public class JoinController {
 	//요청 처리 메소드의 매개변수를 Map 인터페이스로 작성하면 Front Controller는 Map(HashMap) 
 	//객체를 생성하여 매개변수에 저장되도록 제공
 	// => 페이지 요청시 모든 전달값을 Map 객체의 엔트리로 추가하여 매개변수에 Map 객체를 저장
-	// => Map 객체에는 전달값의 이름을 맵키(MapKey - String)로 제공받고 전달값은 맵값
+	// => 매개변수에 저장되는 Map 객체에는 전달값의 이름을 맵키(MapKey - String)로 제공받고 전달값은 맵값
 	//(MapValue - String)로 제공받아 엔트리로 추가 
 	// => 매개변수에 전달값이 저장된 Map 객체를 저장하기 위해서는 반드시 매개변수에 
 	//@RequestParam 어노테이션을 사용

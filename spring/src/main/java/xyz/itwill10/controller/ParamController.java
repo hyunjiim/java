@@ -76,6 +76,7 @@ public class ParamController {
 	}
 	*/
 	
+	//졸라 중요함...쉬바......머가 중요한지 못들었지만 중요함....
 	//defaultValue 속성 : 전달값과 매개변수의 이름이 다른 경우 매개변수에 저장된 기본값을 속성값으로 설정
 	// => 전달값이 없는 경우에도 매개변수에 [null] 대신 저장될 기본값으로 사용
 	@RequestMapping(value = "/param", method = RequestMethod.POST)

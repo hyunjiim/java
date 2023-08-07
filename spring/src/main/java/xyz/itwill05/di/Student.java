@@ -2,46 +2,48 @@ package xyz.itwill05.di;
 
 //Dependency Injection
 
-//ÇĞ»ıÁ¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º - VO Å¬·¡½º, DTO Å¬·¡½º, POJO(Plane Old Java Object) Å¬·¡½º - ½ºÇÁ¸µ
-// => ÇÊµå¿¡ ÇĞ»ıÁ¤º¸¸¦ Ç¥ÇöÇÏ´Â °ªÀ» ÇÊµå¿¡ ÀúÀå
+//í•™ìƒì •ë³´ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ - VO í´ë˜ìŠ¤, DTO í´ë˜ìŠ¤, POJO(Plane Old Java Object) í´ë˜ìŠ¤ - ìŠ¤í”„ë§
+// => í•„ë“œì— í•™ìƒì •ë³´ë¥¼ í‘œí˜„í•˜ëŠ” ê°’ì„ í•„ë“œì— ì €ì¥
 public class Student {
 	private int num;
 	private String name;
 	private String email;
 	
-	//»ı¼ºÀÚ¸¦ ÀÛ¼ºÇØÁÖ´Â ÀÌÀ¯ : »ı¼ºÀÚ ¸Å°³º¯¼ö¸¦ ÅëÇØ °´Ã¼ ÇÊµå¿¡ ÃÊ±â°ªÀ» ÁÖ±â À§ÇØ ÀÛ¼º - °£Æí
+	//ìƒì„±ìë¥¼ ì‘ì„±í•´ì£¼ëŠ” ì´ìœ  : ìƒì„±ì ë§¤ê°œë³€ìˆ˜ë¥¼ í†µí•´ ê°ì²´ í•„ë“œì— ì´ˆê¸°ê°’ì„ ì£¼ê¸° ìœ„í•´ ì‘ì„± - ê°„í¸
 	public Student() {
-		System.out.println("### Student Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### Student í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
+		System.out.println("### Student í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 	
 	public Student(int num) {
 		super();
 		this.num = num;
-		System.out.println("### Student Å¬·¡½ºÀÇ ¸Å°³º¯¼ö(ÇĞ¹ø)°¡ ¼±¾ğµÈ »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### Student í´ë˜ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜(í•™ë²ˆ)ê°€ ì„ ì–¸ëœ ìƒì„±ì í˜¸ì¶œ ###");
 	}
-	
-	//¸Å°³º¯¼öÀÇ ÀÚ·áÇüÀº ´Ù¸£Áö¸¸ °¹¼ö°¡ °°Àº »ı¼ºÀÚ ÀÛ¼º
+
+	//ë§¤ê°œë³€ìˆ˜ì˜ ìë£Œí˜•ì€ ë‹¤ë¥´ì§€ë§Œ ê°¯ìˆ˜ê°€ ê°™ì€ ìƒì„±ì ì‘ì„±
 	public Student(String name) {
 		super();
 		this.name = name;
-		System.out.println("### Student Å¬·¡½ºÀÇ ¸Å°³º¯¼ö(ÀÌ¸§)°¡ ¼±¾ğµÈ »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### Student í´ë˜ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜(ì´ë¦„)ê°€ ì„ ì–¸ëœ ìƒì„±ì í˜¸ì¶œ ###");
 	}
-	
 
 	public Student(int num, String name) {
 		super();
 		this.num = num;
 		this.name = name;
-		System.out.println("### Student Å¬·¡½ºÀÇ ¸Å°³º¯¼ö(ÇĞ¹ø, ÀÌ¸§)°¡ ¼±¾ğµÈ »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### Student í´ë˜ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜(í•™ë²ˆ, ì´ë¦„)ê°€ ì„ ì–¸ëœ ìƒì„±ì í˜¸ì¶œ ###");
 	}
+	
 
 	public Student(int num, String name, String email) {
 		super();
 		this.num = num;
 		this.name = name;
 		this.email = email;
-		System.out.println("### Student Å¬·¡½ºÀÇ ¸Å°³º¯¼ö(ÇĞ¹ø, ÀÌ¸§, ÀÌ¸ŞÀÏ)°¡ ¼±¾ğµÈ »ı¼ºÀÚ È£Ãâ ###");
 	}
+
+
 
 	public int getNum() {
 		return num;
@@ -49,8 +51,6 @@ public class Student {
 
 	public void setNum(int num) {
 		this.num = num;
-		System.out.println("*** Student Å¬·¡½ºÀÇ setNum(int num)¸Ş¼Òµå È£Ãâ ***");
-		System.out.println("*** Student Å¬·¡½ºÀÇ setNum(int num)¸Ş¼Òµå È£Ãâ ***");
 	}
 
 	public String getName() {
@@ -59,7 +59,6 @@ public class Student {
 
 	public void setName(String name) {
 		this.name = name;
-		System.out.println("*** Student Å¬·¡½ºÀÇ setName(String name)¸Ş¼Òµå È£Ãâ ***");
 	}
 
 	public String getEmail() {
@@ -68,15 +67,7 @@ public class Student {
 
 	public void setEmail(String email) {
 		this.email = email;
-		System.out.println("*** Student Å¬·¡½ºÀÇ setEmail(String email)¸Ş¼Òµå È£Ãâ ***");
 	}
-	
-	@Override
-	public String toString() {
-		return "ÇĞ¹ø = "+num+" ÀÌ¸§ = "+name+" ÀÌ¸ŞÀÏ = "+email;
-	}
-	
-	
 	
 	
 }
