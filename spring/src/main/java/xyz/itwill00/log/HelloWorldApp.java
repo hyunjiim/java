@@ -2,13 +2,12 @@ package xyz.itwill00.log;
 
 public class HelloWorldApp {
 	public static void main(String[] args) {
-		//·Î±× ±¸ÇöÃ¼¸¦ »ç¿ëÇÏÁö ¾Ê¾Æµµ System.out.println()À» »ç¿ëÇÏ¿© È®ÀÎ °¡´É
-		//Å¬·¡½º°¡ ¹Ù²î¸é ¹Ù²ã¾ß ÇÑ´Ù´Â Á¡, ÄÚµå Áõ°¡·Î ½ÇÇà ½Ã°£ÀÌ ´Ã¾î³­´Ù´Â Á¡¿¡¼­ ºñÈ¿À²Àû
-		System.out.println("HelloWorldAapp Å¬·¡½ºÀÇ main ¸Ş¼Òµå - ½ÃÀÛ");
-		System.out.println("HelloWorldAapp Å¬·¡½ºÀÇ main ¸Ş¼Òµå - ½ÃÀÛ");
+		//ë¡œê·¸ êµ¬í˜„ì²´ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì•„ë„ System.out.println()ì„ ì‚¬ìš©í•˜ì—¬ í™•ì¸ ê°€ëŠ¥
+		//í´ë˜ìŠ¤ê°€ ë°”ë€Œë©´ ë°”ê¿”ì•¼ í•œë‹¤ëŠ” ì , ì½”ë“œ ì¦ê°€ë¡œ ì‹¤í–‰ ì‹œê°„ì´ ëŠ˜ì–´ë‚œë‹¤ëŠ” ì ì—ì„œ ë¹„íš¨ìœ¨ì 
+		System.out.println("HelloWorldAapp í´ë˜ìŠ¤ì˜ main ë©”ì†Œë“œ - ì‹œì‘");
 		HelloWorld hw=new HelloWorld();
-		String message=hw.hello("È«±æµ¿");
+		String message=hw.hello("í™ê¸¸ë™");
 		System.out.println("message = "+message);
-		System.out.println("HelloWorldAapp Å¬·¡½ºÀÇ main ¸Ş¼Òµå - Á¾·á");
+		System.out.println("HelloWorldAapp í´ë˜ìŠ¤ì˜ main ë©”ì†Œë“œ - ì¢…ë£Œ");
 	}
 }

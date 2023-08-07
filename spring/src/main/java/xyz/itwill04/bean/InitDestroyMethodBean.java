@@ -2,19 +2,19 @@ package xyz.itwill04.bean;
 
 public class InitDestroyMethodBean {
 	public InitDestroyMethodBean() {
-		System.out.println("### InitDestroyMethodBean Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### InitDestroyMethodBean í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 	
 	public void init() {
-		System.out.println("*** InitDestroyMethodBean Å¬·¡½ºÀÇ init() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("### InitDestroyMethodBean í´ë˜ìŠ¤ì˜ init() ë©”ì†Œë“œ í˜¸ì¶œ ###");
 	}
 	
 	public void destroy() {
-		System.out.println("*** InitDestroyMethodBean Å¬·¡½ºÀÇ destroy() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("### InitDestroyMethodBean í´ë˜ìŠ¤ì˜ destroy() ë©”ì†Œë“œ í˜¸ì¶œ ###");
 	}
 	
 	public void display() {
-		System.out.println("*** InitDestroyMethodBean Å¬·¡½ºÀÇ display() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("### InitDestroyMethodBean í´ë˜ìŠ¤ì˜ display() ë©”ì†Œë“œ í˜¸ì¶œ ###");
 	}
 	
 	

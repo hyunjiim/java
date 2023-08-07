@@ -1,6 +1,6 @@
 package xyz.itwill01.old;
 
-//°´Ã¼ÀÇ °áÇÕµµ
+//ê°ì²´ì˜ ê²°í•©ë„
 public class HelloMessageObject {
 	public String getHelloMessage() {
 		return "Hello!!!";

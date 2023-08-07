@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<style type="text/css">
+.check input[type="checkbox"] {
+	-webkit-appearance: none;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	outline: none !important;
+	border: 1px solid #9999;
+	vertical-align: middle;
+}
+
+.check input[type="checkbox"]:before {
+	content: "\2713";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	overflow: hidden;
+	transform: scale(0) translate(-50%,-50%);
+	line-height: 1;
+}
+
+.check input[type="checkbox"]:checked {
+	background-color: #63aeff;
+	border-color: rgba(255,255,255,0.3);
+	color: white; 
+}
+
+.check input[type="checkbox"]:checked::before{
+	border-radius: 4px;
+	transform: scale(1) translate(-50%, -50%);
+}
+
+</style>
+</head>
+<body>
+	<h1>가상 선택자 연습</h1>
+	<hr>
+	<h3>선택</h3>
+	<table>
+		<tr>
+			<th colspan="2">키우고 싶은 동물</th>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="puppy" id="check1"><label for="check1">강아지</label></td>
+			<td class="check"><input type="checkbox" name="cat" id="check2"><label for="check2">고양이</label></td>
+			<td class="check"><input type="checkbox" name="mouse" id="check3"><label for="check3">햄스터</label></td>
+			<td class="check"><input type="checkbox" name="bird" id="check4"><label for="check4">새</label></td>
+		</tr>
+	</table>
+</body>
+</html>

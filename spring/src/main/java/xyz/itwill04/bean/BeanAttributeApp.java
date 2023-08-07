@@ -5,50 +5,29 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BeanAttributeApp {
 	public static void main(String[] args) {
-		System.out.println("===================== Spring Container ÃÊ±âÈ­ Àü =====================");
+		System.out.println("===================== Spring Container ì´ˆê¸°í™” ì „ =====================");
 		ApplicationContext context = new ClassPathXmlApplicationContext("04-2_beanAttribute.xml");
-		System.out.println("===================== Spring Container ÃÊ±âÈ­ ÈÄ =====================");
-		//ApplicationContext.getBean(String beanName) : ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·ÎºÎÅÍ ¸Å°³º¯¼ö·Î Àü´Ş¹ŞÀº
-		//beanNameÀÇ Spring BeanÀ» °Ë»öÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		// => Object Å¸ÀÔÀÇ °´Ã¼¸¦ ¹İÈ¯ÇÏ¹Ç·Î ¹İµå½Ã ¸í½ÃÀû °´Ã¼ Çüº¯È¯ »ç¿ë
+		System.out.println("===================== Spring Container ì´ˆê¸°í™” í›„ =====================");
+		//ApplicationContext.getBean(String beanName) : ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œë¶€í„° ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì€
+		//beanNameì˜ Spring Bean(ê°ì²´)ë¥¼ ê²€ìƒ‰í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ - DL
+		// => Object íƒ€ì…ì˜ ê°ì²´ë¥¼ ë°˜í™˜í•˜ë¯€ë¡œ ë°˜ë“œì‹œ ëª…ì‹œì  ê°ì²´ í˜•ë³€í™˜ ì‚¬ìš©
 		//InitDestroyMethodBean bean=(InitDestroyMethodBean)context.getBean("initDestroyMethodBean");
 		
-		//ApplicationContext.getBean(String beanName, Class<T> clazz): ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·ÎºÎÅÍ
-		//¸Å°³º¯¼ö·Î Àü´Ş¹ŞÀº beanNameÀÇ Spring Bean(°´Ã¼)¸¦ Class °´Ã¼·Î °´Ã¼ Çüº¯È¯ÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		InitDestroyMethodBean bean=context.getBean("initDestroyMethodBean" , InitDestroyMethodBean.class);
-		//´ëºÎºĞ Spring Container°¡ ÇÊµå¿¡ ÃÊ±â°ªÀ» ¼³Á¤ÇÏ¿© °´Ã¼¸¦ »ı¼ºÇÏµµ·Ï ÇÏ±â ¶§¹®¿¡ ¸¹ÀÌ »ç¿ëµÇÁö´Â ¾Ê´Â ¹æ¹ı
-		// => XXXAware : VOÅ¬·¡½º µî¿¡¼­ Spring Container¸¦ »ı¼ºÇÏ°í ½ÍÀ» ¶§ XXXAware ÀÎÅÍÆäÀÌ½º¸¦ »ç¿ëÇÏ¿© 
-		//ÇÊ¿äÇÑ Å¬·¡½ºÀÇ ÇÊµå¿¡ ÇÊµå°ªÀ» ÃÊ±âÈ­ÇÏ¿© °´Ã¼ »ı¼º  >> ¾î³ëÅ×ÀÌ¼Ç »ç¿ëÀ¸·Î ¸¹ÀÌ »ç¿ëµÇÁö ¾ÊÀ½
+		//ApplicationContext.getBean(String beanName, Class<T> clazz) : ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œë¶€í„°
+		//ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì€ beanNameì˜ Spring Beanì„ Class ê°ì²´ë¡œ ê°ì²´ í˜•ë³€í™˜í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		InitDestroyMethodBean bean=context.getBean("initDestroyMethodBean", InitDestroyMethodBean.class);
 		
-		//bean ¿¤¸®¸ÕÆ®¸¦ ÀÌ¿ëÇÏ¸é ¸Ş¼Òµå¸¦ °´Ã¼¸¦ »ı¼ºÇÑ ÈÄ ÀÚµ¿À¸·Î È£ÃâµÇµµ·Ï ¼³Á¤
-		// => Spring Bean Configuration File¿¡¼­ bean ¿¤¸®¸ÕÆ®ÀÇ init-method ¼Ó¼º°ªÀ» »ç¿ëÇØ ÀÚµ¿ È£Ãâ
-		//bean.init(); //ÃÊ±âÈ­ ¸Ş¼Òµå  
+		//bean ì—˜ë¦¬ë¨¼íŠ¸ë¥¼ ì´ìš©í•˜ë©´ ì´ˆê¸°í™” ë©”ì†Œë“œë¥¼ ìƒì„±í•œ í›„ ìë™ìœ¼ë¡œ í˜¸ì¶œë˜ë„ë¡ ì„¤ì • ê°€ëŠ¥
+		//bean.init(); //ì´ˆê¸°í™” ë©”ì†Œë“œ
 		
-		bean.display(); 
+		bean.display();
 		
-		//bean ¿¤¸®¸ÕÆ®¸¦ ÀÌ¿ëÇÏ¸é ¸Ş¼Òµå¸¦ °´Ã¼ ¼Ò¸ê Àü ÀÚµ¿À¸·Î È£ÃâµÇµµ·Ï ¼³Á¤
-		// => Spring Bean Configuration File¿¡¼­ bean ¿¤¸®¸ÕÆ®ÀÇ destroy-method ¼Ó¼º°ªÀ» »ç¿ëÇØ ÀÚµ¿ È£Ãâ
-		//bean.destroy(); //¸¶¹«¸® ¸Ş¼Òµå
-		System.out.println("==========================================================");
+		//bean ì—˜ë¦¬ë¨¼íŠ¸ë¥¼ ì´ìš©í•˜ë©´ ë©”ì†Œë“œë¥¼ ê°ì²´ ì†Œë©¸ ì „ ìë™ìœ¼ë¡œ í˜¸ì¶œë˜ë„ë¡ ì„¤ì • ê°€ëŠ¥
+		//bean.destroy(); //ë§ˆë¬´ë¦¬ ë©”ì†Œë“œ
+		System.out.println("=======================================================================");
 		context.getBean("lazyInitBean", LazyInitBean.class);
 		System.out.println("=======================================================================");
-		ScopeBean bean1=context.getBean("singletonBean", ScopeBean.class);
-		ScopeBean bean2=context.getBean("singletonBean", ScopeBean.class);
-		ScopeBean bean3=context.getBean("singletonBean", ScopeBean.class);
 		
-		System.out.println("bean1 = "+ bean1);
-		System.out.println("bean2 = "+ bean2);
-		System.out.println("bean3 = "+ bean3);
-		System.out.println("=======================================================================");
-		ScopeBean bean4=context.getBean("prototypeBean", ScopeBean.class);
-		ScopeBean bean5=context.getBean("prototypeBean", ScopeBean.class);
-		ScopeBean bean6=context.getBean("prototypeBean", ScopeBean.class);
-		
-		System.out.println("bean4 = "+ bean4);
-		System.out.println("bean5 = "+ bean5);
-		System.out.println("bean6 = "+ bean6);
-		System.out.println("=======================================================================");
-		((ClassPathXmlApplicationContext)context).close();
 		System.out.println("=======================================================================");
 	}
 }

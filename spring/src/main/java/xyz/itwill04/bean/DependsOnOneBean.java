@@ -2,6 +2,6 @@ package xyz.itwill04.bean;
 
 public class DependsOnOneBean {
 	public DependsOnOneBean() {
-		System.out.println("### DependsOnOneBean Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### DependsOnOneBean í´ë˜ìŠ¤ì˜ ê¸°ë³¸ìƒì„±ì í˜¸ì¶œ");
 	}
 }

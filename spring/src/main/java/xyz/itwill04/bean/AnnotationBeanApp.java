@@ -5,13 +5,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AnnotationBeanApp {
 	public static void main(String[] args) {
-		System.out.println("===================== Spring Container ÃÊ±âÈ­ Àü =====================");
-		ApplicationContext context = new ClassPathXmlApplicationContext("04-3_beanAnnotation.xml");
-		System.out.println("===================== Spring Container ÃÊ±âÈ­ ÈÄ =====================");
-		AnnotationBean bean=context.getBean("annotation", AnnotationBean.class);
+		System.out.println("=============== Spring Container ì´ˆê¸°í™” ì „ ===============");
+		ApplicationContext context=new ClassPathXmlApplicationContext("04-3_beanAnnotation.xml");
+		System.out.println("=============== Spring Container ì´ˆê¸°í™” í›„ ===============");
+		AnnotationBean bean=context.getBean("annotationBean", AnnotationBean.class);
 		bean.display();
-		System.out.println("=======================================================================");
+		System.out.println("==========================================================");
 		((ClassPathXmlApplicationContext)context).close();
-		System.out.println("=======================================================================");
 	}
 }

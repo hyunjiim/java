@@ -3,11 +3,11 @@ package xyz.itwill04.bean;
 //Bean
 public class CreateBean {
 	public CreateBean() {
-		System.out.println("### CreateBean Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### CreateBean í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ");
 	}
 	
 	public void display() {
-		System.out.println("*** CreateBean Å¬·¡½ºÀÇ display() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("### CreateBean í´ë˜ìŠ¤ì˜ display() ë©”ì†Œë“œ í˜¸ì¶œ");
 	}
 	
 }

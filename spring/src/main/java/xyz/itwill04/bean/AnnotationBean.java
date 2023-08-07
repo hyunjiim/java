@@ -2,10 +2,10 @@ package xyz.itwill04.bean;
 
 public class AnnotationBean {
 	public AnnotationBean() {
-		System.out.println("### AnnotationBean Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### AnnotationBean í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 	
 	public void display() {
-		System.out.println("*** AnnotationBean Å¬·¡½ºÀÇ display() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationBean í´ë˜ìŠ¤ì˜ display() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 }

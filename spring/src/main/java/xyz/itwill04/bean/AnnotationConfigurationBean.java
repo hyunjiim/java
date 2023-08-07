@@ -3,24 +3,28 @@ package xyz.itwill04.bean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//Spring Boot¿¡¼­ »ç¿ëÇÏ´Â ¹æ½Ä
-// => xml ÆÄÀÏÀ» »ç¿ëÇÏÁö ¾Ê°í ¾î³ëÅ×ÀÌ¼ÇÀ» ÀÌ¿ë
+//Spring Bootï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
+// => xml ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½
 
-
-//@Configuration : ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê¿¡ ÀÇÇØ °ü¸®µÉ °´Ã¼(Spring Bean)À» »ı¼ºÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå°¡
-//¼±¾ğµÈ Å¬·¡½º¸¦ ¼³Á¤ÇÏ±â À§ÇÑ ¾î³ëÅ×ÀÌ¼Ç
-// => Å¬·¡½º¸¦ Spring Bean Configuration File°ú À¯»çÇÑ ±â´ÉÀ» Á¦°øÇÒ ¼ö ÀÖµµ·Ï ¼³Á¤ÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç
+//@Configuration : ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆì— ì˜í•´ ê´€ë¦¬ë  ê°ì²´(Spring Bean)ì„ ìƒì„±í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œê°€
+//ì„ ì–¸ëœ í´ë˜ìŠ¤ë¥¼ ì„¤ì •í•˜ê¸° ìœ„í•œ ì–´ë…¸í…Œì´ì…˜
+// => í´ë˜ìŠ¤ë¥¼ Spring Bean Configuration Fileê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ ì œê³µí•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
 @Configuration 
 public class AnnotationConfigurationBean {
-	
-	//@Bean : Å¬·¡½º¸¦ °´Ã¼·Î »ı¼ºÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå¿¡ ¼³Á¤ÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç - @Configuration ¾È¿¡¼­ »ç¿ëµÇ¾î¾ß ½Ì±ÛÅæ º¸Àå
-	// => @Bean ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÑ ¸Ş¼Òµå°¡ ¹İÈ¯ÇÑ °´Ã¼´Â ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê¿¡ ÀÇÇØ °ü¸® - Spring Bean
-	// => Spring Bean Configuration FileÀÇ bean ¿¤¸®¸ÕÆ®¿Í À¯»çÇÑ ±â´ÉÀ» Á¦°øÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç
-	// => ¸Ş¼ÒµåÀÇ ÀÌ¸§ÀÌ Spring BeanÀÇ ½Äº°ÀÚ(beanName)·Î »ç¿ë
-	// => @Bean ¾î³ëÅ×ÀÌ¼ÇÀÇ name ¼Ó¼ºÀ» ÀÌ¿ëÇÏ¿© ½Äº°ÀÚ(beanName) º¯°æ °¡´É
-	// => ex) @Bean(name = "annotation")
+	//@Bean : í´ë˜ìŠ¤ë¡œ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œì— ì„¤ì •í•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+	// => @Bean ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•œ ë©”ì†Œë“œê°€ ë°˜í™˜í•œ ê°ì²´ëŠ” ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆì— ì˜í•´ ê´€ë¦¬ - Spring Bean
+	// => Spring Bean Configuration Fileì˜ bean ì—˜ë¦¬ë¨¼íŠ¸ì™€ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ ì œê³µí•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+	// => ë©”ì†Œë“œì˜ ì´ë¦„ì´ Spring Beanì˜ ì‹ë³„ì(beanName)ìœ¼ë¡œ ì‚¬ìš©
+	// => @Bean ì–´ë…¸í…Œì´ì…˜ì˜ name ì†ì„±ì„ ì´ìš©í•˜ì—¬ ì‹ë³„ì(beanName) ë³€ê²½ ê°€ëŠ¥
 	@Bean
 	public AnnotationBean annotationBean() {
 		return new AnnotationBean();
 	}
+	
+	/*
+	@Bean
+	public ComponentAnnotationBean componentAnnotationBean() {
+		return new ComponentAnnotationBean();
+	}
+	*/
 }

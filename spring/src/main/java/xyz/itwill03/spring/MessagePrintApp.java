@@ -5,27 +5,24 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MessagePrintApp {
 	public static void main(String[] args) {
-		/* Á÷Á¢ °´Ã¼¸¦ »ı¼ºÇÏ¿´±â ¶§¹®¿¡ °áÇÕµµ°¡ ³ôÀ½ - Á¦¾îÀÇ ¿ªÇà ¾Æ´Ô
-		HelloMessageObject object=new HelloMessageObject(); 
+		/*
+		HelloMessageObject object=new HelloMessageObject();
 		MessagePrint print=new MessagePrint();
-		print.setObject(object);//°´Ã¼ ÇÊµå¿¡ °´Ã¼¸¦ Àü´ŞÇÏ¿© ÀúÀå - Æ÷ÇÔ°ü°è ¿Ï¼º
+		print.setObject(object); //ê°ì²´ í•„ë“œì— ê°ì²´ë¥¼ ì „ë‹¬í•˜ì—¬ ì €ì¥ - í¬í•¨ê´€ê³„ ì™„ì„±
 		print.messagePrint();
 		*/
-		
-		//ApplicationContext °´Ã¼ : Spring Container ±â´ÉÀ» Á¦°øÇÏ±â À§ÇÑ °´Ã¼
-		// => Spring Bean Configuration File(XML)À» Á¦°ø¹Ş¾Æ °´Ã¼(SpringBean) »ı¼º
-		//ClassPathXmlApplicationContext : XML ÆÄÀÏÀ» ÀĞ¾î 
+		//ApplicationContext ê°ì²´ : ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ(Spring Container) ê¸°ëŠ¥ì„ ì œê³µí•˜ê¸° ìœ„í•œ ê°ì²´
+		// => Spring Bean Configuration File(XML)ì„ ì œê³µë°›ì•„ ê°ì²´(Spring Bean)ë¥¼ ìƒì„±í•˜ì—¬ ê´€ë¦¬
 		ApplicationContext context=new ClassPathXmlApplicationContext("03_message.xml");
 		
-		//Spring ÄÁÅ×ÀÌ³Ê¿¡¼­ ÇÊ¿äÇÑ Spring Bean(°´Ã¼)À» Á¦°ø¹Ş¾Æ ÀúÀå
-		// => ¸Å°³º¯¼ö¿¡ Spring BeanÀ» ±¸ºĞÇÏ±â À§ÇÑ ½Äº°ÀÚ(beanName ¶Ç´Â beanId)¸¦ Àü´Ş
+		//Spring Containerì—ì„œ í•„ìš”í•œ Spring Bean(ê°ì²´)ì„ ì œê³µë°›ì•„ ì €ì¥
+		// => ë§¤ê°œë³€ìˆ˜ì— Spring Beanì„ êµ¬ë¶„í•˜ê¸° ìœ„í•œ ì‹ë³„ì(beanName ë˜ëŠ” beanId)ë¥¼ ì €ì¥
 		MessagePrint print=(MessagePrint)context.getBean("messagePrint");
 		
 		print.messagePrint();
 		
-		//ApplicationContext °´Ã¼ Á¦°Å - Spring ÄÁÅ×ÀÌ³Ê Á¦°Å
-		// => Spring ÄÁÅ×ÀÌ³Ê°¡ °ü¸®ÇÏ´Â ¸ğµç Spring Bean(°´Ã¼) ¼Ò¸ê
+		//ApplicationContext ê°ì²´ ì œê±° - Spring ì»¨í…Œì´ë„ˆ ì†Œë©¸
+		// => Spring ì»¨í…Œì´ë„ˆê°€ ê´€ë¦¬í•˜ëŠ” ëª¨ë“  Spring Bean(ê°ì²´) ì†Œë©¸
 		((ClassPathXmlApplicationContext)context).close();
-		
 	}
 }

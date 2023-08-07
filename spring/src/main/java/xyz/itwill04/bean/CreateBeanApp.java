@@ -6,53 +6,52 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
-//Spring ÇÁ·¹ÀÓ¿öÅ©¿¡¼­´Â BeanFactory °´Ã¼ ¶Ç´Â ApplicationContext °´Ã¼·Î Spring ÄÁÅ×ÀÌ³Ê
-//(Spring Container) ±â´É Á¦°ø
-// => ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê´Â È¯°æ¼³Á¤ÆÄÀÏ(Spring Bean Configuration File - XML)·Î Å¬·¡½º¸¦ Á¦°ø¹Þ¾Æ
-//Spring Bean(°´Ã¼) °ü¸®
+//Spring í”„ë ˆìž„ì›Œí¬ì—ì„œëŠ” BeanFactory ê°ì²´ ë˜ëŠ” ApplicationContext ê°ì²´ë¡œ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ
+//(Spring Container) ê¸°ëŠ¥ ì œê³µ
+// => ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆëŠ” í™˜ê²½ì„¤ì •íŒŒì¼(Spring Bean Configuration File - XML)ë¡œ í´ëž˜ìŠ¤ë¥¼ ì œê³µë°›ì•„
+//Spring Bean(ê°ì²´) ê´€ë¦¬
+@SuppressWarnings("deprecation")
 public class CreateBeanApp {
 	public static void main(String[] args) {
-		System.out.println("1. BeanFactory °´Ã¼¸¦ »ý¼ºÇÏ¿© ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·Î »ç¿ëÇÏ´Â ¹æ¹ý");
-		System.out.println("==================== Spring Container ÃÊ±âÈ­ Àü ====================");
-		//BeanFactory ÃÊ±âÈ­ ÀÛ¾÷ÀÇ ¹æ¹ýÀÌ ÀûÀ½ - ApplicationContext´Â ¸¹Àº ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹Þ¾Æ ´õ ´Ù¾çÇÑ ¹æ¹ýÀ¸·Î ÃÊ±âÈ­°¡ °¡´É
-		//BeanFactory ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ÞÀº ÀÚ½ÄÅ¬·¡½º·Î °´Ã¼ »ý¼º - BeanFactory °´Ã¼
-		// => BeanFactory °´Ã¼¸¦ »ý¼ºÇÒ ¶§ Spring Bean Configuration FileÀ» Á¦°ø¹Þ¾Æ ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê 
-		//»ý¼º - ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê ÃÊ±âÈ­ ÀÛ¾÷
-		// => ¸Å°³º¯¼ö¿¡´Â Spring Bean Configuration FileÀÇ °æ·Î¸¦ Á¦°ø¹Þ¾Æ Resource °´Ã¼·Î »ý¼º
-		// => BeanFactory °´Ã¼´Â Spring Bean Configuration File¿¡ µî·ÏµÈ Å¬·¡½º·Î ¹Ì¸® °´Ã¼¸¦
-		//»ý¼ºÇÏÁö ¾Ê°í Spring BeanÀ» Á¦°ø¹Þ±â À§ÇØ ¿äÃ»½Ã °´Ã¼¸¦ »ý¼ºÇÏ¿© Á¦°ø
+		System.out.println("1. BeanFactory ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œ ì‚¬ìš©í•˜ëŠ” ë°©ë²•");
+		System.out.println("===================== Spring Container ì´ˆê¸°í™” ì „ =====================");
+		//BeanFactory ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìžì‹í´ëž˜ìŠ¤ë¡œ ê°ì²´ ìƒì„± - BeanFactory ê°ì²´
+		// => BeanFactory ê°ì²´ë¥¼ ìƒì„±í•  ë•Œ Spring Bean Configuration Fileì„ ì œê³µë°›ì•„ ìŠ¤í”„ë§
+		//ì»¨í…Œì´ë„ˆ ìƒì„± - ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ ì´ˆê¸°í™” ìž‘ì—…
+		// => ë§¤ê°œë³€ìˆ˜ì—ëŠ” Spring Bean Configuration Fileì˜ ê²½ë¡œë¥¼ ì œê³µë°›ì•„ Resource ê°ì²´ë¡œ ìƒì„±í•˜ì—¬ ì „ë‹¬
+		// => BeanFactory ê°ì²´ëŠ” Spring Bean Configuration Fileì— ë“±ë¡ëœ í´ëž˜ìŠ¤ë¡œ ë¯¸ë¦¬ ê°ì²´ë¥¼
+		//ìƒì„±í•˜ì§€ ì•Šê³  Spring Bean ìš”ì²­ì‹œ ìƒì„±í•˜ì—¬ ì œê³µ
 		BeanFactory factory=new XmlBeanFactory
-				(new FileSystemResource("src/main/resources/04-1_beanCreate.xml")); //¹®ÀÚ¿­ÀÌ ¾Æ´Ñ resource °´Ã¼(ÆÄÀÏ) Àü´ÞÇØ¾ß °´Ã¼ »ý¼º °¡´É
-		System.out.println("==================== Spring Container ÃÊ±âÈ­ ÈÄ ====================");
-		//BeanFactory.getBean(String beanName): ¸Å°³º¯¼ö·Î Spring BeanÀ» ±¸ºÐÇÏ±â À§ÇÑ ½Äº°ÀÚ(beanName)À»
-		//Àü´Þ¹Þ¾Æ ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·ÎºÎÅÍ Spring Bean(°´Ã¼)¸¦ »ý¼ºÇÏ¿© ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå
-		// => ÁÖÀÇ)Object Å¸ÀÔÀÉ °´Ã¼¸¦ ¹ÝÈ¯ÇÏ¹Ç·Î ¹Ýµå½Ã ¸í½ÃÀû °´Ã¼ Çüº¯È¯ »ç¿ë
-		// => ¸Å°³º¯¼ö·Î Àü´Þ¹ÞÀº ½Äº°ÀÚ(beanName)ÀÇ Spring BeanÀÌ ¾ø´Â °æ¿ì NoSuchBeanDefinitionException ¹ß»ý
-		CreateBean bean1 = (CreateBean)factory.getBean("createBean"); //¿©±â¼­ °´Ã¼ »ý¼º
+				(new FileSystemResource("src/main/resources/04-1_beanCreate.xml"));
+		System.out.println("===================== Spring Container ì´ˆê¸°í™” í›„ =====================");
+		//BeanFactory.getBean(String beanName) : ë§¤ê°œë³€ìˆ˜ë¡œ Spring Beanì„ êµ¬ë¶„í•˜ê¸° ìœ„í•œ ì‹ë³„ìž(beanName)
+		//ë¥¼ ì „ë‹¬ë°›ì•„ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œë¶€í„° Spring Bean(ê°ì²´)ë¥¼ ìƒì„±í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		// => Object íƒ€ìž…ì˜ ê°ì²´ë¥¼ ë°˜í™˜í•˜ë¯€ë¡œ ë°˜ë“œì‹œ ëª…ì‹œì  ê°ì²´ í˜•ë³€í™˜ ì‚¬ìš©
+		// => ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì€ ì‹ë³„ìž(beanName)ì˜ Spring Beanì´ ì—†ëŠ” ê²½ìš° NoSurchBeanDefinitionException ë°œìƒ
+		CreateBean bean1=(CreateBean)factory.getBean("createBean");
 		bean1.display();
-		System.out.println("====================================================================");
-		System.out.println("2. ApplicationContext °´Ã¼¸¦ »ý¼ºÇÏ¿© ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·Î »ç¿ëÇÏ´Â ¹æ¹ý");
-		System.out.println("==================== Spring Container ÃÊ±âÈ­ Àü ====================");
-		//ApplicationContext ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ÞÀº ÀÚ½ÄÅ¬·¡½º·Î °´Ã¼ »ý¼º - ApplicationContext
-		// => ApplicaiotnContext °´Ã¼¸¦ »ý¼ºÇÒ ¶§ SPring Bean Configuration FileÀ» Á¦°ø¹Þ¾Æ
-		//½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê »ý¼º - ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê ÃÊ±âÈ­ ÀÛ¾÷
-		// => Å¬·¡½º°¡ ÂüÁ¶ °¡´ÉÇÑ Æú´õ(ClassPath)¿¡ ÀúÀåµÈ Spring Bean Configuration FileÀ» [ÁÖ¼®]
-		// => ApplicationContext °´Ã¼´Â Spring Bean Configuration File¿¡ µî·ÏµÈ Å¬·¡½º·Î ¹Ì¸® °´Ã¼¸¦
-		//»ý¼ºÇÏ¿© Spring Bean ¿äÃ»½Ã ¹Ì¸® »ý¼ºµÈ °´Ã¼¸¦ Á¦°ø - Spring Container°¡ ½ÇÇàµÇ¾î
+		System.out.println("======================================================================");
+		System.out.println("2. ApplicationContext ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œ ì‚¬ìš©í•˜ëŠ” ë°©ë²•");
+		System.out.println("===================== Spring Container ì´ˆê¸°í™” ì „ =====================");
+		//ApplicationContext ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìžì‹í´ëž˜ìŠ¤ë¡œ ê°ì²´ ìƒì„± - ApplicationContext ê°ì²´
+		// => ApplicationContext ê°ì²´ë¥¼ ìƒì„±í•  ë•Œ Spring Bean Configuration Fileì„ ì œê³µë°›ì•„
+		//ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ ìƒì„± - ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ ì´ˆê¸°í™” ìž‘ì—…
+		// => í´ëž˜ìŠ¤ê°€ ì°¸ì¡° ê°€ëŠ¥í•œ í´ë”(ClassPath)ì— ì €ìž¥ëœ Spring Bean Configuration Fileì„ ì œê³µë°›ì•„ ì‚¬ìš©
+		// => ApplicationContext ê°ì²´ëŠ” Spring Bean Configuration Fileì— ë“±ë¡ëœ í´ëž˜ìŠ¤ë¡œ ë¯¸ë¦¬
+		//ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ Spring Bean ìš”ì²­ì‹œ ë¯¸ë¦¬ ìƒì„±ëœ ê°ì²´ë¥¼ ì œê³µ
 		ApplicationContext context=new ClassPathXmlApplicationContext("04-1_beanCreate.xml");
-		System.out.println("==================== Spring Container ÃÊ±âÈ­ ÈÄ ====================");
-		//DL(Dependency Lookup) : ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê°¡ °ü¸®ÇÏ´Â °´Ã¼(Spring Bean)¸¦ °Ë»öÇÏ¿© Á¦°ø
-		//ApplicationContext.getBean(String beanName): ¸Å°³º¯¼ö·Î Spring BeanÀ» ±¸ºÐÇÏ±â À§ÇÑ
-		//½Äº°ÀÚ(beanName)À» Àü´Þ¹Þ¾Æ ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Í·ÎºÎÅÍ Spring Bean(°´Ã¼)¸¦ ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå
-		// => Object Å¸ÀÔÀÇ °´Ã¼¸¦ ¹ÝÈ¯ÇÏ¹Ç·Î ¹Ýµå½Ã ¸í½ÃÀû °´Ã¼ Çüº¯È¯ »ç¿ë
-		// => ¸Å°³º¯¼ö·Î Àü´Þ¹ÞÀº ½Äº°ÀÚ(beanName)ÀÇ Spring BeanÀÌ ¾ø´Â °æ¿ì NoSuchBeanDefinitionException ¹ß»ý
-		//BeanFactory¸¦ »ç¿ëÇÏ´Â°Í º¸´Ù ÀÌº¥Æ® ÃÊ±âÈ­ ÀÛ¾÷ µî ´õ ¸¹Àº ±â´ÉÀ» Á¦°ø
-		CreateBean bean2 = (CreateBean)factory.getBean("createBean");
+		System.out.println("===================== Spring Container ì´ˆê¸°í™” í›„ =====================");
+		//DL(Dependency Lookup) : ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆê°€ ê´€ë¦¬í•˜ëŠ” ê°ì²´(Spring Bean)ë¥¼ ê²€ìƒ‰í•˜ì—¬ ì œê³µí•˜ëŠ” ê¸°ëŠ¥
+		//ApplicationContext.getBean(String beanName) : ë§¤ê°œë³€ìˆ˜ë¡œ Spring Beanì„ êµ¬ë¶„í•˜ê¸° ìœ„í•œ
+		//ì‹ë³„ìž(beanName)ë¥¼ ì „ë‹¬ë°›ì•„ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œë¶€í„° Spring Bean(ê°ì²´)ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		// => Object íƒ€ìž…ì˜ ê°ì²´ë¥¼ ë°˜í™˜í•˜ë¯€ë¡œ ë°˜ë“œì‹œ ëª…ì‹œì „ ê°ì²´ í˜•ë³€í™˜ ì‚¬ìš©
+		// => ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì€ ì‹ë³„ìž(beanName)ì˜ Spring Beanì´ ì—†ëŠ” ê²½ìš° NoSuchBeanDefinitionException ë°œìƒ
+		CreateBean bean2=(CreateBean)context.getBean("createBean");
 		bean2.display();
 		
-		//ClassPathXmlApplicaiotnContext.close() : ApplicationContext °´Ã¼¸¦ Á¦°ÅÇÏ´Â ¸Þ¼Òµå
-		// => ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê°¡ ¼Ò¸êµÇ±â Àü¿¡ ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê¿¡ ÀÇÇØ °ü¸®µÇ´Â ¸ðµç °´Ã¼(Spring Bean)¸¦ ÀÚµ¿ ¼Ò¸ê
-		// => Garbage Collector°¡ ¾Ë¾Æ¼­ Áö¿öÁÖ±â ¶§¹®¿¡ ÀÛ¼ºÇÏÁö ¾Ê¾Æµµ ±¦ÂúÀ½
+		//ClassPathXmlApplicationContext.close() : ApplicationContext ê°ì²´ë¥¼ ì œê±°í•˜ëŠ” ë©”ì†Œë“œ
+		// => ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆê°€ ì†Œë©¸ë˜ê¸° ì „ì— ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆì— ì˜í•´ ê´€ë¦¬ë˜ëŠ” ëª¨ë“  ê°ì²´(Spring Bean)ë¥¼ ìžë™ ì†Œë©¸
 		((ClassPathXmlApplicationContext)context).close();
+		System.out.println("======================================================================");
 	}
 }

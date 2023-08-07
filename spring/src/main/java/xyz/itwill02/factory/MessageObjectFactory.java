@@ -1,14 +1,13 @@
 package xyz.itwill02.factory;
 
-//Factory µğÀÚÀÎ ÆĞÅÏÀ» ÀÌ¿ëÇÏ¿© ÀÛ¼ºµÈ Å¬·¡½º - Factory Å¬·¡½º(Provider Å¬·¡½º)
-// => ÇÁ·Î±×·¥ °³¹ß¿¡ ÇÊ¿äÇÑ °´Ã¼¸¦ »ı¼ºÇÏ¿© Á¦°øÇÏ´Â ±â´ÉÀÇ Å¬·¡½º - ÄÁÅ×ÀÌ³Ê(Container): °ü¸®´Â ÇÏÁö ¾ÊÀ½
+//Factory ë””ìì¸ íŒ¨í„´ì„ ì´ìš©í•˜ì—¬ ì‘ì„±ëœ í´ë˜ìŠ¤ - Factory í´ë˜ìŠ¤(Provider í´ë˜ìŠ¤)
+// => í”„ë¡œê·¸ë¨ ê°œë°œì— í•„ìš”í•œ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ì œê³µí•˜ëŠ” ê¸°ëŠ¥ì˜ í´ë˜ìŠ¤ - ì»¨í…Œì´ë„ˆ(Container) : ê´€ë¦¬ëŠ” í•˜ì§€ ì•ŠìŒ
+
 public class MessageObjectFactory {
-	//Factory Å¬·¡½º¿¡ ÀÇÇØ Á¦°øµÉ °´Ã¼¸¦ ±¸ºĞÇÏ±â À§ÇÑ »ó¼ö(Constant)
+	//Factory í´ë˜ìŠ¤ì— ì˜í•´ ì œê³µë  ê°ì²´ë¥¼ êµ¬ë¶„í•˜ê¸° ìœ„í•œ ìƒìˆ˜(Constant)
 	public static final int HELLO_MSG=1;
 	public static final int HI_MSG=2;
 	
-	//¸Å°³º¯¼ö¿¡ Àü´ŞµÈ °ªÀ» ºñ±³ÇÏ¿© ÇÊ¿äÇÑ °´Ã¼¸¦ »ı¼ºÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-	// => ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº Å¬·¡½º·Î °´Ã¼¸¦ »ı¼ºÇÏ¿© ¹İÈ¯ - ´Ù¸¥ °´Ã¼ »ı¼º ºÒ°¡
 	public static MessageObject getMessageObject(int messageObject) {
 		MessageObject object=null;
 		switch (messageObject) {

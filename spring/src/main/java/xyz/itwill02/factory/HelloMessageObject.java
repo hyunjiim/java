@@ -1,9 +1,6 @@
 package xyz.itwill02.factory;
 
-//xyz.itwill01.old ÆĞÅ°ÁöÀÇ HiMessageObject, HelloMessageObjectÀÇ °´Ã¼ »ı¼ºÀ»
-//°³¹ßÀÚ°¡ ¾Æ´Ñ Factory¿¡¼­ ´ë½Å ÇÏ¿© °áÇÕµµ¸¦ ³·Ãß´Â ¹æ¹ı
-
-//Factory Å¬·¡½º·Î Á¦°ø¹ŞÀº °´Ã¼°¡ º¯°æµÅµµ ¸Ş¼Òµå´Â º¯°æµÇÁö ¾Êµµ·Ï ¹İµå½Ã ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹Ş¾Æ ÀÛ¼º
+//Factory í´ë˜ìŠ¤ë¡œ ì œê³µë°›ì€ ê°ì²´ê°€ ë³€ê²½ë¼ë„ ë©”ì†Œë“œëŠ” ë³€ê²½ë˜ì§€ ì•Šë„ë¡ ë°˜ë“œì‹œ ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì•„ ì‘ì„±
 public class HelloMessageObject implements MessageObject {
 
 	@Override

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	<!-- 객체를 만들기 위한 함수 아님 -->
+	<h1>JSON 클래스 함수</h1>
+	<hr>
+	<p>JSON 관련 프로퍼티와 메소드를 제공하는 클래스 함수</p>
+	<h3>JSON 정의</h3>
+	<p>JSON은 데이터 구조와 실제 데이터를 다른 언어 및 플랫폼에서 해석 가능한
+	형식으로 전송할 수 있는 데이터 교환 포멧</p>
+	<p>사람이 읽을 수 있는 문서로 이루어졌으며, 코딩도 더 짧고 처리속도가 빠른
+	경량 언어</p>
+	<p>임시 데이터 저장에 적합</p>
+	<p>모든 유형의 프로그래밍 언어를 위한 데이터 포맷으로 사용될 수 있어 고도의
+	상호 운용성 제공</p>
+	<p>데이터베이스에 저장되어 있는 고객 우편 주소의 유효성을 검증하기 위해 해당
+	주소 데이터를 JSON 형식으로 주소 검증 서비스 API에 전송 가능</p>
+	
+	<script type="text/javascript">
+	//JSON 기능으로 Object 객체를 생성하여 변수에 저장
+	var student={"num":1000, "name":"홍길동"};
+	//alert("변수의 자료형 = "+typeof(student)); //변수의 자료형 = object
+	
+	//Object 객체가 저장된 변수를 출력하면 자동으로 toString() 메소드 호출
+	//Object.toString(): 객체를 생성한 클래스 함수명을 문자값으로 반환하는 메소드
+	//alert("student = "+student); //[object Object] >> Object 객체
+	
+	//alert("학번 = "+student.num+", 이름 = "+ student.name); //학번 = 1000, 이름 = 홍길동
+	
+	//JSON.stringify(object): 매개변수로 전달받은 자바스크립트 객체를 JSON 형식의 문자값으로
+	//변환하여 반환하는 메소드 
+	//=>REST 웹프로그램을 요청할 경우 자바스크립트 객체를 JSON 형식의 문자값으로 변환하여
+	//전달하기 위해 사용
+	//REST API(REpresentation State Transfer)
+	//=> REST는 자원의 표현에 의한 상태 전달, HTTP URI를 통해 자원을 명시하고, HTTP 메소드를 통해 
+	//자원에 대한 CRUD(Create,Read,Update,Delete) Operation 적용
+	//=> REST API는 REST를 기반으로 서비스 API를 구현한것
+	var str=JSON.stringify(student);
+	//alert("변수의 자료형 = "+typeof(str)); //변수의 자료형 = string
+	//alert("str = "+str); //str = {"num":1000,"name":"홍길동"}
+	
+	//JSON.parse(string): 매개변수로 전달받은 JSON 형식의 문자값을 자바스크립트 객체로
+	//변환하여 반환하는 메소드 - eval 함수 사용 가능
+	//=>REST 웹프로그램에 대한 응답 결과를 JSON 형식의 문자값으로 제공받아 자바스크립트
+	//객체로 변환하여 사용
+	//var stu=JSON.parse(str);
+	var stu=eval("("+str+")");
+
+	//alert("변수의 자료형 = "+typeof(stu)); //변수의 자료형 = object
+	alert("학번 = "+stu.num+", 이름 = "+ stu.name); //학번 = 1000, 이름 = 홍길동
+	</script>
+</body>
+</html>

@@ -2,6 +2,6 @@ package xyz.itwill04.bean;
 
 public class LazyInitBean {
 	public LazyInitBean() {
-		System.out.println("### LazyInitBean Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### LazyInitBean í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 }

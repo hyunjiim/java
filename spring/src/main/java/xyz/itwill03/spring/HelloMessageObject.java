@@ -1,6 +1,6 @@
 package xyz.itwill03.spring;
 
-//Spring Container°¡ Factory ¿ªÇÒ
+//Spring Containerê°€ Factory ì—­í• 
 public class HelloMessageObject implements MessageObject {
 	@Override
 	public String getMessage() {

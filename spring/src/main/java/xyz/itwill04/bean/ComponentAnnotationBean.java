@@ -2,19 +2,17 @@ package xyz.itwill04.bean;
 
 import org.springframework.stereotype.Component;
 
-//@Component: Å¬·¡½º¸¦ ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê°¡ °ü¸®ÇÏ´Â °´Ã¼(Spring Bean)À¸·Î µî·ÏÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç
-// => Å¬·¡½ºÀÇ ÀÌ¸§À» Spring BeanÀ» ±¸ºĞÇÏ´Â ½Äº°ÀÚ(beanName)·Î »ç¿ë -  Ã¹¹øÂ° ¹®ÀÚ´Â ¼Ò¹®ÀÚ·Î
-// => @Component ¾î³ëÅ×ÀÌ¼ÇÀÇ value ¼Ó¼ºÀ» »ç¿ëÇÏ¿© ½Äº°ÀÚ(beanName) º¯°æ °¡´É - value ¼Ó¼º°ª¸¸ Á¸ÀçÇÒ °æ¿ì ¼Ó¼º°ª¸¸ ¼³Á¤ °¡´É
-
-//XMLÀÌ³ª Configuration ¿¤¸®¸ÕÆ® »ç¿ë ÀÌÀ¯: ¶óÀÌºê·¯¸®·Î ¹èÆ÷¹ŞÀº ÆÄÀÏÀ» Spring BeanÀ¸·Î »ç¿ëÇÏ°í ½ÍÀº °æ¿ì 
+//@Component : í´ë˜ìŠ¤ë¥¼ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆê°€ ê´€ë¦¬í•˜ëŠ” ê°ì²´(Spring Bean)ìœ¼ë¡œ ë“±ë¡í•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+// => í´ë˜ìŠ¤ì˜ ì´ë¦„ì„ Spring Beanì„ êµ¬ë¶„í•˜ê¸° ìœ„í•œ ì‹ë³„ì(beanNAme)ë¡œ ì‚¬ìš© - ì²«ë²ˆì§¸ ë¬¸ìëŠ” ì†Œë¬¸ìë¡œ ë³€í™˜
+// => @Component ì–´ë…¸í…Œì´ì…˜ì˜ value ì†ì„±ì„ ì‚¬ìš©í•˜ì—¬ ì‹ë³„ì(beanName) ë³€ê²½ ê°€ëŠ¥ - value ì†ì„±ë§Œ ì¡´ì¬í•  ê²½ìš° ì†ì„±ê°’ë§Œ ì„¤ì • ê°€ëŠ¥
 @Component("bean")
 public class ComponentAnnotationBean {
 	public ComponentAnnotationBean() {
-		System.out.println("### ComponentAnnotationBean Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### ComponentAnnotationBean í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 	
 	public void display() {
-		System.out.println("*** ComponentAnnotationBean Å¬·¡½ºÀÇ display() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** ComponentAnnotationBean í´ë˜ìŠ¤ì˜ display() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 	
 }

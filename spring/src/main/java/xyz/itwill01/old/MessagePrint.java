@@ -2,15 +2,16 @@ package xyz.itwill01.old;
 
 public class MessagePrint {
 	public void helloMessagePrint() {
-		//new ¿¬»êÀÚ¸¦ ÅëÇØ °´Ã¼ Á÷Á¢ »ı¼º - °´Ã¼ °£ °áÇÕµµ°¡ ¸Å¿ì ³ôÀ½
-		//HelloMessageObject Å¬·¡½º°¡ ¾Æ´Ñ HiMessageObject Å¬·¡½ºÀÇ ¸Ş¼Òµå¸¦ »ç¿ëÇÏ°í ½ÍÀ¸¸é?
-		// => HelloMessageObject¸¦ ÂüÁ¶ÇÏ´Â ´Ù¸¥ Å¬·¡½º°¡ ÀÖÀ» ¼ö ÀÖÀ¸¹Ç·Î ±âÁ¸¿¡ ÀÛ¼ºÇÑ
-		//HelloMessageObject¸¦ ¹Ù²Ù±â º¸´Ü »õ·Î¿î ¸Ş¼Òµå¸¦ ´Ù½Ã ¸¸µé¾î¾ß ÇÔ
+		//new ì—°ì‚°ìë¥¼ í†µí•´ ê°ì²´ ì§ì ‘ ìƒì„± - ê°ì²´ ê°„ ê²°í•©ë„ê°€ ë§¤ìš° ë†’ìŒ
+		//HelloMessageObject í´ë˜ìŠ¤ê°€ ì•„ë‹Œ HiMessageObject í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•˜ê³  ì‹¶ìœ¼ë©´?
+		// => HelloMessageObjectë¥¼ ì°¸ì¡°í•˜ëŠ” ë‹¤ë¥¸ í´ë˜ìŠ¤ê°€ ìˆì„ ìˆ˜ ìˆìœ¼ë¯€ë¡œ, ê¸°ì¡´ì— ì‘ì„±í•œ
+		//HelloMessageObjectë¥¼ ë°”ê¾¸ê¸° ë³´ë‹¨ ìƒˆë¡œìš´ ë©”ì†Œë“œë¥¼ ë‹¤ì‹œ ë§Œë“¤ì–´ì•¼ í•¨
 		HelloMessageObject object=new HelloMessageObject();
 		String message=object.getHelloMessage();
 		System.out.println("message = "+message);
 	}
 	
+	//HiMessageObject í´ë˜ìŠ¤ì˜ hiMessage() ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ìƒˆë¡œìš´ ë©”ì†Œë“œ ìƒì„±
 	public void hiMessagePrint() {
 		HiMessageObject object=new HiMessageObject();
 		String message=object.getHiMessage();

@@ -7,9 +7,9 @@ public class LogHelloWorld {
 	private static final Logger logger=LoggerFactory.getLogger(LogHelloWorld.class);
 	
 	public String hello(String name) {
-		logger.info("½ÃÀÛ");
-		String message=name+"´Ô, ¾È³çÇÏ¼¼¿ä.";
-		logger.info("Á¾·á");
+		logger.info("ì‹œìž‘");
+		String message=name+"ë‹˜, ì•ˆë…•í•˜ì„¸ìš”.";
+		logger.info("ì¢…ë£Œ");
 		return message;
 	}
 }
