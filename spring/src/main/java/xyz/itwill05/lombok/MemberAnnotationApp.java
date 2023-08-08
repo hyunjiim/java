@@ -5,9 +5,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MemberAnnotationApp {
 	public static void main(String[] args) {
-		System.out.println("=============================== Spring Container ÃÊ±âÈ­ Àü ===============================");
+		System.out.println("=============== Spring Container ì´ˆê¸°í™” ì „ ===============");
 		ApplicationContext context=new ClassPathXmlApplicationContext("05-5_lombok.xml");
-		System.out.println("=============================== Spring Container ÃÊ±âÈ­ ÈÄ ===============================");
+		System.out.println("=============== Spring Container ì´ˆê¸°í™” í›„ ===============");
 		MemberService service=context.getBean("memberService", MemberService.class);
 		
 		service.addMember(null);
@@ -15,7 +15,7 @@ public class MemberAnnotationApp {
 		service.removeMember(null);
 		service.getMember(null);
 		service.getMemberList();
-		System.out.println("==========================================================================================");
-		((ClassPathXmlApplicationContext)context).close();
+		System.out.println("==========================================================");
+		((ClassPathXmlApplicationContext)context).close();		
 	}
 }

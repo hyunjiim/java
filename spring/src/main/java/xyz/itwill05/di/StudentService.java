@@ -2,7 +2,7 @@ package xyz.itwill05.di;
 
 import java.util.List;
 
-//ÇĞ»ıÁ¤º¸¸¦ Ã³¸®ÇÏ´Â Service Å¬·¡½º°¡ ¹İµå½Ã »ó¼Ó¹Ş¾Æ¾ßµÇ´Â ÀÎÅÍÆäÀÌ½º
+//í•™ìƒì •ë³´ë¥¼ ì²˜ë¦¬í•˜ëŠ” Service í´ë˜ìŠ¤ê°€ ë°˜ë“œì‹œ ìƒì†ë°›ì•„ì•¼ ë˜ëŠ” ì¸í„°í˜ì´ìŠ¤
 public interface StudentService {
 	void addStudent(Student student);
 	void modifyStudent(Student student);

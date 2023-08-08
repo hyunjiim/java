@@ -5,9 +5,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AnnotationStudentApp {
 	public static void main(String[] args) {
-		System.out.println("=============== Spring Container ÃÊ±âÈ­ Àü ===============");
+		System.out.println("=============== Spring Container ì´ˆê¸°í™” ì „ ===============");
 		ApplicationContext context=new ClassPathXmlApplicationContext("05-4_diAnnotation.xml");
-		System.out.println("=============== Spring Container ÃÊ±âÈ­ ÈÄ ===============");
+		System.out.println("=============== Spring Container ì´ˆê¸°í™” í›„ ===============");
 		//StudentService service=context.getBean("annotationStudentServiceImpl", StudentService.class);
 		StudentService service=context.getBean("studentService", StudentService.class);
 		service.addStudent(null);

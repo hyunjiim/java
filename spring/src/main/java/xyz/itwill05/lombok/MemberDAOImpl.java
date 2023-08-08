@@ -6,45 +6,42 @@ import org.springframework.stereotype.Repository;
 
 import lombok.extern.slf4j.Slf4j;
 
-//Å¬·¡½º¿¡¼­ ÀÎÅÍÆäÀÌ½º ¸¸µé±â
-//Å¬·¡½º ¿ìÅ¬¸¯ >> Refactor >> Extract Interface·Î ÀÎÅÍÆäÀÌ½º ÃßÃâ
-
+//í´ë˜ìŠ¤ì—ì„œ ì¸í„°í˜ì´ìŠ¤ ë§Œë“¤ê¸°
+//í´ë˜ìŠ¤ ìš°í´ë¦­ >> Refactor >> Extract Interfaceë¡œ ì¸í„°í˜ì´ìŠ¤ ì¶”ì¶œ
 @Slf4j
 @Repository
 public class MemberDAOImpl implements MemberDAO {
 	public MemberDAOImpl() {
-		log.info("MemberDAOImpl Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ");
+		log.info("MemberDAOImpl í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ");
 	}
 	
 	@Override
 	public int insertMember(Member member) {
-		log.info("MemberDAOImpl Å¬·¡½ºÀÇ insertMember() ¸Ş¼Òµå È£Ãâ");
+		log.info("MemberDAOImpl í´ë˜ìŠ¤ì˜ insertMember() ë©”ì†Œë“œ í˜¸ì¶œ");
 		return 0;
 	}
 	
 	@Override
 	public int updateMember(Member member) {
-		log.info("MemberDAOImpl Å¬·¡½ºÀÇ updateMember() ¸Ş¼Òµå È£Ãâ");
+		log.info("MemberDAOImpl í´ë˜ìŠ¤ì˜ updateMember() ë©”ì†Œë“œ í˜¸ì¶œ");
 		return 0;
 	}
 	
 	@Override
 	public int deleteMember(String id) {
-		log.info("MemberDAOImpl Å¬·¡½ºÀÇ deleteMember() ¸Ş¼Òµå È£Ãâ");
+		log.info("MemberDAOImpl í´ë˜ìŠ¤ì˜ deleteMember() ë©”ì†Œë“œ í˜¸ì¶œ");
 		return 0;
 	}
 	
 	@Override
 	public Member selectMember(String id) {
-		log.info("MemberDAOImpl Å¬·¡½ºÀÇ selectMember() ¸Ş¼Òµå È£Ãâ");
+		log.info("MemberDAOImpl í´ë˜ìŠ¤ì˜ selectMember() ë©”ì†Œë“œ í˜¸ì¶œ");
 		return null;
 	}
 	
 	@Override
 	public List<Member> selectMemberList() {
-		log.info("MemberDAOImpl Å¬·¡½ºÀÇ selectMemberList() ¸Ş¼Òµå È£Ãâ");
+		log.info("MemberDAOImpl í´ë˜ìŠ¤ì˜ selectMemberList() ë©”ì†Œë“œ í˜¸ì¶œ");
 		return null;
-	}
-	
-	
+	}	
 }

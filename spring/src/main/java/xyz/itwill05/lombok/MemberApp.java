@@ -1,28 +1,31 @@
 package xyz.itwill05.lombok;
 
+//https://inpa.tistory.com/entry/GOF-%F0%9F%92%A0-%EB%B9%8C%EB%8D%94Builder-%ED%8C%A8%ED%84%B4-%EB%81%9D%ED%8C%90%EC%99%95-%EC%A0%95%EB%A6%AC ì°¸ê³ 
+//Builder Pattern : ë³µì¡í•œ ê°ì²´ì˜ ìƒì„± ê³¼ì •ê³¼ í‘œí˜„ë°©ë²•ì„ ë¶„ë¦¬í•˜ì—¬ ë‹¤ì–‘í•œ êµ¬ì„±ì˜ ì¸í„°í˜ì´ìŠ¤ë¥¼ ë§Œë“œëŠ” ìƒì„± íŒ¨í„´
+// => ìƒì„±ìì— ë“¤ì–´ê°ˆ ë§¤ê°œë³€ìˆ˜ë¥¼ ë©”ì†Œë“œë¡œ í•˜ë‚˜í•˜ë‚˜ ë°›ì•„ë“¤ì´ê³  ë§ˆì§€ë§‰ì— í†µí•© ë¹Œë“œí•˜ì—¬ ê°ì²´ë¥¼ ìƒì„±í•˜ëŠ” ë°©ì‹
+
+
 public class MemberApp {
 	public static void main(String[] args) {
-		Member member1=new Member("abc123", "È«±æµ¿", "abc@itwill.xyz");
+		Member member1=new Member("abc123", "í™ê¸¸ë™", "abc@itwill.xyz");
 		
-		System.out.println("¾ÆÀÌµğ = "+member1.getId());
-		System.out.println("ÀÌ¸§ = "+member1.getName());
-		System.out.println("ÀÌ¸ŞÀÏ = "+member1.getEmail());
+		System.out.println("ì•„ì´ë”” = "+member1.getId());
+		System.out.println("ì´ë¦„ = "+member1.getName());
+		System.out.println("ì´ë©”ì¼ = "+member1.getEmail());
 		System.out.println("===============================================================");
-		//Memebr Å¬·¡½º·Î »ı¼ºµÈ ÂüÁ¶º¯¼ö¸¦ Ãâ·ÂÇÒ °æ¿ì Member Å¬·¡½ºÀÇ toString() ¸Ş¼Òµå ÀÚµ¿ È£Ãâ
-		System.out.println(member1); //Member(id=abc123, name=È«±æµ¿, email=abc@itwill.xyz)
+		//Member í´ë˜ìŠ¤ë¡œ ìƒì„±ëœ ì°¸ì¡°ë³€ìˆ˜ë¥¼ ì¶œë ¥í•  ê²½ìš° Member í´ë˜ìŠ¤ì˜ toString() ë©”ì†Œë“œ ìë™ í˜¸ì¶œ
+		System.out.println(member1); //Member(id=abc123, name=í™ê¸¸ë™, email=abc@itwill.xyz)
 		System.out.println("===============================================================");
-		//Member °´Ã¼¸¦ new ¿¬»êÀÚ°¡ ¾Æ´Ñ builder() ¸Ş¼Òµå¸¦ ÅëÇØ »ı¼º
-		//Å¬·¡½º¸í.builder() : Å¬·¡½º ³»ºÎ¿¡ ÀÛ¼ºµÈ Builder Å¬·¡½º·Î °´Ã¼¸¦ »ı¼ºÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		// => Builder °´Ã¼·Î ÇÊµå¸í°ú °°Àº ÀÌ¸§ÀÇ ¸Ş¼Òµå¸¦ È£ÃâÇÏ¿© ÇÊµå°ª º¯°æ - Builder °´Ã¼ ¹İÈ¯
-		// => Builder.build() : Å¬·¡½º·Î °´Ã¼¸¦ »ı¼ºÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+		//Member ê°ì²´ë¥¼ new ì—°ì‚°ìê°€ ì•„ë‹Œ builder() ë©”ì†Œë“œë¥¼ í†µí•´ ìƒì„±
+		//í´ë˜ìŠ¤ëª….builder(): í´ë˜ìŠ¤ ë‚´ë¶€ì— ì‘ì„±ëœ Builder í´ë˜ìŠ¤ë¥¼ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		// => Builder ê°ì²´ë¡œ í•„ë“œëª…ê³¼ ê°™ì€ ì´ë¦„ì˜ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ í•„ë“œê°’ ë³€ê²½ - Builder ê°ì²´ ë°˜í™˜
+		// => Builder.build() : í´ë˜ìŠ¤ë¡œ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 		Member member2=Member.builder()
 				.id("xyz789")
-				.name("ÀÓ²©Á¤")
+				.name("ì„êº½ì •")
 				.email("xyz@itwill.xyz")
 				.build();
-		System.out.println(member2); //Member(id=xyz789, name=ÀÓ²©Á¤, email=xyz@itwill.xyz)
+		System.out.println(member2); // Member(id=xyz789, name=ì„êº½ì •, email=xyz@itwill.xyz)
 		System.out.println("===============================================================");
-		
-		
 	}
 }

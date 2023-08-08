@@ -8,79 +8,72 @@ import org.springframework.stereotype.Service;
 
 //@Component("studentService")
 
-//@Service : Service Å¬·¡½º¸¦ ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê°¡ °ü¸®ÇÒ ¼ö ÀÖ´Â Spring BeanÀ¸·Î µî·ÏÇÏ±â À§ÇÑ ¾î³ëÅ×ÀÌ¼Ç
-// => Å¬·¡½ºÀÇ ÀÌ¸§À» beanNameÀ¸·Î ÀÚµ¿ ¼³Á¤ÇÏÁö¸¸ value ¼Ó¼ºÀ» »ç¿ëÇÏ¿© beanName º¯°æ °¡´É
+//@Service : Service í´ë˜ìŠ¤ë¥¼ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆê°€ ê´€ë¦¬í•  ìˆ˜ ìˆëŠ” Spring Beanìœ¼ë¡œ ë“±ë¡í•˜ê¸° ìœ„í•œ ì–´ë…¸í…Œì´ì…˜
+// => í´ë˜ìŠ¤ì˜ ì´ë¦„ì„ beanNameìœ¼ë¡œ ìë™ ì„¤ì •í•˜ì§€ë§Œ value ì†ì„±ì„ ì‚¬ìš©í•˜ì—¬ beanName ë³€ê²½ ê°€ëŠ¥
 @Service("studentService")
 public class AnnotationStudentServiceImpl implements StudentService {
-	//@Autowired : ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê·ÎºÎÅÍ Spring BeanÀ» Á¦°ø¹Ş¾Æ ÇÊµå¿¡ ÀúÀåÇÏ¿© ÀÇÁ¸°ü°è¸¦
-	//ÀÚµ¿À¸·Î ±¸ÇöÇÏ±â À§ÇÑ ¾î³ëÅ×ÀÌ¼Ç - DI ±¸ÇöÀ» À§ÇÑ ¾î³ëÅ×ÀÌ¼Ç
-	// => ÇÊµå¿¡ @Autowired ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ¿© ÀÇÁ¸¼º ÁÖÀÔ - ÇÊµå ·¹º§ÀÇ ÀÇÁ¸¼º ÁÖÀÔ
-	// => ÇÊµå°¡ ¿©·¯°³ ¼±¾ğµÈ °æ¿ì ÇÊµå¸¶´Ù @Autowired ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ¿© ÀÇÁ¸¼º ÁÖÀÔ
-	// => bean ¿¤¸®¸ÕÆ®ÀÇ autowire ¼Ó¼º°ªÀ» [byType]À¸·Î ¼³Á¤ÇÑ °Í°ú °°Àº ¹æ¹ıÀ¸·Î ÀÇÁ¸¼º ÁÖÀÔ - Setter Injection
-	// => Setter ¸Ş¼Òµå¸¦ ÀÌ¿ëÇÏ¿© ÀÇÁ¸°ü°è¸¦ ±¸ÇöÇÏÁö¸¸ Setter ¸Ş¼Òµå¸¦ ¼±¾ğÇÏÁö ¾Ê¾Æµµ ÀÇÁ¸¼º ÁÖÀÔ °¡´É
 	
-	//¹®Á¦Á¡)ÇÊµåÀÇ ÀÚ·áÇü°ú °°Àº ÀÚ·áÇüÀÇ Spring BeanÀÌ 2°³ ÀÌ»óÀÎ °æ¿ì ÀÇÁ¸¼º ÁÖÀÔ ½ÇÆĞ - NoUniqueBeanDefinitionException ¹ß»ı - ??????
-	// => Annotation
-	// => https://haruhiism.tistory.com/182 Âü°í
-	
-	//ÇØ°á¹ı-1)ÇÊµåÀÇ ÀÚ·áÇü°ú °°Àº ÀÚ·áÇüÀÇ Spring BeanÀÌ 2°³ ÀÌ»óÀÎ °æ¿ì ÇÊµå¿¡ ÀúÀåµÉ Spring BeanÀÇ
-	//½Äº°ÀÚ(beanName)À» ÇÊµå¸í°ú µ¿ÀÏÇÏ°Ô º¯°æ
-	// => @Autowird ¾î³ëÅ×ÀÌ¼ÇÀº ÇÊµåÀÇ ÀÚ·áÇü°ú °°Àº ÀÚ·áÇüÀÇ Spring BeanÀÌ 2°³ ÀÌ»óÀÎ °æ¿ì
-	//aurowire ¼Ó¼º°ªÀ» [byName]À¸·Î ¼³Á¤ÇÑ °Í°ú µ¿ÀÏÇÑ ¹æ¹ıÀ¸·Î ÀÇÁ¸¼º ÁÖÀÔ
-	
-	//ÇØ°á¹ı-2)ÇÊµåÀÇ ÀÚ·áÇü°ú °°Àº ÀÚ·áÇüÀÇ Spring BeanÀÌ 2°³ ÀÌ»óÀÎ °æ¿ì ÇÊµå¿¡ ÀúÀåµÉ Spring
-	//BeanÀÇ Å¬·¡½º¿¡ @Primary ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ¿© ÀÇÁ¸¼º ÁÖÀÔ - ¿ì¼±±Ç Á¦°øÇÏ´Â ¾î³ëÅ×ÀÌ¼ÇÀ¸·Î
-	//¿©·¯°³ »ç¿ë ½Ã ¿¡·¯ ¹ß»ı(¿ì¼±±ÇÀ» 2°³ ÀÌ»óÀÇ Spring Bean¿¡ ºÎ¿©ÇÒ °æ¿ì)
-	
-	//ÇØ°á¹ı-3)@Autowired ¾î³ëÅ×ÀÌ¼Ç¿¡ Á¾¼ÓµÈ @Qualifier ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ¿© ÀÇÁ¸¼º ÁÖÀÔ
-	//@Qualifier : ÇÊµå¿¡ ÀúÀåµÈ Spring BeanÀ» Á÷Á¢ ÁöÁ¤ÇÏ¿© ÀÇÁ¸¼º ÁÖÀÔ
-	// => value ¼Ó¼º¿¡ ÀÇÁ¸¼º ÁÖÀÔÀ» À§ÇÑ Spring Bean ½Äº°ÀÚ(beanName)¸¦ ¼Ó¼º°ªÀ¸·Î ¼³Á¤
-	// => value ¼Ó¼º¿Ü¿¡ ´Ù¸¥ ¼Ó¼ºÀÌ ¾ø´Â °æ¿ì ¼Ó¼º°ª¸¸ ¼³Á¤ °¡´É 
+	//@Autowired : ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆë¡œë¶€í„° Spring Beanì„ ì œê³µë°›ì•„ í•„ë“œì— ì €ì¥í•˜ì—¬ ì˜ì¡´ê´€ê³„ë¥¼
+	//ìë™ìœ¼ë¡œ êµ¬í˜„í•˜ê¸° ìœ„í•œ ì–´ë…¸í…Œì´ì…˜ - DI êµ¬í˜„ì„ ìœ„í•œ ì–´ë…¸í…Œì´ì…˜
+	// => í•„ë“œì— @Autowired ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ì—¬ ì˜ì¡´ì„± ì£¼ì… - í•„ë“œ ë ˆë²¨ì˜ ì˜ì¡´ì„± ì£¼ì…
+	// => í•„ë“œê°€ ì—¬ëŸ¬ê°œ ì„ ì–¸ëœ ê²½ìš° í•„ë“œë§ˆë‹¤ @Autowired ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ì—¬ ì˜ì¡´ì„± ì£¼ì…
+	// => bean ì—˜ë¦¬ë¨¼íŠ¸ì˜ autowire ì†ì„±ê°’ì„ [byType]ìœ¼ë¡œ ì„¤ì •í•œ ê²ƒê³¼ ê°™ì€ ë°©ë²•ìœ¼ë¡œ ì˜ì¡´ì„± ì£¼ì… - Setter Injection
+	//ë¬¸ì œì ) í•„ë“œì˜ ìë£Œí˜•ê³¼ ê°™ì€ ìë£Œí˜•ì˜ Spring Beanì´ 2ê°œ ì´ìƒì¸ ê²½ìš° ì˜ì¡´ì„± ì£¼ì… ì‹¤íŒ¨ - NoUniqueBeanDefinitionException
+	//í•´ê²°ë²•-1) í•„ë“œì˜ ìë£Œí˜•ê³¼ ê°™ì€ ìë£Œí˜•ì˜ Spring Beanì´ 2ê°œ ì´ìƒì¸ ê²½ìš° í•„ë“œì— ì €ì¥ë  Spring Beanì˜
+	//ì‹ë³„ì(beanName)ì„ í•„ë“œëª…ê³¼ ë™ì¼í•˜ê²Œ ë³€ê²½
+	// => @Autowired ì–´ë…¸í…Œì´ì…˜ì€ í•„ë“œì˜ ìë£Œí˜•ê³¼ ê°™ì€ ìë£Œí˜•ì˜ Spring Beanì´ 2ê°œ ì´ìƒì¸ ê²½ìš°
+	//autowire ì†ì„±ê°’ì„ [byName]ìœ¼ë¡œ ì„¤ì •í•œ ê²ƒê³¼ ë™ì¼í•œ ë°©ë²•ìœ¼ë¡œ ì˜ì¡´ì„± ì£¼ì…
+	//í•´ê²°ë²•-2)í•„ë“œì˜ ìë£Œí˜•ê³¼ ê°™ì€ ìë£Œí˜•ì˜ Spring Beanì´ 2ê°œ ì´ìƒì¸ ê²½ìš° í•„ë“œì— ì €ì¥ë  Spring Beanì˜
+	//í´ë˜ìŠ¤ì— @Primary ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ì—¬ ì˜ì¡´ì„± ì£¼ì…
+	//í•´ê²°ë²•-3)@Autowired ì–´ë…¸í…Œì´ì…˜ì— ì¢…ì†ëœ @Qualifier ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ì—¬ ì˜ì¡´ì„± ì£¼ì…
+	//@Qualifier : í•„ë“œì— ì €ì¥ë  Spring Beanì„ ì§ì ‘ ì§€ì •í•˜ì—¬ ì˜ì¡´ì„± ì£¼ì…
+	// => value ì†ì„±ì— ì˜ì¡´ì„± ì£¼ì…ì„ ìœ„í•œ Spring Bean ì‹ë³„ì(beanName)ë¥¼ ì†ì„±ê°’ìœ¼ë¡œ ì„¤ì •
+	// => value ì†ì„±ì™¸ì— ë‹¤ë¥¸ ì†ì„±ì´ ì—†ëŠ” ê²½ìš° ì†ì„±ê°’ë§Œ ì„¤ì • ê°€ëŠ¥
 	@Autowired
-	//@Qualifier(value = "annotationStudentJdbcDAO")
+	//@Qualifier("annotationStudentJdbcDAO")
 	@Qualifier("annotationStudentMybatisDAO")
 	private StudentDAO studentDAO;
 	
-
-	//@Autowired ¾î³ëÅ×ÀÌ¼Ç ´ë½Å @Resource ¾î³ëÅ×ÀÌ¼Ç ¶Ç´Â @Inject ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ¿© ÀÇÁ¸¼º ÁÖÀÔ °¡´É
-	// => @Autowired ¾î³ëÅ×ÀÌ¼ÇÀº Spring ÇÁ·¹ÀÓ¿öÅ©ÀÇ ¶óÀÌºê·¯¸®¿¡¼­ Á¦°øÇÏ´Â ¾î³ëÅ×ÀÌ¼ÇÀÌÁö¸¸ 
-	//@Resource ¾î³ëÅ×ÀÌ¼Ç ¶Ç´Â @Inject ¾î³ëÅ×ÀÌ¼ÇÀº Java ¶óÀÌºê·¯¸®¿¡¼­ Á¦°øÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç
-	// => @Resource ¾î³ëÅ×ÀÌ¼Ç ¶Ç´Â @Inject ¾î³ëÅ×ÀÌ¼ÇÀº ´Ù¸¥ ÇÁ·¹ÀÓ¿öÅ©¿¡¼­µµ »ç¿ë °¡´É
-	//@Resource ¾î³ëÅ×ÀÌ¼Ç : bean ¿¤¸®¸ÕÆ®ÀÇ autowire ¼Ó¼º°ªÀ» [byName]À¸·Î ¼³Á¤ÇÑ °Í°ú µ¿ÀÏÇÑ ¹æ¹ıÀ¸·Î ÀÇÁ¸¼º ÁÖÀÔ
-	//@Inject ¾î³ëÅ×ÀÌ¼Ç : bean ¿¤¸®¸ÕÆ®ÀÇ autowire ¼Ó¼º°ªÀ» [byType]À¸·Î ¼³Á¤ÇÑ °Í°ú µ¿ÀÏÇÑ ¹æ¹ıÀ¸·Î ÀÇÁ¸¼º ÁÖÀÔ
-	// => µ¿ÀÏÇÑ ÀÚ·áÇüÀÇ Spring BeanÀÌ ¿©·¯°³ ÀÖ´Â °æ¿ì @Named ¾î³ëÅ×ÀÌ¼ÇÀ» »ç¿ëÇÏ¿© ÀÇÁ¸¼º ÁÖÀÔ
+	//@Autowired ì–´ë…¸í…Œì´ì…˜ ëŒ€ì‹  @Resource ì–´ë…¸í…Œì´ì…˜ ë˜ëŠ” @Inject ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ì—¬ ì˜ì¡´ì„± ì£¼ì… ê°€ëŠ¥
+	// => @Autowired ì–´ë…¸í…Œì´ì…˜ì€ Spring í”„ë ˆì„ì›Œí¬ì˜ ë¼ì´ë¸ŒëŸ¬ë¦¬ì—ì„œ ì œê³µí•˜ëŠ” ì–´ë…¸í…Œì´ì…˜ì´ì§€ë§Œ
+	//@Resource ì–´ë…¸í…Œì´ì…˜ ë˜ëŠ” @Inject ì–´ë…¸í…Œì´ì…˜ì€ Java ë¼ì´ë¸ŒëŸ¬ë¦¬ì—ì„œ ì œê³µí•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+	// => @Resource ì–´ë…¸í…Œì´ì…˜ ë˜ëŠ” @Inject ì–´ë…¸í…Œì´ì…˜ì€ ë‹¤ë¥¸ í”„ë ˆì„ì›Œí¬ì—ì„œë„ ì‚¬ìš© ê°€ëŠ¥
+	//@Resource ì–´ë…¸í…Œì´ì…˜ : bean ì—˜ë¦¬ë¨¼íŠ¸ì˜ autowire ì†ì„±ê°’ì„ [byName]ìœ¼ë¡œ ì„¤ì •í•œ ê²ƒê³¼ ë™ì¼í•œ ë°©ë²•ìœ¼ë¡œ ì˜ì¡´ì„± ì£¼ì…
+	//@Inject ì–´ë…¸í…Œì´ì…˜ : bean ì—˜ë¦¬ë¨¼íŠ¸ì˜ autowire ì†ì„±ê°’ì„ [byType]ìœ¼ë¡œ ì„¤ì •í•œ ê²ƒê³¼ ë™ì¼í•œ ë°©ë²•ìœ¼ë¡œ ì˜ì¡´ì„± ì£¼ì…
+	// => ë™ì¼í•œ ìë£Œí˜•ì˜ Spring Beanì´ ì—¬ëŸ¬ê°œ ìˆëŠ” ê²½ìš° @Named ì–´ë…¸í…Œì´ì…˜ì„ ì‚¬ìš©í•˜ì—¬ ì˜ì¡´ì„± ì£¼ì…
 	
 	public AnnotationStudentServiceImpl() {
-		System.out.println("### AnnotationStudentServiceImpl Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### AnnotationStudentServiceImpl í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 
 	@Override
 	public void addStudent(Student student) {
-		System.out.println("*** AnnotationStudentServiceImpl Å¬·¡½ºÀÇ addStudent(Student student) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentServiceImpl í´ë˜ìŠ¤ì˜ addStudent(Student student) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		studentDAO.insertStudent(student);
 	}
 
 	@Override
 	public void modifyStudent(Student student) {
-		System.out.println("*** AnnotationStudentServiceImpl Å¬·¡½ºÀÇ modifyStudent(Student student) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentServiceImpl í´ë˜ìŠ¤ì˜ modifyStudent(Student student) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		studentDAO.updateStudent(student);
 	}
 
 	@Override
 	public void removeStudent(int num) {
-		System.out.println("*** AnnotationStudentServiceImpl Å¬·¡½ºÀÇ removeStudent(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentServiceImpl í´ë˜ìŠ¤ì˜ removeStudent(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		studentDAO.deleteStudent(num);
 	}
 
 	@Override
 	public Student getStudent(int num) {
-		System.out.println("*** AnnotationStudentServiceImpl Å¬·¡½ºÀÇ getStudent(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentServiceImpl í´ë˜ìŠ¤ì˜ getStudent(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return studentDAO.selectStudent(num);
 	}
 
 	@Override
 	public List<Student> getStudentList() {
-		System.out.println("*** AnnotationStudentServiceImpl Å¬·¡½ºÀÇ getStudentList() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentServiceImpl í´ë˜ìŠ¤ì˜ getStudentList() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return studentDAO.selectStudentList();
 	}
+
 }

@@ -5,21 +5,21 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-//Set(°ÅÀÇ »ç¿ëÇÏÁö ¾ÊÀ½), List, Map, Properties µî Collection °´Ã¼¸¦ ÀúÀåÇÏ´Â DAO Å¬·¡½º
+//Set(ê±°ì˜ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ), List, Map, Properties ë“± Collection ê°ì²´ë¥¼ ì €ì¥í•˜ëŠ” DAO í´ë˜ìŠ¤
 public class CollectionBean {
 	private Set<String> nameSet;
 	private List<String> nameList;
-	//Collection °´Ã¼ÀÇ Á¦³×¸¯À» ÀÎÅÍÆäÀÌ½º·Î ¼³Á¤ÇÏ¸é Collection °´Ã¼ÀÇ ¿ä¼Ò¿¡´Â 
-	//ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº ÀÚ½ÄÅ¬·¡½º·Î »ı¼ºµÈ °´Ã¼¸¦ ¿ä¼Ò·Î Ãß°¡ °¡´É
-	// => ListController, LogoutController, LoginController¸¦ ÀúÀå °¡´É - Spring Controller°¡ °ü¸®ÇÒ ¼ö ÀÖ°Ô bean ¿¤¸®¸ÕÆ®¸¦ »ç¿ëÇÏ¿© °´Ã¼·Î »ı¼º
+	//Collection ê°ì²´ì˜ ì œë„¤ë¦­ì„ ì¸í„°í˜ì´ìŠ¤ë¡œ ì„¤ì •í•˜ë©´ Collection ê°ì²´ì˜ ìš”ì†Œì—ëŠ”
+	//ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìì‹í´ë˜ìŠ¤ë¡œ ìƒì„±ëœ ê°ì²´ë¥¼ ìš”ì†Œë¡œ ì¶”ê°€ ê°€ëŠ¥
+	// => ListController, LogoutController, LoginControllerë¥¼ ì €ì¥ ê°€ëŠ¥ 
+	// => Spring Controllerê°€ ê´€ë¦¬í•  ìˆ˜ ìˆê²Œ bean ì—˜ë¦¬ë¨¼íŠ¸ë¥¼ ì‚¬ìš©í•˜ì—¬ ê°ì²´ë¡œ ìƒì„±
 	private Set<Controller> controllerSet;
 	private List<Controller> controllerList;
 	private Map<String, Controller> controllerMap;
 	private Properties controllerProperties;
 	
-	
 	public CollectionBean() {
-		System.out.println("### CollectionBean Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### CollectionBean í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 
 	public Set<String> getNameSet() {

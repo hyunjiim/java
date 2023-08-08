@@ -11,8 +11,8 @@
 	<!-- Setter Injection을 사용하여 객체 필드에 Collection 객체에 저장하여 의존관계 구현 - DI -->
 	<bean class="xyz.itwill05.di.CollectionBean" id="collectionBean">
 		<property name="nameSet">
-			<!-- set: Set 객체를 생성하여 필드에 저장하기 위한 엘리먼트 -->
-			<!-- 객체가 만들어지는 것 만으로 끝나면 안됨 - 요소값(String) 저장 -->
+			<!-- set : Set 객체를 생성하여 필드에 저장하기 위한 엘리먼트 -->
+			<!-- 객체가 만들어지는 것만으로 끝나면 안됨 - 요소값(String) 저장 -->
 			<set>
 				<!-- value : Collection 객체에 값을 전달하여 요소로 추가하는 엘리먼트 -->
 				<!-- Set 객체에는 동일한 값이 저장되지 않음 -->
@@ -44,12 +44,13 @@
 				<ref bean="listController"/>
 			</set>
 		</property>
+		
 		<property name="controllerList">
-			<set>
+			<list>
 				<ref bean="loginController"/>
 				<ref bean="logoutController"/>
 				<ref bean="listController"/>
-			</set>
+			</list>
 		</property>
 		
 		<property name="controllerMap">

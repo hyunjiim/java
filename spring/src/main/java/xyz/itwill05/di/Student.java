@@ -69,5 +69,4 @@ public class Student {
 		this.email = email;
 	}
 	
-	
 }

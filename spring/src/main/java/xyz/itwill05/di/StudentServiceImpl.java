@@ -2,40 +2,34 @@ package xyz.itwill05.di;
 
 import java.util.List;
 
-//°áÇÕµµ¸¦ ³·Ãç À¯Áöº¸¼ö È¿À²¼º Áõ°¡ - Å¬·¡½º°¡ ¾Æ´Ñ ÀÎÅÍÆäÀÌ½º¸¦ ÅëÇØ ÀÇÁ¸/Æ÷ÇÔ °ü°è Çü¼º
-
-
-//Service Å¬·¡½º : ÇÁ·Î±×·¥ ½ÇÇà¿¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ Ã³¸® ±â´ÉÀ» Á¦°øÇÏ´Â Å¬·¡½º - ÄÄÆÛ³ÍÆ®
-//DAO Å¬·¡½º´Â ÇÏ³ªÀÇ Çà »ğÀÔ,»èÁ¦,º¯°æ,°Ë»öÇÏ´Â ±â´É¸¸À» Á¦°ø
-// => Service´Â ½ÇÁ¦ µ¥ÀÌÅÍ Ã³¸® ±â´ÉÀ» ´ã´çÇÏ´Â Å¬·¡½º
-// => Service Å¬·¡½ºÀÇ ¸Ş¼Òµå´Â ´Ù¼öÀÇ DAO °´Ã¼·Î ¸Ş¼Òµå¸¦ È£ÃâÇÏ¿© ÀÛ¼º - DAO ¸ğµâÈ­
-// => Service Å¬·¡½ºÀÇ ¸Ş¼Òµå¿¡¼­ DAO °´Ã¼¸¦ »ç¿ëÇÏ±â À§ÇØ DAO Å¬·¡½º¿Í Æ÷ÇÔ°ü°è(ÀÇÁ¸°ü°è)·Î ¼³Á¤ - TV/¸®¸ğÄÁ
-// => Æ÷ÇÔ°ü°è(ÀÇÁ¸°ü°è)¸¦ ¼³Á¤ÇÏ±â À§ÇØ º¸Åë ÇÊµå¸¦ »ç¿ë
-// => Service°¡  º¯°æµÅµµ Service Å¬·¡½º¸¦ »ç¿ëÇÏ´Â Å¬·¡½º(Controller - Model)¿¡ ¿µÇâÀ» ÃÖ¼ÒÈ­
-//ÇÏ±â À§ÇØ ¹İµå½Ã ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹Ş¾Æ ÀÛ¼º - °áÇÕµµ¸¦ ³·Ãç À¯Áöº¸¼öÀÇ È¿À²¼º Áõ°¡
+//Service í´ë˜ìŠ¤ : í”„ë¡œê·¸ë¨ ì‹¤í–‰ì— í•„ìš”í•œ ë°ì´íƒ€ ì²˜ë¦¬ ê¸°ëŠ¥ì„ ì œê³µí•˜ëŠ” í´ë˜ìŠ¤ - ì»´í¼ë„ŒíŠ¸
+// => Service í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œëŠ” ë‹¤ìˆ˜ì˜ DAO ê°ì²´ë¡œ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ì‘ì„± - DAO ëª¨ë“ˆí™”
+// => Service í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œì—ì„œ DAO ê°ì²´ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ DAO í´ë˜ìŠ¤ì™€ í¬í•¨ê´€ê³„(ì˜ì¡´ê´€ê³„)ë¡œ ì„¤ì •ë˜ë„ë¡ ì‘ì„±
+// => Service í´ë˜ìŠ¤ê°€ ë³€ê²½ë¼ë„ Service í´ë˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ëŠ” í´ë˜ìŠ¤(ì»¨íŠ¸ë¡¤ëŸ¬ - ëª¨ë¸)ì— ì˜í–¥ì„ 
+//ìµœì†Œí™” í•˜ê¸° ìœ„í•œ ë°˜ë“œì‹œ ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì•„ ì‘ì„± - ê²°í•©ë„ë¥¼ ë‚®ì¶° ìœ ì§€ë³´ìˆ˜ì˜ íš¨ìœ¨ì„± ì¦ê°€
 public class StudentServiceImpl implements StudentService {
-	//StudentJdbcDAO Å¬·¡½º·Î ÇÊµå ¼±¾ğ : Å¬·¡½º¿Í Å¬·¡½º°¡ Á÷Á¢ÀûÀ¸·Î °ü°è Çü¼º - StudentJdbcDAO °´Ã¼¸¸ ÀúÀå °¡´ÉÇÑ ÇÊµå
-	// => ÇÊµå¿¡ StudentJdbcDAO °´Ã¼¸¦ ÀúÀåÇØ¾ß¸¸ Æ÷ÇÔ°ü°è(ÀÇÁ¸°ü°è)°¡ ¿Ï¼º
-	// => StudentServiceImpl Å¬·¡½ºÀÇ ¸Ş¼Òµå¿¡¼­ ÇÊµå¿¡ ÀúÀåµÈ °´Ã¼·Î StudentJdbcDAO °´Ã¼·Î ¸Ş¼Òµå È£Ãâ
-	//¹®Á¦Á¡)¸¸¾à StudentJdbcDAO°¡ ¾Æ´Ñ ´Ù¸¥ DAO Å¬·¡½º¿Í ÀÇÁ¸/Æ÷ÇÔ °ü°è¸¦ Çü¼ºÇÑ´Ù¸é?
-	// => DAO Å¬·¡½º°¡ º¯°æµÉ °æ¿ì Service Å¬·¡½ºÀÇ ÇÊµå ¹× ¸Ş¼Òµå º¯°æ °¡´É
-	// => °áÇÕµµ°¡ ³ô¾Æ À¯Áöº¸¼öÀÇ È¿À²¼º °¨¼Ò
-	//private StudentJdbcDAO studentJdbcDao;
-	
-	
-	//StudentDAO ÀÎÅÍÆäÀÌ½º·Î ÇÊµå ¼±¾ğ - StudentDAO ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº ÀÚ½ÄÅ¬·¡½º·Î »ı¼ºµÈ °´Ã¼¸¸ ÀúÀå °¡´ÉÇÑ ÇÊµå
-	// => ÇÊµå¿¡ StudentDAO ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº DAO Å¬·¡½ºÀÇ °´Ã¼¸¦ ÀúÀåÇØ¾ß¸¸ Æ÷ÇÔ°ü°è(ÀÇÁ¸°ü°è) ¼º¸³
-	// => StudentServiceImpl Å¬·¡½ºÀÇ ¸Ş¼Òµå¿¡¼­ ÀÎÅÍÆäÀÌ½º·Î »ı¼ºµÈ ÇÊµåÀÇ Ãß»ó¸Ş¼Òµå¸¦ È£ÃâÇÏ¿©
-	//ÇÊµå¿¡ ÀúÀåµÈ ÀÚ½ÄÅ¬·¡½º °´Ã¼ÀÇ ¸Ş¼Òµå È£Ãâ - ¿À¹ö¶óÀÌµù¿¡ ÀÇÇÑ ´ÙÇü¼º
-	// => DAO Å¬·¡½º°¡ º¯°æµÅµµ Service Å¬·¡½ºÀÇ ¿µÇâ ÃÖ¼ÒÈ­ - °áÇÕµµ°¡ ³·¾Æ À¯Áöº¸¼ö È¿À²¼º Áõ°¡
+	//StudentJdbcDAO í´ë˜ìŠ¤ë¡œ í•„ë“œ ì„ ì–¸ - StudentJdbcDAO ê°ì²´ë§Œ ì €ì¥ ê°€ëŠ¥í•œ í•„ë“œ
+	// => í•„ë“œì— StudentJdbcDAO ê°ì²´ë¥¼ ì €ì¥í•´ì•¼ë§Œ í¬í•¨ê´€ê³„(ì˜ì¡´ê´€ê³„)ê°€ ì™„ì„±
+	// => StudentServiceImpl í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œì—ì„œ í•„ë“œì— ì €ì¥ëœ StudentJdbcDAO ê°ì²´ë¡œ ë©”ì†Œë“œ í˜¸ì¶œ ê°€ëŠ¥
+	//ë¬¸ì œì )DAO í´ë˜ìŠ¤ê°€ ë³€ê²½ë  ê²½ìš° Service í´ë˜ìŠ¤ì˜ í•„ë“œ ë° ë©”ì†Œë“œ ë³€ê²½ ê°€ëŠ¥
+	// => ê²°í•©ë„ê°€ ë†’ì•„ ìœ ì§€ë³´ìˆ˜ì˜ íš¨ìœ¨ì„± ê°ì†Œ
+	//private StudentJdbcDAO studentJdbcDAO;
+
+	//StudentDAO ì¸í„°í˜ì´ìŠ¤ë¡œ í•„ë“œ ì„ ì–¸ - StudentDAO ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìì‹í´ë˜ìŠ¤ë¡œ ìƒì„±ëœ ëª¨ë“  ê°ì²´ ì €ì¥
+	// => í•„ë“œì— StudentDAO ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ DAO í´ë˜ìŠ¤ì˜ ê°ì²´ë¥¼ ì €ì¥í•´ì•¼ë§Œ í¬í•¨ê´€ê³„(ì˜ì¡´ê´€ê³„)ê°€ ì™„ì„±
+	// => StudentServiceImpl í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œì—ì„œ ì¸í„°í˜ì´ìŠ¤ë¡œ ìƒì„±ëœ í•„ë“œì˜ ì¶”ìƒë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ë©´
+	//í•„ë“œì— ì €ì¥ëœ ìì‹í´ë˜ìŠ¤ ê°ì²´ì˜ ë©”ì†Œë“œ í˜¸ì¶œ - ì˜¤ë²„ë¼ì´ë”©ì— ì˜í•œ ë‹¤í˜•ì„±
+	// => DAO í´ë˜ìŠ¤ê°€ ë³€ê²½ë¼ë„ Service í´ë˜ìŠ¤ì˜ ì˜í–¥ ìµœì†Œí™” - ê²°í•©ë„ë¥¼ ë‚®ì¶° ìœ ì§€ë³´ìˆ˜ì˜ íš¨ìœ¨ì„± ì¦ê°€
 	private StudentDAO studentDAO;
 	
 	public StudentServiceImpl() {
-		System.out.println("### StudentServiceImpl Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### StudentServiceImpl í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 	
 	public StudentServiceImpl(StudentDAO studentDAO) {
-		System.out.println("### StudentServiceImpl Å¬·¡½ºÀÇ ¸Å°³º¯¼ö°¡ ¼±¾ğµÈ »ı¼ºÀÚ È£Ãâ ###");
+		super();
+		this.studentDAO = studentDAO;
+		System.out.println("### StudentServiceImpl í´ë˜ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜ê°€ ì„ ì–¸ëœ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 
 	public StudentDAO getStudentDAO() {
@@ -44,38 +38,36 @@ public class StudentServiceImpl implements StudentService {
 
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
-		System.out.println("*** StudentServiceImpl Å¬·¡½ºÀÇ setStudentDAO(StudentDAO studentDAO) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** StudentServiceImpl í´ë˜ìŠ¤ì˜ setStudentDAO(StudentDAO studentDAO) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 
-	//ÇÊµå¿¡ °´Ã¼°¡ ÀúÀåµÇ¾î ÀÖÁö ¾ÊÀ¸¸é NullPointerException ¹ß»ı
 	@Override
 	public void addStudent(Student student) {
-		System.out.println("*** StudentServiceImpl Å¬·¡½ºÀÇ setStudentDAO(StudentDAO studentDAO) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** StudentServiceImpl í´ë˜ìŠ¤ì˜ addStudent(Student student) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		studentDAO.insertStudent(student);
 	}
 
 	@Override
 	public void modifyStudent(Student student) {
-		System.out.println("*** StudentServiceImpl Å¬·¡½ºÀÇ modifyStudent(StudentDAO studentDAO) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** StudentServiceImpl í´ë˜ìŠ¤ì˜ modifyStudent(Student student) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		studentDAO.updateStudent(student);
 	}
 
 	@Override
 	public void removeStudent(int num) {
-		System.out.println("*** StudentServiceImpl Å¬·¡½ºÀÇ removeStudent(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** StudentServiceImpl í´ë˜ìŠ¤ì˜ removeStudent(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		studentDAO.deleteStudent(num);
 	}
 
 	@Override
 	public Student getStudent(int num) {
-		System.out.println("*** StudentServiceImpl Å¬·¡½ºÀÇ getStudent(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** StudentServiceImpl í´ë˜ìŠ¤ì˜ getStudent(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return studentDAO.selectStudent(num);
 	}
 
 	@Override
 	public List<Student> getStudentList() {
-		System.out.println("*** StudentServiceImpl Å¬·¡½ºÀÇ getStudentList() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** StudentServiceImpl í´ë˜ìŠ¤ì˜ getStudentList() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return studentDAO.selectStudentList();
 	}
-
 }

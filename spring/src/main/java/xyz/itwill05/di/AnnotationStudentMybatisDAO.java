@@ -2,42 +2,41 @@ package xyz.itwill05.di;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class AnnotationStudentMybatisDAO implements StudentDAO {
 	public AnnotationStudentMybatisDAO() {
-		System.out.println("### AnnotationStudentMybatisDAO Å¬·¡½ºÀÇ ±âº» »ı¼ºÀÚ È£Ãâ ###");
+		System.out.println("### AnnotationStudentMybatisDAO í´ë˜ìŠ¤ì˜ ê¸°ë³¸ ìƒì„±ì í˜¸ì¶œ ###");
 	}
 	
 	@Override
 	public int insertStudent(Student student) {
-		System.out.println("*** AnnotationStudentMybatisDAO Å¬·¡½ºÀÇ insertStudent(Student student) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentMybatisDAO í´ë˜ìŠ¤ì˜ insertStudent(Student student) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return 0;
 	}
 
 	@Override
 	public int updateStudent(Student student) {
-		System.out.println("*** AnnotationStudentMybatisDAO Å¬·¡½ºÀÇ updateStudent(Student student) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentMybatisDAO í´ë˜ìŠ¤ì˜ updateStudent(Student student) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return 0;
 	}
 
 	@Override
 	public int deleteStudent(int num) {
-		System.out.println("*** AnnotationStudentMybatisDAO Å¬·¡½ºÀÇ deleteStudent(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentMybatisDAO í´ë˜ìŠ¤ì˜ deleteStudent(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return 0;
 	}
 
 	@Override
 	public Student selectStudent(int num) {
-		System.out.println("*** AnnotationStudentMybatisDAO Å¬·¡½ºÀÇ selectStudent(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentMybatisDAO í´ë˜ìŠ¤ì˜ selectStudent(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return null;
 	}
 
 	@Override
 	public List<Student> selectStudentList() {
-		System.out.println("*** AnnotationStudentMybatisDAO Å¬·¡½ºÀÇ selectStudentList() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AnnotationStudentMybatisDAO í´ë˜ìŠ¤ì˜ selectStudentList() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return null;
 	}
 }
