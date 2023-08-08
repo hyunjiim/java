@@ -27,6 +27,7 @@ public class RedirectController {
 		return "display_redirect";
 	}
 	
+	
 	@RequestMapping("/redirect")
 	public String redirect() {
 		//요청 처리 메소드의 반환값(뷰이름)에 redirect 접두사를 사용하여 URL 주소를 반환하면 Front
@@ -43,7 +44,7 @@ public class RedirectController {
 	/*
 	@RequestMapping("/redirect_move")
 	public String redirect() {
-		return "display_redirect";
+		return "display_redirect"; //아래의 model 객체에 name이란 이름으로 저장된 속성값 사용 불가능
 	}
 	
 	
@@ -51,7 +52,7 @@ public class RedirectController {
 	public String redirect(Model model) {
 		//Model 객체로 저장된 속성값은 리다이렉트 이동된 페이지의 요청 처리 메소드와 뷰에서 사용 불가능
 		// => Model 객체로 저장된 속성값(객체)을 질의문자열(QueryString)로 요청 페이지에 전달 
-		model.addAttribute("name", 임꺽정);
+		model.addAttribute("name", "임꺽정");
 		return "redirect:/redirect_move"; 
 	}
 	*/

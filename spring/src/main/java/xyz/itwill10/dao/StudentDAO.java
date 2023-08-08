@@ -6,8 +6,8 @@ import xyz.itwill10.dto.Student;
 
 public interface StudentDAO {
 	int insertStudent(Student student);
-	int updateStudent(Student student);
-	int deleteStudent(int no);
-	Student selectStudent(int no);
+	//int updateStudent(Student student);
+	//int deleteStudent(int no);
+	//Student selectStudent(int no);
 	List<Student> selectStudentList();
 }
