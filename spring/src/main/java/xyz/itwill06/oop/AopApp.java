@@ -1,5 +1,7 @@
 package xyz.itwill06.oop;
 
+//https://engkimbs.tistory.com/746 참고
+
 public class AopApp {
 	//AopOne one=new AopOne();
 	//AopTwo two=new AopTwo();

@@ -1,21 +1,21 @@
 package xyz.itwill06.oop;
 
-//ÇÙ½É°ü½ÉÄÚµå·Î ÀÛ¼ºµÈ ¸Ş¼Òµå°¡ ¼±¾ğµÈ Å¬·¡½º - ÇÙ½É°ü½É¸ğµâ
+//í•µì‹¬ê´€ì‹¬ì½”ë“œë¡œ ì‘ì„±ëœ ë©”ì†Œë“œê°€ ì„ ì–¸ëœ í´ë˜ìŠ¤ - í•µì‹¬ê´€ì‹¬ëª¨ë“ˆ
 public class AopOne implements Aop {
 	@Override
 	public void display1() {
-		//ÇÙ½É°ü½ÉÄÚµå
-		System.out.println("*** AopOne Å¬·¡½ºÀÇ display1() ¸Ş¼Òµå È£Ãâ ***");
+		//í•µì‹¬ê´€ì‹¬ì½”ë“œ
+		System.out.println("*** AopOne í´ë˜ìŠ¤ì˜ display1() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 
 	@Override
 	public void display2() {
-		System.out.println("*** AopOne Å¬·¡½ºÀÇ display2() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AopOne í´ë˜ìŠ¤ì˜ display2() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 
 	@Override
 	public void display3() {
-		System.out.println("*** AopOne Å¬·¡½ºÀÇ display3() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AopOne í´ë˜ìŠ¤ì˜ display3() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 	
 }

@@ -1,9 +1,9 @@
 package xyz.itwill06.oop;
 
-//Ⱦ�ܰ����ڵ�� �ۼ��� �޼ҵ尡 ����� Ŭ���� - Ⱦ�ܰ��ɸ�� : Advice Ŭ����
+//횡단관심코드로 작성된 메소드가 선언된 클래스 - 횡단관심모듈 : Advice 클래스
 public class AopLogger {
 	public void beforeLog() {
-		//Ⱦ�ܰ����ڵ�
-		System.out.println("### �޼ҵ��� ����(�ٽɰ����ڵ�)�� ����Ǳ� ���� ��ϵ� ���� ###");
+		//횡단관심코드
+		System.out.println("### 메소드의 명령(핵심관심코드)이 실행되기 전에 기록될 내용 ###");
 	}
 }

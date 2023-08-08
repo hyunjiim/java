@@ -3,16 +3,16 @@ package xyz.itwill06.oop;
 public class AopTwo implements Aop {
 	@Override
 	public void display1() {
-		System.out.println("*** AopTwo Å¬·¡½ºÀÇ display1() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AopTwo í´ë˜ìŠ¤ì˜ display1() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 
 	@Override
 	public void display2() {
-		System.out.println("*** AopTwo Å¬·¡½ºÀÇ display2() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AopTwo í´ë˜ìŠ¤ì˜ display2() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 
 	@Override
 	public void display3() {
-		System.out.println("*** AopTwo Å¬·¡½ºÀÇ display3() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** AopTwo í´ë˜ìŠ¤ì˜ display3() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 }
