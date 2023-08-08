@@ -53,7 +53,6 @@ public class StudentDAOImpl implements StudentDAO {
 
 	@Override
 	public List<Student> selectStudentList() {
-		// TODO Auto-generated method stub
 		return sqlSession.getMapper(StudentMapper.class).selectStudentList();
 	}
 	
