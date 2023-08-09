@@ -2,25 +2,24 @@ package xyz.itwill07.aop;
 
 import java.util.List;
 
-//ÇÙ½É°ü½É¸ğµâ(Core Concern Module): ÇÙ½É°ü½ÉÄÚµå·Î ÀÛ¼ºµÈ ¸Ş¼Òµå·Î ¼±¾ğµÈ Å¬·¡½º
-// => ÇÙ½É°ü½ÉÄÚµå: µ¥ÀÌÅÍ Ã³¸®¸¦ À§ÇÑ ÇÊ¼öÀûÀÎ ¸í·É
+//í•µì‹¬ê´€ì‹¬ëª¨ë“ˆ(Core Concern Module) : í•µì‹¬ê´€ì‹¬ì½”ë“œë¡œ ì‘ì„±ëœ ë©”ì†Œë“œë¡œ ì„ ì–¸ëœ í´ë˜ìŠ¤
+// => í•µì‹¬ê´€ì‹¬ì½”ë“œ : ë°ì´í„° ì²˜ë¦¬ë¥¼ ìœ„í•œ í•„ìˆ˜ì ì¸ ëª…ë ¹
 public class HewonDAOImpl implements HewonDAO {
-
 	@Override
 	public int insertHewon(Hewon hewon) {
-		System.out.println("*** HewonDAOImpl Å¬·¡½ºÀÇ insertHewon(Hewon hewon) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** HewonDAOImpl í´ë˜ìŠ¤ì˜ insertHewon(Hewon hewon) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return 0;
 	}
 
 	@Override
 	public Hewon selectHewon(int num) {
-		System.out.println("*** HewonDAOImpl Å¬·¡½ºÀÇ selectHewon(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** HewonDAOImpl í´ë˜ìŠ¤ì˜ selectHewon(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return null;
 	}
 
 	@Override
 	public List<Hewon> selectHewonList() {
-		System.out.println("*** HewonDAOImpl Å¬·¡½ºÀÇ selectHewonList() ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** HewonDAOImpl í´ë˜ìŠ¤ì˜ selectHewonList() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return null;
 	}
 	

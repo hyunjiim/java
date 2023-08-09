@@ -4,27 +4,27 @@ import java.util.List;
 
 import lombok.Setter;
 
-//ÇÙ½É°ü½É¸ğµâ
+//í•µì‹¬ê´€ì‹¬ëª¨ë“ˆ
 public class HewonServiceImpl implements HewonService {
 	@Setter
 	private HewonDAO hewonDAO;
 	
 	@Override
 	public void addHewon(Hewon hewon) {
-		System.out.println("*** HewonServiceImpl Å¬·¡½ºÀÇ addHewon(Hewon hewon) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** HewonServiceImpl í´ë˜ìŠ¤ì˜ addHewon(Hewon hewon) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		hewonDAO.insertHewon(hewon);
 	}
 
 	@Override
 	public Hewon getHewon(int num) {
-		System.out.println("*** HewonServiceImpl Å¬·¡½ºÀÇ getHewon(int num) ¸Ş¼Òµå È£Ãâ ***");
+		System.out.println("*** HewonServiceImpl í´ë˜ìŠ¤ì˜ getHewon(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 		return hewonDAO.selectHewon(num);
 	}
 
 	@Override
 	public List<Hewon> getHewonList() {
-		System.out.println("*** HewonServiceImpl Å¬·¡½ºÀÇ getHewonList() ¸Ş¼Òµå È£Ãâ ***");
-		throw new RuntimeException();//ÀÎÀ§Àû ¿¹¿Ü ¹ß»ı
+		System.out.println("*** HewonServiceImpl í´ë˜ìŠ¤ì˜ getHewonList() ë©”ì†Œë“œ í˜¸ì¶œ ***");
+		throw new RuntimeException();//ì¸ìœ„ì  ì˜ˆì™¸ ë°œìƒ
 		//return hewonDAO.selectHewonList();
 	}
 }
