@@ -42,6 +42,16 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	
+	<!-- UrlBasedViewResolver 클래스를 Spring Bean으로 등록 -->
+	<!-- UrlBasedViewResolver 객체 : 클라이언트 요청에 의해 호출되는 요청 처리 메소드의 반환값(ViewName)을
+	Spring 프레임워크에서 제공하는 ViewResolver 객체가 아닌 외부의 ViewResolver 객체로 응답 처리하기 
+	위한 기능을 제공하는 객체 -->
+	<!-- => 뷰이름으로 응답 처리하기 위한 뷰를 커스터마이징(Customizing) 할 때 사용하는 객체 -->
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<!-- viewClass 필드에 뷰 기능을 제공하기 위한 클래스(TilesView)가 저장되도록 값 주입 -->
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3."/>
+	</beans:bean>
  
 	<!-- component-scan : 스프링 컨테이너가 클래스에서 사용된 스프링 어노테이션을 검색하여
 	처리할 수 있는 패키지를 제공하는 엘리먼트  -->
