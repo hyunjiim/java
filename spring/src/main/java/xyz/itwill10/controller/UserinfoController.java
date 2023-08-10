@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ public class UserinfoController {
 	
 	//회원정보를 입력받기 위한 뷰이름을 반환하는 요청 처리 메소드
 	// => 비로그인 사용자 또는 관리자가 아닌 사용자가 페이지를 요청할 경우 인위적 예외 발생
+	// => 예외 처리 메소드(Exception Handle Method)를 이용하여 예외 처리
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String write(HttpSession session) throws BadRequestException {
 		Userinfo loginUserinfo=(Userinfo)session.getAttribute("loginUserinfo");
@@ -88,6 +90,17 @@ public class UserinfoController {
 		session.invalidate();
 		
 		return "redirect:/userinfo/login";
+	}
+	
+	//@ExceptionHandler : 메소드의 예외처리 기능을 제공하기 위한 어노테이션
+	// => Controller 클래스의 요청 처리 메소드에서 예외가 발생되어 Front Controller에게
+	//전달된 경우 예외 객체를 전달받아 예외처리하기 위한 메소드 - 예외 처리 메소드
+	//value 속성 : 예외처리하기 위한 클래스(Class 객체)를 속성값으로 설정
+	@ExceptionHandler(value = BadRequestException.class)
+	public String userinfoExceptionHandler(BadRequestException exception) {
+	
+		
+		return "";
 	}
 
 }
