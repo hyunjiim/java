@@ -4,28 +4,29 @@ import org.aspectj.lang.JoinPoint;
 
 import lombok.extern.slf4j.Slf4j;
 
-//Ⱦ�ܰ��ɸ�� - Advice Ŭ����
+//횡단관심모듈 - Advice 클래스
 @Slf4j
 public class EmailSendAdvice {
-	//���� ���� ���� ���ԵǾ�  ����� ������ �ۼ��� �޼ҵ� - Before Advice Method
-	// => �޴� ����� �̸��� �ּҿ� ������ Ÿ�ٸ޼ҵ��� �Ű�����
+	//메일 전송 전에 삽입되어 실행될 명령이 작성된 메소드 - Before Advice Method
+	// => 받는 사람의 이메일 주소와 제목을 타겟메소드의 매개변수로 제공받아 기록하는 명령 작성
 	public void accessLog(JoinPoint joinPoint) {
-		//Ÿ�ٸ޼ҵ��� �Ű��������� �޴� ����� �̸��� �ּҸ� �����޾� ����
+		//타겟메소드의 매개변수에서 받는 사람의 이메일 주소를 제공받아 저장
+		//JoinPoint.getArgs() : 타겟메소드의 매개변수에 전달된 값
 		String email=(String)joinPoint.getArgs()[0];
-		//Ÿ�ٸ޼ҵ��� �Ű��������� ���� ������ �����޾� ����
+		//타겟메소드의 매개변수에서 메일 제목을 제공받아 저장
 		String subject=(String)joinPoint.getArgs()[1];
-		log.info(email+"�Կ��� <"+subject+"> ������ �̸����� �����մϴ�.");		
+		log.info(email+"님에게 <"+subject+"> 제목의 이메일을 전송합니다.");
 	}
-
-	//���� ���� ���� �Ŀ� ���ԵǾ� ����� ������ �ۼ��� �޼ҵ� - After Returning Advice Method
-	// => �޴� ����� �̸��� �ּҸ� Ÿ�ٸ޼ҵ��� ��ȯ������ �����޾� ����ϴ� ���� �ۼ�
+	
+	//메일 전송 성공 후에 삽입되어 실행될 명령이 작성된 메소드 - After Returning Advice Method
+	// => 받는 사람의 이메일 주소를 타겟메소드의 반환값으로 제공받아 기록하는 명령 작성
 	public void successLog(String email) {
-		log.info(email+"�Կ��� �̸����� ���������� ���� �Ͽ����ϴ�.");		
+		log.info(email+"님에게 이메일을 성공적으로 전송 하였습니다.");
 	}
-
-	//���� ���� ���� �Ŀ� ���ԵǾ� ����� ������ �ۼ��� �޼ҵ� - After Throwing Advice Method
-	// => ���� ���� ���п� ���� �޼����� Ÿ�ٸ޼ҵ��� ���ܷκ��� �����޾� ����ϴ� ���� �ۼ�
+	
+	//메일 전송 실패 후에 삽입되어 실행될 명령이 작성된 메소드 - After Throwing Advice Method
+	// => 메일 전송 실패에 대한 메세지를 타겟메소드의 예외로부터 제공받아 기록하는 명령 작성
 	public void errorLog(Exception exception) {
-		log.info("�̸��� ���� ���� = "+exception.getMessage());
+		log.info("이메일 전송 실패"+exception.getMessage());
 	}
 }

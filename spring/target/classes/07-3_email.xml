@@ -5,13 +5,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-	<!-- JavaMailSender 인터페이스를 상속받은 JavaMailSenderImpl 클래스를 Spring Bean으로 등록 -->
-	<!-- => SMTP 서비스를 제공하는 메일 서버의 정보를 JavaMailSenderImpl 객체 필드에 저장되도록 -->
+	<!-- JavaMailSender 인터페이스를 상속받은 JavaMaileSenderImpl 클래스를 Spring Bean으로 등록 -->
+	<!-- => SMTP 서비스를 제공하는 메일 서버의 정보를 JavaMailSenderImpl 객체 필드에 저장되도록 값 주입 -->
 	<!-- => Google에서 제공하는 SMTP 기능 활용 -->
 	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl" id="javaMailSender">
 		<!-- host 필드 : SMTP 서비스를 제공하는 메일 서버의 이름 저장 -->
 		<property name="host" value="smtp.gmail.com"/>
-		<!-- port 필드 : SMTP 서비스를 제공하는 메일 서버의 PORT 번호 저장 -->
+		<!-- port 필드 : SMTP 서비스를 제공하는 메일 서버의 PORT 번호 저장 - SMTP(25) -->
+		<!-- 587번 포트 : msa용으로 표준 SMTP 포트와 거의 같으며, MSA는 인증 후 전자 메일을 수락해야 하며
+		DUL 범위의 넷마스터가 SMTP 포트(25)로 나가는 연결을 차단할 수 있을 때 나가는 스팸을 차단하는 데 
+		도움을 준다 -->
 		<property name="port" value="587"/> <!-- SMTPS 포트번호 - MSA용 : 587 -->
 		<!-- username 필드 : SMTP 서비스를 제공하는 메일 서버의 접속 사용자 이름(아이디)을 저장 -->
 		<property name="username" value="jirun0113"/>
@@ -33,7 +36,7 @@
 	</bean>
 
 	<!-- 핵심관심모듈의 클래스(EmailSendBean 클래스)를 Spring Bean으로 등록 -->
-	<!-- => EmailSendBean 클래스의 javaMailSender 필드에 JavaMailSender 객체(Spring Bean)가 저[주석] -->
+	<!-- => EmailSendBean 클래스의 javaMailSender 필드에 JavaMailSender 객체(Spring Bean)가 저장되도록 의존성 주입 -->
 	<bean class="xyz.itwill07.aop.EmailSendBean" id="emailSendBean">
 		<property name="javaMailSender" ref="javaMailSender"/>
 	</bean>
