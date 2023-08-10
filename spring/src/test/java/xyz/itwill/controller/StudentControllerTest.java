@@ -15,6 +15,10 @@ import org.springframework.web.context.WebApplicationContext;
 
 import lombok.extern.slf4j.Slf4j;
 
+//보통 Service 클래스가 데이터를 전달받아 처리하기 때문에 Controller 클래스가 아닌 
+//Service 클래스에 대한 테스트 프로그램을 작성한다.
+//SpringJUnit4ClassRunner는 스프링 컨테이너를 내부적으로 생성 - ApplicationContext 객체가 생성되는데
+//우리가 검사하는 건 웹 프로그램이기 때문에 WebApplicationContext 객체를 받을 수 있도록 해야 함
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 //[*] 패턴문자를 사용하여 Spring Bean Configuration File 설정 가능
@@ -23,13 +27,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class StudentControllerTest {
 	//WebApplicationContext 객체를 제공받아 저장하기 위한 필드 선언 - 의존성 주입
-	// => WebApplicationContext 객체 : SpringMVC 프로그램에서 스프링 컨테이너 기능을 제공하기 [주석]
+	// => WebApplicationContext 객체 : SpringMVC 프로그램에서 스프링 컨테이너 기능을 제공하기 위한 객체
 	@Autowired
 	private WebApplicationContext context;
 	
 	//MockMvc 객체를 저장하기 위한 필드 선언
 	// => MockMvc 객체 : 요청과 응답을 가상으로 제공하기 위한 객체
 	private MockMvc mvc;
+	
+	/* [Builder 클래스와 Factory 클래스, Filter 클래스] - 공부하기
+	 *  
+	 * 
+	 */
+	//Factory 클래스는 인터페이스를 상속받은 자식 클래스를 여러 개 생성하고 그 중 하나를 반환받음
 	
 	
 	//@Before : 테스트 메소드 호출 전에 실행될 명령을 작성한 메소드에 설정하는 어노테이션 - 초기화
@@ -63,7 +73,6 @@ public class StudentControllerTest {
 		//, Student(no=4000, name=일지매, phone=010-4611-5675, address=서울시 종로구, birthday=2000-12-31 00:00:00)
 		//, Student(no=5000, name=홍경래, phone=010-5467-1326, address=서울시 서대문구, birthday=1999-05-07 00:00:00)
 		//, Student(no=6000, name=로빈훗, phone=010-6561-1542, address=서울시 중랑구, birthday=2000-09-09 00:00:00)]}
-
 		
 	}
 
