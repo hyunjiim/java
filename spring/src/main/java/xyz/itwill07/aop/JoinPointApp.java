@@ -10,14 +10,14 @@ public class JoinPointApp {
 		System.out.println("==========================================================");
 		bean.add();
 		System.out.println("==========================================================");
-		bean.modify(1000, "ȫ�浿");
+		bean.modify(1000, "ȫ�浿");
 		System.out.println("==========================================================");
 		bean.remove(2000);
 		System.out.println("==========================================================");
 		bean.getName();
 		System.out.println("==========================================================");
-		//bean.calc(20, 10);
-		bean.calc(20, 0); //ArithmeticException �߻�
+		//bean.calc(20,10);
+		bean.calc(20, 0); //ArithmeticException 발생
 		System.out.println("==========================================================");
 		((ClassPathXmlApplicationContext)context).close();		
 	}

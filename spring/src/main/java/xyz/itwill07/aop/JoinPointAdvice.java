@@ -104,8 +104,11 @@ public class JoinPointAdvice {
 		System.out.println("### [around]핵심관심코드 실행 전 삽입되어 실행될 핵심관심코드 ###");
 		//ProceedingJoinPoint.proceed() : 타겟메소드를 호출하는 메소드 - 핵심관심코드 실행
 		// => 타겟메소드를 호출하여 반환되는 결과값을 변수에 저장 - 반환처리
-		// => Throwable(Error 클래스와)
+		// => Throwable(Error 클래스와 Exception 클래스의 부모 클래스) 객체가 발생되므로 반드시
+		//예외처리(try-catch)하거나 예외 전달(throws)
+		Object result=joinPoint.proceed();
 		System.out.println("### [around]핵심관심코드 실행 후 삽입되어 실행될 핵심관심코드 ###");
+		return result; //타겟메소드의 반환값을 반환 처리
 	}
 	
 	
