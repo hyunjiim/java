@@ -22,7 +22,8 @@ import xyz.itwill10.exception.UserinfoNotFoundException;
 // => BCrypt.genalt(int log_bounds) : 매개변수로 첨가물(Salt - String)의 길이를 전달받아 첨가물을 
 //생성하여 반환하는 메소드 - 매개변수에 길이를 전달하지 않으면 자동으로 [10]으로 설정
 //3. BCrypt.checkpw(String plaintext, String hashed) 메소드로 암호화된 비밀번호를 비교하여 실행결과를 반환받아 처리
-// => 매개변수로 일반 문자열과 암호화된 문자열을 전달받아 비교하여 다른 경우 [false]
+// => 매개변수로 일반 문자열과 암호화된 문자열을 전달받아 비교하여 다른 경우 [false]를 반환하고
+//같은 경우 [true]를 반환하는 메소드
 @Service
 @RequiredArgsConstructor
 public class UserinfoServiceImpl implements UserinfoService {
@@ -74,13 +75,13 @@ public class UserinfoServiceImpl implements UserinfoService {
 	@Override
 	public Userinfo getUserinfo(String userid) throws UserinfoNotFoundException {
 		//매개변수로 전달받은 아이디로 기존 회원정보를 검색하여 걺색결과를 반환받아 저장
-		Userinfo userinfo=userinfoDAO.
+		Userinfo userinfo=userinfoDAO.selectUserinfo(userid);
 		
 		//매개변수로 전달받은 아이디로 기존 회원정보를 검색하여 검색결과가 없는 경우
 		if(userinfoDAO.selectUserinfo(userid) == null) {
 			throw new UserinfoNotFoundException("아이디의 회원정보가 존재하지 않습니다.");
 		}
-		return null;
+		return userinfo;
 	}
 
 	@Override
@@ -107,6 +108,7 @@ public class UserinfoServiceImpl implements UserinfoService {
 			throw new LoginAuthFailException("아이디나 비밀번호가 존재하지 않습니다.",userinfo.getUserid());
 		}
 		
-		return userinfo;
+		//매개변수로 전달받은 회원정보의 아이디로 검색된 회원정보 반환
+		return authUserinfo;
 	}
 }
