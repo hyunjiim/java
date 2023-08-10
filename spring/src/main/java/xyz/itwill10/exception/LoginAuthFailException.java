@@ -10,7 +10,6 @@ public class LoginAuthFailException extends Exception{
 	private String userid;
 	
 	public LoginAuthFailException() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	
