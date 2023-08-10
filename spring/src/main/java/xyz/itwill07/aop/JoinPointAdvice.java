@@ -64,8 +64,49 @@ public class JoinPointAdvice {
 	//Object 클래스의 매개변수가 선언된 경우 Spring Bean Configuration File의 AOP 설정에서
 	//after-returning 엘리먼트에 반드시 returning 속성을 사용하여 반환값을 저장할 매개변수의
 	//이름을 속성값으로 지정
-	// => after
+	// => after-returning 엘리먼트에 returning 속성이 없거나 속성값이 잘못된 경우 IllegalArgumentException 발생
+	public void displayName(JoinPoint joinPoint, Object object) {
+		//System.out.println("### [after-returning]핵심관심코드가 정상적으로 실행된 후 삽입되어 실행될 횡단관심코드 ###");
+		
+		String methodName=joinPoint.getSignature().getName();
+		String userName=(String)object;
+		System.out.println("### [after-returning]"+methodName+"메소드의 반환값 = "+userName+" ###");
+	}
 	
+	//After Throwing Advice Method - 반환형 : void, 매개변수 : JoinPoint 객체, Exception 객체
+	//After Throwing Advice Method에는 JoinPoint 인터페이스의 매개변수 외에 Exception 클래스의 매개변수 선언 가능
+	// => 스프링 컨테이너는 Exception 클래스의 매개변수에 타겟메소드에서 발생된 예외(Exception)를 제공받아 전달
+	// => 타겟메소드에서 발생되는 예외가 고정되어 있는 경우 Exception 클래스 대신 필요한 예외 클래스로 
+	//매개변수 작성 가능
+	// => Exception 클래스의 매개변수가 선언된 경우 Spring Bean Configuration File의 AOP 설정에서
+	//after-throwing 엘리먼트에 반드시 throwing 속성을 사용하여 발생된 예외를 저장하기 위한 매개변수의 
+	//이름을 속성값으로 지정
+	// => after-throwing 엘리먼트에 throwing 속성이 없거나 속성값이 잘못된 경우 IllegalArgumentException 발생
+	public void exceptionHandle(JoinPoint joinPoint, Exception exception) {
+		System.out.println("### [after-throwing]핵심관심코드 실행시 예외가 발생된 경우 삽입되어 실행될 횡단관심코드 ###");
+		
+		String methodName=joinPoint.getTarget().getClass().getName();
+		
+		System.out.println("### [after-throwing]"+methodName+" 메소드에서 발생된 예외 = "
+				+exception.getMessage()+" ###");
+	}
+	
+	//Around Advice Method - 반환형 : Object, 매개변수: ProceedingJoinPoint
+	//Aroung Advice Method는 반환형을 Object 클래스로 작성(일반적으로)하고 매개변수는 ProceedingJoinPoint
+	//인터페이스로 작성하여 선언
+	// => 타겟메소드의 반환값을 제공받아 반환 처리하기 위해 Object 클래스로 반환형 작성
+	// => 타겟 메소드 관련 정보를 ProceedingJoinPoint 인터페이스의 매개변수로 제공받아 Around Advice Method에서 사용
+	//ProceedingJoinPoint 객체 : 타겟메소드 관련 정보를 저장하기 위한 객체
+	// => JoinPoint를 상속받은 객체로, Around Advice에서만 지원되는 JoinPoint
+	// => ProceedingJoinPoint.proceed() 메소드를 통해 타겟메소드의 실행을 제어할 수 있음
+	// => JoinPoint 객체외 다른점은 타겟메소드를 직접 호출하기 위한 메소드가 제공된다는 것!
+	public Object display(ProceedingJoinPoint joinPoint) throws Throwable {
+		System.out.println("### [around]핵심관심코드 실행 전 삽입되어 실행될 핵심관심코드 ###");
+		//ProceedingJoinPoint.proceed() : 타겟메소드를 호출하는 메소드 - 핵심관심코드 실행
+		// => 타겟메소드를 호출하여 반환되는 결과값을 변수에 저장 - 반환처리
+		// => Throwable(Error 클래스와)
+		System.out.println("### [around]핵심관심코드 실행 후 삽입되어 실행될 핵심관심코드 ###");
+	}
 	
 	
 	
