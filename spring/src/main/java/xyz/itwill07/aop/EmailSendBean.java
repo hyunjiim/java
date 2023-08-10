@@ -8,61 +8,18 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import lombok.Setter;
 
-//ºñ¹Ğ¹øÈ£ Ã£±â >> È¸¿ø°¡ÀÔÇÑ ÀÌ¸ŞÀÏ·Î ºñ¹Ğ¹øÈ£ º¸³»±â & ±¤°í ¸ŞÀÏ Àü¼Û¿¡ È°¿ë
+//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° >> íšŒì›ê°€ì…í•œ ì´ë©”ì¼ë¡œ ë¹„ë°€ë²ˆí˜¸ ë³´ë‚´ê¸° & ê´‘ê³  ë©”ì¼ ì „ì†¡ì— í™œìš© ê°€ëŠ¥
 
-//JavaMail ±â´ÉÀ» ±¸ÇöÇÏ±â À§ÇØ spring-context-support ¶óÀÌºê·¯¸®¿Í javax.mail ¶óÀÌºê·¯¸®°¡
-//ÇÁ·ÎÁ§Æ®¿¡ ºôµåµÇµµ·Ï Ã³¸® - ¸ŞÀÌºì ÀÌ¿ë : pom.xml (185 ÁÙ¿¡ ºôµåÃ³¸®)
+//JavaMail ê¸°ëŠ¥ì„ êµ¬í˜„í•˜ê¸° ìœ„í•´ spring-context-support ë¼ì´ë¸ŒëŸ¬ë¦¬ì™€ javax.mail ë¼ì´ë¸ŒëŸ¬ë¦¬ê°€
+//í”„ë¡œì íŠ¸ì— ë¹Œë“œë˜ë„ë¡ ì²˜ë¦¬ - ë©”ì´ë¸ ì´ìš© : pom.xml
 
-//spring-context-support ¶óÀÌºê·¯¸® : Spring ContextÀÇ È®Àå ±â´É Á¦°ø
-//javax.mail ¶óÀÌºê·¯¸® : Java Mail ±â´ÉÀ» Á¦°ø
+//spring-context-support ë¼ì´ë¸ŒëŸ¬ë¦¬ : Spring Contextì˜ í™•ì¥ ê¸°ëŠ¥ ì œê³µ
+// => ìºì‰¬, ë©”ì¼, ìŠ¤ì¼€ì¤„ë§, UI ê´€ë ¨ ê¸°ëŠ¥ í¬í•¨
+//javax.mail ë¼ì´ë¸ŒëŸ¬ë¦¬ : Java Mail ê¸°ëŠ¥ì„ ì œê³µ
 
-
-//¸ŞÀÏ Àü¼Û ±â´ÉÀ» Á¦°øÇÏ±â À§ÇÑ Å¬·¡½º - ¸ŞÀÏ ¼­¹öÀÇ SMTP ¼­ºñ½º¸¦ »ç¿ëÇÏ¿© ¸ŞÀÏ Àü¼Û
-// => ¸ŞÀÏ ¼­¹ö(Mail Server): ¸ŞÀÏÀ» ¼Û¼ö½ÅÇÏ´Â ¼­ºñ½º¸¦ Á¦°øÇÏ´Â ÄÄÇ»ÅÍ
-// => SMTP(Simple Message Transfer Protocol - 25) ¼­ºñ½º·Î ¸ŞÀÏÀ» º¸³»°í POP3(Post Office Protocol 3 - 110)
-//¼­ºñ½º³ª IMAP(Internet Message Access Protocol - 143) ¼­ºñ½º·Î ¸ŞÀÏÀ» ¹Ş¾Æ »ç¿ëÀÚ¿¡°Ô Àü´Ş
-
-//POP3 : ÇÏ³ªÀÇ ±â±â¿¡¼­ ¸ŞÀÏÀ» È®ÀÎ, ÇÑ¹ø¸¸ Àü´Ş => ½º¸¶Æ®ÆùÀÌ³ª ´Ù¸¥ ±â±â¿¡¼­µµ ¸ŞÀÏÀ» È®ÀÎÇØ¾ßÇÒ ÇÊ¿ä¼º Áõ´ë
-// => IMAP : ¿©·¯ ±â±â¿¡¼­ ¸ŞÀÏ È®ÀÎ °¡´É 
-// => »ç¿ëÇÏ±â À§ÇØ ¸ŞÀÏ ¼­¹ö¿Í DNS ¼­¹ö ±¸Çö
-
+//ë©”ì¼ ì „ì†¡ ê¸°ëŠ¥ì„ ì œê³µí•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ - ë©”ì¼ ì„œë²„ì˜ SMTP ì„œë¹„ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ë©”ì¼ ì „ì†¡
+// => ë©”ì¼ ì„œë²„(Mail Server) : ë©”ì¼ì„ ì†¡ìˆ˜ì‹ í•˜ëŠ” ì„œë¹„ìŠ¤ë¥¼ ì œê³µí•˜ëŠ” ì»´í“¨í„°
+// => SMTP(Simple Message Transfer Protocol - 25) ì„œë¹„ìŠ¤ë¡œ ë©”ì¼ì„ ë³´ë‚´ê³  POP3(Post Office Protocol 3 - 110)
+//ì„œë¹„ìŠ¤ë‚˜ IMAP(Internet Message Access Protocol - 143) ì„œë¹„ìŠ¤ë¡œ ë©”ì¼ì„ ë°›ì•„ ì‚¬ìš©ìì—ê²Œ ì „ë‹¬
 public class EmailSendBean {
-	//JavaMailSender °´Ã¼¸¦ ÀúÀåÇÏ±â À§ÇÑ ÇÊµå ¼±¾ğ - Setter InjectionÀ» À§ÇØ @Setter ¾î³ëÅ×ÀÌ¼Ç »ç¿ë
-	// => JavaMailSender °´Ã¼: SMTP ¼­ºñ½º¸¦ Á¦°øÇÏ´Â ¼­¹öÀÇ Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ °´Ã¼
-	@Setter
-	private JavaMailSender javaMailSender;
-	
-	//¸ŞÀÏÀ» Àü¼ÛÇÏ´Â ¸Ş¼Òµå
-	// => ¸ŞÀÏÀ» ¹Ş´Â »ç¶÷ÀÇ ÀÌ¸ŞÀÏ ÁÖ¼Ò, Á¦¸ñ, ³»¿ëÀ» ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ÀúÀå
-	// => ¸ŞÀÏÀ» ¹Ş´Â »ç¶÷ÀÇ ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¦ ¹İÈ¯
-	public String sendEmail(String email, String subject, String content) throws Exception {
-		//JavaMailSender.createMimeMessage() : MimeMessage °´Ã¼¸¦ »ı¼ºÇÏ¿© ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		//MimeMessage °´Ã¼ : ¸ŞÀÏ Àü¼Û °ü·Ã Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ °´Ã¼
-		MimeMessage message=javaMailSender.createMimeMessage();
-		
-		//MimeMessage.setSubject(String subject) : MimeMessage °´Ã¼ÀÇ ¸ŞÀÏ Á¦¸ñÀ» º¯°æÇÏ´Â ¸Ş¼Òµå
-		message.setSubject(subject);
-		
-		//MimeMessage.setText(String context): MimeMessage °´Ã¼ÀÇ ¸ŞÀÏ ³»¿ë(ÀÏ¹İ¹®¼­)À» º¯°æÇÏ´Â ¸Ş¼Òµå
-		//message.setText(content);
-		
-		//MimeMessage.setContent(Object o, String type): MimeMessage °´Ã¼¿¡¼­ ¸ŞÀÏ ³»¿ëÀ» º¯°æÇÏ´Â ¸Ş¼Òµå
-		// => type ¸Å°³º¯¼ö¿¡ ¸ŞÀÏ·Î Àü´ŞÇÒ ¹®¼­ÀÇ Çü½Ä(MimeType)À» Àü´ŞÇÏ¿© ÀúÀå
-		message.setContent(content, "text/html; charset=utf-8"); //HTML ¹®¼­·Î Àü´Ş
-		
-		//MimeMessage.setRecipient(RecipientType type, Address address) : MimeMessage °´Ã¼ÀÇ
-		//¸ŞÀÏÀ» ¹Ş´Â »ç¶÷ÀÇ ÀÌ¸ŞÀÏ ÁÖ¼Ò °ü·Ã Á¤º¸¸¦ º¯°æÇÏ´Â ¸Ş¼Òµå
-		// => RecipientType : ¸ŞÀÏ ¼ö½Å »ç¿ëÀÚ¸¦ ±¸ºĞÇÏ±â À§ÇÑ »ó¼ö¸¦ Àü´Ş
-		// => Address : ÀÌ¸ŞÀÏ ÁÖ¼Ò°¡ ÀúÀåµÈ Address °´Ã¼¸¦ Àü´Ş
-		//InternetAddress °´Ã¼ : ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¦ ÀúÀåÇÏ±â À§ÇÑ °´Ã¼
-		//MimeMessage.setRecipient(RecipientType type, Address[] address) : MimeMessage °´Ã¼ÀÇ
-		//¸ŞÀÏÀ» ¹Ş´Â »ç¶÷µéÀÇ ÀÌ¸ŞÀÏ ÁÖ¼Ò °ü·Ã Á¤º¸¸¦ º¯°æÇÏ´Â ¸Ş¼Òµå - ´Ù¼öÀÇ »ç¶÷¿¡°Ô ¸ŞÀÏ Àü´Ş
-		message.setRecipient(RecipientType.TO, new InternetAddress(email));
-		//message.setRecipient(RecipientType.CC, new InternetAddress(email)); - CC : ÇÔ²² ¹Ş´Â »ç¶÷À» ³ªÅ¸³»´Â »ó¼ö
-		
-		//JavaMailSender.send(MailMessage message) : SMTP ¼­ºñ½º¸¦ »ç¿ëÇÏ¿© ¸ŞÀÏÀ» Àü¼ÛÇÏ´Â ¸Ş¼Òµå
-		javaMailSender.send(message);
-		
-		return email;
-	}
 }
