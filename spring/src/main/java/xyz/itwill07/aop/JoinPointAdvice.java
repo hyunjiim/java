@@ -3,115 +3,82 @@ package xyz.itwill07.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 
-//È¾´Ü°ü½É¸ğµâ - Advice Å¬·¡½º
+//íš¡ë‹¨ê´€ì‹¬ëª¨ë“ˆ - Advice í´ë˜ìŠ¤
 public class JoinPointAdvice {
-	//Around Advice Method¸¦ Á¦¿ÜÇÑ ³ª¸ÓÁö Advice Method´Â ÀÏ¹İÀûÀ¸·Î ¹İÈ¯ÇüÀ» [void]·Î ÀÛ¼ºÇÏ°í
-	//¸Å°³º¯¼ö¸¦ ÀÛ¼ºÇÏÁö ¾Ê°Å³ª JoinPoint ÀÎÅÍÆäÀÌ½º¸¦ ÀÚ·áÇüÀ¸·Î »ç¿ëÇÑ ¸Å°³º¯¼ö ¼±¾ğ °¡´É
-	// => Advice Å¬·¡½ºÀÇ ¸Ş¼Òµå¸¦ ÀÛ¼º ±ÔÄ¢¿¡ ¸ÂÁö ¾Ê°Ô ÀÛ¼ºÇÒ °æ¿ì IllegalArgumentException ¹ß»ı
-	//JoinPoint °´Ã¼ : Å¸°Ù ¸Ş¼Òµå °ü·Ã Á¤º¸°¡ ÀúÀåµÈ °´Ã¼
-	// => ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê°¡ Advice Å¬·¡½ºÀÇ ¸Ş¼Òµå¸¦ È£ÃâÇÒ ¶§ Å¸°Ù ¸Ş¼Òµå °ü·Ã Á¤º¸¸¦ ÀúÀåÇÑ
-	//JoinPoint °´Ã¼¸¦ »ı¼ºÇÏ¿© ¸Å°³º¯¼ö¿¡ Àü´Ş
-	// => Advice Å¬·¡½ºÀÇ ¸Ş¼Òµå¿¡¼­ Å¸°Ù ¸Ş¼Òµå °ü·Ã Á¤º¸°¡ ÇÊ¿äÇÑ °æ¿ì ¸Å°³º¯¼ö¸¦ ¼±¾ğÇÏ¿© 
-	//JoinPoint °´Ã¼¸¦ Àü´Ş¹Ş¾Æ ¸Ş¼Òµå¸¦ È£ÃâÇÏ¿© ÇÊ¿äÇÑ Á¤º¸¸¦ ¹İÈ¯¹Ş¾Æ »ç¿ë °¡´É
+	//Around Advice Methodë¥¼ ì œì™¸í•œ ë‚˜ë¨¸ì§€ Advice MethodëŠ” ì¼ë°˜ì ìœ¼ë¡œ ë°˜í™˜í˜•ì„ [void]ë¡œ ì‘ì„±í•˜ê³ 
+	//ë§¤ê°œë³€ìˆ˜ë¥¼ ì‘ì„±í•˜ì§€ ì•Šê±°ë‚˜ JoinPoint ì¸í„°í˜ì´ìŠ¤ë¥¼ ìë£Œí˜•ìœ¼ë¡œ ì‚¬ìš©í•œ ë§¤ê°œë³€ìˆ˜ ì„ ì–¸ ê°€ëŠ¥
+	// => Advice í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œë¥¼ ì‘ì„± ê·œì¹™ì— ë§ì§€ ì•Šê²Œ ì‘ì„±í•  ê²½ìš° IllegalArgumentException ë°œìƒ
+	//JoinPoint ê°ì²´ : íƒ€ê²Ÿ ë©”ì†Œë“œ ê´€ë ¨ ì •ë³´ê°€ ì €ì¥ëœ ê°ì²´
+	// => ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆê°€ Advice í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•  ë•Œ íƒ€ê²Ÿ ë©”ì†Œë“œ ê´€ë ¨ ì •ë³´ë¥¼ ì €ì¥í•œ
+	//JoinPoint ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ë§¤ê°œë³€ìˆ˜ì— ì „ë‹¬
+	// => Advice í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œì—ì„œ íƒ€ê²Ÿ ë©”ì†Œë“œ ê´€ë ¨ ì •ë³´ê°€ í•„ìš”í•œ ê²½ìš° ë§¤ê°œë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ì—¬
+	//JoinPoint ê°ì²´ë¥¼ ì „ë‹¬ë°›ì•„ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ í•„ìš”í•œ ì •ë³´ë¥¼ ë°˜í™˜ë°›ì•„ ì‚¬ìš© ê°€ëŠ¥
 	
-	//Before Advice Method - ¹İÈ¯Çü: void, ¸Å°³º¯¼ö: ÀÛ¼ºÇÏÁö ¾Ê°Å³ª JoinPoint °´Ã¼
+	//Before Advice Method - ë°˜í™˜í˜• : void, ë§¤ê°œë³€ìˆ˜ : ì‘ì„±í•˜ì§€ ì•Šê±°ë‚˜ JoinPoint ê°ì²´
 	public void beforeDisplay(JoinPoint joinPoint) {
-		//System.out.println("### [before]ÇÙ½É°ü½ÉÄÚµå ½ÇÇà Àü »ğÀÔµÇ¾î ½ÇÇàµÉ È¾´Ü°ü½ÉÄÚµå ###");
+		//System.out.println("### [before]í•µì‹¬ê´€ì‹¬ì½”ë“œ ì‹¤í–‰ ì „ ì‚½ì…ë˜ì–´ ì‹¤í–‰ë  íš¡ë‹¨ê´€ì‹¬ì½”ë“œ ###");
 		
-		//JoinPoint.getTarget() : Å¸°Ù ¸Ş¼Òµå¸¦ È£ÃâÇÑ °´Ã¼(ÇÙ½É°ü½É¸ğµâÀÇ Spring Bean)¸¦ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		//Object.getClass() : °´Ã¼¸¦ »ı¼ºÇÑ Å¬·¡½ºÀÇ Class °´Ã¼(Clazz)¸¦ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		//Class.getName() : Class °´Ã¼¿¡ ÀúÀåµÈ Å¬·¡½ºÀÇ ÀÌ¸§(ÆĞÅ°Áö Æ÷ÇÔ)À» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+		//JoinPoint.getTarget() : íƒ€ê²Ÿ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•œ ê°ì²´(í•µì‹¬ê´€ì‹¬ëª¨ë“ˆì˜ Spring Bean)ë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		//Object.getClass() : ê°ì²´ë¥¼ ìƒì„±í•œ í´ë˜ìŠ¤ì˜ Class ê°ì²´(Clazz)ë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		//Class.getName() : Class ê°ì²´ì— ì €ì¥ëœ í´ë˜ìŠ¤ì˜ ì´ë¦„(íŒ¨í‚¤ì§€ í¬í•¨)ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 		//System.out.println(joinPoint.getTarget().getClass().getName());
 		
-		//Class.getSimpleName() : Class °´Ã¼¿¡ ÀúÀåµÈ Å¬·¡½ºÀÇ ÀÌ¸§(ÆĞÅ°Áö Á¦¿Ü)À» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+		//Class.getSimpleName() : Class ê°ì²´ì— ì €ì¥ëœ í´ë˜ìŠ¤ì˜ ì´ë¦„(íŒ¨í‚¤ì§€ ì œì™¸)ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 		//System.out.println(joinPoint.getTarget().getClass().getSimpleName());
-
-		//JoinPoint.getSignature() : Å¸°Ù ¸Ş¼ÒµåÀÇ Á¤º¸°¡ ÀúÀåµÈ Signature °´Ã¼¸¦ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		//Signature.getName() : Å¸°Ù ¸Ş¼ÒµåÀÇ ÀÌ¸§À» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå 
+		
+		//JoinPoint.getSignature() : íƒ€ê²Ÿ ë©”ì†Œë“œì˜ ì •ë³´ê°€ ì €ì¥ëœ Signature ê°ì²´(ë¦¬í„´íƒ€ì…, ì´ë¦„, ë§¤ê°œë³€ìˆ˜)ë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		//Signature.getName() : íƒ€ê²Ÿ ë©”ì†Œë“œì˜ ì´ë¦„ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 		//System.out.println(joinPoint.getSignature().getName());
 		
-		//JoinPoint.getArgs() : Å¸°Ù ¸Ş¼ÒµåÀÇ ¸Å°³º¯¼ö¿¡ ÀúÀåµÈ ¸ğµç °ª(°´Ã¼)À» Á¦°ø¹Ş¾Æ 
-		//Object ¹è¿­·Î ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		//System.out.println(joinPoint.getArgs());
+		//JoinPoint.getArgs() : íƒ€ê²Ÿ ë©”ì†Œë“œì˜ ë§¤ê°œë³€ìˆ˜ì— ì €ì¥ëœ ëª¨ë“  ê°’(ê°ì²´)ì„ ì œê³µë°›ì•„
+		//Object ë°°ì—´ë¡œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		System.out.println(joinPoint.getArgs());
 		
 		String className=joinPoint.getTarget().getClass().getSimpleName();
 		String methodName=joinPoint.getSignature().getName();
 		Object[] params=joinPoint.getArgs();
 		
-		System.out.print("### [before]"+className+" Å¬·¡½ºÀÇ "+methodName+"(");
+		System.out.print("### [before]"+className+" í´ë˜ìŠ¤ì˜ "+methodName+"(");
 		for(int i=0;i<params.length;i++) {
 			System.out.print(params[i]);
-			if(i < params.length-1) {
+			if(i<params.length-1) {
 				System.out.print(", ");
 			}
 		}
-		System.out.println(") ¸Ş¼Òµå È£Ãâ ###");
+		System.out.println(") ë©”ì†Œë“œ í˜¸ì¶œ ###");
 	}
-
-	//After Advice Method - ¹İÈ¯Çü: void, ¸Å°³º¯¼ö: ÀÛ¼ºÇÏÁö ¾Ê°Å³ª JoinPoint °´Ã¼
+	
+	//After Advice Method - ë°˜í™˜í˜• : void, ë§¤ê°œë³€ìˆ˜ : ì‘ì„±í•˜ì§€ ì•Šê±°ë‚˜ JoinPoint ê°ì²´
 	public void displayMessage(JoinPoint joinPoint) {
-		//System.out.println("### [after]ÇÙ½É°ü½ÉÄÚµå ½ÇÇà ÈÄ ¹«Á¶°Ç »ğÀÔµÇ¾î ½ÇÇàµÉ È¾´Ü°ü½ÉÄÚµå ###");
+		System.out.println("### [after]í•µì‹¬ê´€ì‹¬ì½”ë“œ ì‹¤í–‰ í›„ ë¬´ì¡°ê±´ ì‚½ì…ë˜ì–´ ì‹œí–‰ë  íš¡ë‹¨ê´€ì‹¬ì½”ë“œ ###");
 		
 		Object[] params=joinPoint.getArgs();
-		System.out.println("### [after]»ç¿ø¹øÈ£°¡ "+params[0]+"ÀÎ »ç¿øÁ¤º¸¸¦ »èÁ¦ ÇÏ¿´½À´Ï´Ù. ");
+		System.out.println("### [after]ì‚¬ì›ë²ˆí˜¸ê°€ "+params[0]+"ì¸ ì‚¬ì›ì •ë³´ë¥¼ ì‚­ì œ í•˜ì˜€ìŠµë‹ˆë‹¤. ###");
 	}
 	
-	//After Returning Advice Method - ¹İÈ¯Çü: void
-	// => JoinPoint ÀÎÅÍÆäÀÌ½ºÀÇ ¸Å°³º¯¼ö ¿Ü¿¡ Object Å¬·¡½ºÀÇ ¸Å°³º¯¼ö ¼±¾ğ °¡´É
-	// => ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê´Â Object Å¬·¡½ºÀÇ ¸Å°³º¯¼ö¿¡ Å¸°Ù ¸Ş¼ÒµåÀÇ ¹İÈ¯°ªÀ» Á¦°ø¹Ş¾Æ Àü´Ş
-	// => ²À [Object] ÀÚ·áÇüÀ» »ç¿ëÇØ¾ß ÇÏ³ª? - Å¸°Ù¸Ş¼Òµå¿¡¼­ ¹İÈ¯µÇ´Â °ª(°´Ã¼)ÀÇ ÀÚ·áÇüÀÌ °íÁ¤µÇ¾î
-	//ÀÖ´Â °æ¿ì Object Å¬·¡½º ´ë½Å ¹İÈ¯µÇ´Â °ª(°´Ã¼)ÀÇ ÀÚ·áÇüÀ¸·Î ¸Å°³º¯¼ö ÀÛ¼º °¡´É - int, String µî
-	//Object Å¬·¡½ºÀÇ ¸Å°³º¯¼ö°¡ ¼±¾ğµÈ °æ¿ì Spring Bean Configuration FileÀÇ AOP ¼³Á¤¿¡¼­
-	//after-returning ¿¤¸®¸ÕÆ®¿¡ ¹İµå½Ã returning ¼Ó¼ºÀ» »ç¿ëÇÏ¿© ¹İÈ¯°ªÀ» ÀúÀåÇÒ ¸Å°³º¯¼öÀÇ
-	//ÀÌ¸§À» ¼Ó¼º°ªÀ¸·Î ÁöÁ¤
-	// => after-returning ¿¤¸®¸ÕÆ®¿¡ returning ¼Ó¼ºÀÌ ¾ø°Å³ª ¼Ó¼º°ªÀÌ Àß¸øµÈ °æ¿ì IllegalArgumentException ¹ß»ı
-	public void displayName(JoinPoint joinPoint, Object object) {
-		//System.out.println("### [after-returning]ÇÙ½É°ü½ÉÄÚµå°¡ Á¤»óÀûÀ¸·Î ½ÇÇà ÈÄ »ğÀÔµÇ¾î ½ÇÇàµÉ È¾´Ü°ü½ÉÄÚµå ### ");
-		
-		String methodName=joinPoint.getSignature().getName();
-		String userName=(String)object;
-		System.out.println("### [after-returning]"+methodName+" ¸Ş¼ÒµåÀÇ ¹İÈ¯°ª = "+ userName);
-	}
-	
-
-	//After Throwing Advice Method¿¡´Â JoinPoint ÀÎÅÍÆäÀÌ½ºÀÇ ¸Å°³º¯¼ö ¿Ü¿¡ Exception Å¬·¡½ºÀÇ[ÁÖ¼®]
-	// => ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê´Â Exception Å¬·¡½ºÀÇ ¸Å°³º¯¼ö¿¡ Å¸°Ù¸Ş¼Òµå¿¡¼­ ¹ß»ıµÈ ¿¹¿Ü(Exception)[ÁÖ¼®]
-	// => Å¸°Ù¸Ş¼Òµå¿¡¼­ ¹ß»ıµÇ´Â ¿¹¿Ü°¡ °íÁ¤µÇ¾î ÀÖ´Â °æ¿ì Exception Å¬·¡½º ´ë½Å ÇÊ¿äÇÑ ¿¹¿Ü
-	//Å¬·¡½º·Î ¸Å°³º¯¼ö ÀÛ¼º °¡´É
-	// => Exception Å¬·¡½ºÀÇ ¸Å°³º¯¼ö°¡ ¼±¾ğµÈ °æ¿ì Spring Bean Configuration FileÀÇ AOP ¼³Á¤¿¡¼­
-	//after-throwing ¿¤¸®¸ÕÆ®¿¡ ¹İµå½Ã throwing ¼Ó¼ºÀ» »ç¿ëÇÏ¿© ¹ß»ıµÈ ¿¹¿Ü¸¦ ÀúÀåÇÏ±â À§ÇÑ
-	//¸Å°³º¯¼öÀÇ ÀÌ¸§À» ¼Ó¼º°ªÀ¸·Î ÁöÁ¤
-	// => after-throwing ¿¤¸®¸ÕÆ®¿¡ throwing ¼Ó¼ºÀÌ ¾ø°Å³ª ¼Ó¼º°ªÀÌ Àß¸øµÈ °æ¿ì IllegalArgumentException ¹ß»ı
-	
-	//After Throwing Advice Method - Å¸°Ù¸Ş¼Òµå ½ÇÇà½Ã ¿¹¿Ü°¡ ¹ß»ıÇÑ °æ¿ì
-	public void exceptionHandle(JoinPoint joinPoint, Exception exception) {
-		//System.out.println("### [after-throwing]ÇÙ½É°ü½ÉÄÚµå ½ÇÇà½Ã ¿¹¿Ü°¡ ¹ß»ıµÈ °æ¿ì »ğÀÔµÇ¾î ½ÇÇàµÉ È¾´Ü°ü½ÉÄÚµå ### ");
-		
-		String methodName=joinPoint.getSignature().getName();
-		
-		System.out.println("### [after-throwing]"+methodName+" ¸Ş¼Òµå¿¡¼­ ¹ß»ıµÈ ¿¹¿Ü = "
-					+exception.getMessage());
-	}
+	//After Returning Advice Method - ë°˜í™˜í˜• : void, ë§¤ê°œë³€ìˆ˜: íƒ€ê²Ÿë©”ì†Œë“œì—ì„œ ë°˜í™˜ë˜ëŠ” ê°ì²´/ê°’(Object)
+	// => JoinPoint ì¸í„°í˜ì´ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜ ì™¸ì— Object í´ë˜ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜ ì„ ì–¸ ê°€ëŠ¥
+	// => ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆëŠ” Object í´ë˜ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜ì— íƒ€ê²Ÿ ë©”ì†Œë“œì˜ ë°˜í™˜ê°’ì„ ì œê³µë°›ì•„ ì „ë‹¬
+	// => ê¼­ [Object] ìë£Œí˜•ì„ ì‚¬ìš©í•´ì•¼ í•˜ëŠ”ê±´ê°€? - íƒ€ê²Ÿë©”ì†Œë“œì—ì„¸ ë°˜í™˜ë˜ëŠ” ê°’(ê°ì²´)ì˜ ìë£Œí˜•ì´ ê³ ì •ë˜ì–´
+	//ìˆëŠ” ê²½ìš° Object í´ë˜ìŠ¤ ëŒ€ì‹  ë°˜í™˜ë˜ëŠ” ê°’(ê°ì²´)ì˜ ìë£Œí˜•ìœ¼ë¡œ ë§¤ê°œë³€ìˆ˜ ì‘ì„± ê°€ëŠ¥ - int, String ë“±
+	//Object í´ë˜ìŠ¤ì˜ ë§¤ê°œë³€ìˆ˜ê°€ ì„ ì–¸ëœ ê²½ìš° Spring Bean Configuration Fileì˜ AOP ì„¤ì •ì—ì„œ
+	//after-returning ì—˜ë¦¬ë¨¼íŠ¸ì— ë°˜ë“œì‹œ returning ì†ì„±ì„ ì‚¬ìš©í•˜ì—¬ ë°˜í™˜ê°’ì„ ì €ì¥í•  ë§¤ê°œë³€ìˆ˜ì˜
+	//ì´ë¦„ì„ ì†ì„±ê°’ìœ¼ë¡œ ì§€ì •
+	// => after
 	
 	
-	//Around Advice Method´Â ¹İÈ¯ÇüÀ» Object Å¬·¡½º·Î ÀÛ¼º(ÀÏ¹İÀûÀ¸·Î)ÇÏ°í ¸Å°³º¯¼ö´Â ProceedingJoinPoint
-	//ÀÎÅÍÆäÀÌ½º·Î ÀÛ¼ºÇÏ¿© ¼±¾ğ
-	// => Å¸°Ù¸Ş¼ÒµåÀÇ ¹İÈ¯°ªÀ» Á¦°ø¹Ş¾Æ ¹İÈ¯ Ã³¸®ÇÏ±â À§ÇØ Object Å¬·¡½º·Î ¹İÈ¯Çü ÀÛ¼º
-	// => Å¸°Ù¸Ş¼Òµå °ü·Ã Á¤º¸¸¦ ProceedingJoinPoint ÀÎÅÍÆäÀÌ½ºÀÇ ¸Å°³º¯¼ö·Î Á¦°ø¹Ş¾Æ Around Advice 
-	//Method¿¡¼­ »ç¿ë
-	//ProceedingJoinPoint °´Ã¼: Å¸°Ù¸Ş¼Òµå °ü·Ã Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ °´Ã¼
-	// => JointPoint °´Ã¼¿Í ´Ù¸¥Á¡Àº Å¸°Ù¸Ş¼Òµå¸¦ Á÷Á¢ È£ÃâÇÏ±â À§ÇÑ ¸Ş¼Òµå Á¦°ø
 	
-	//Around Advice Method - ¹İÈ¯Çü : Object
-	public Object display(ProceedingJoinPoint joinPoint) throws Throwable {
-		System.out.println("### [around]ÇÙ½É°ü½ÉÄÚµå ½ÇÇà Àü »ğÀÔµÇ¾î ½ÇÇàµÉ È¾´Ü°ü½ÉÄÚµå ###");
-		//ProceedingJoinPoint.proceed(): Å¸°Ù¸Ş¼Òµå¸¦ È£ÃâÇÏ´Â ¸Ş¼Òµå - ÇÙ½É°ü½ÉÄÚµå ½ÇÇà
-		// => Å¸°Ù¸Ş¼Òµå¸¦ È£ÃâÇÏ¿© ¹İÈ¯µÇ´Â °á°ú°ªÀ» º¯¼ö¿¡ ÀúÀå - ¹İÈ¯Ã³¸®
-		// => Throwable(Error Å¬·¡½º¿Í Exception Å¬·¡½ºÀÇ ºÎ¸ğÅ¬·¡½º) °´Ã¼°¡ ¹ß»ıµÇ¹Ç·Î ¹İµå½Ã
-		//¿¹¿Ü Ã³¸®ÇÏ°Å³ª ¿¹¿Ü Àü´Ş
-		Object result=joinPoint.proceed();
-		System.out.println("### [around]ÇÙ½É°ü½ÉÄÚµå ½ÇÇà ÈÄ »ğÀÔµÇ¾î ½ÇÇàµÉ È¾´Ü°ü½ÉÄÚµå ###");
-		return result; //Å¸°Ù¸Ş¼ÒµåÀÇ ¹İÈ¯°ªÀ» ¹İÈ¯ Ã³¸®
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

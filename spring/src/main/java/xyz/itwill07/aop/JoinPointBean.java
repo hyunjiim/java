@@ -1,23 +1,22 @@
 package xyz.itwill07.aop;
 
-//ÇÙ½É°ü½É¸ğµâ
+//í•µì‹¬ê´€ì‹¬ëª¨ë“ˆ
 public class JoinPointBean {
 	public void add() {
-		System.out.println("*** JoinPointBean Å¬·¡½ºÀÇ add() ¸Ş¼Òµå È£Ãâ");
+		System.out.println("*** JoinPointBean í´ë˜ìŠ¤ì˜ add() ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 	public void modify(int num, String name) {
-		System.out.println("*** JoinPointBean Å¬·¡½ºÀÇ modify(int num, String name) ¸Ş¼Òµå È£Ãâ");
+		System.out.println("*** JoinPointBean í´ë˜ìŠ¤ì˜ modify(int num, String name) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 	public void remove(int num) {
-		System.out.println("*** JoinPointBean Å¬·¡½ºÀÇ remove(int num) ¸Ş¼Òµå È£Ãâ");
+		System.out.println("*** JoinPointBean í´ë˜ìŠ¤ì˜ remove(int num) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 	public String getName() {
-		System.out.println("*** JoinPointBean Å¬·¡½ºÀÇ getName() ¸Ş¼Òµå È£Ãâ");
-		return "È«±æµ¿";
+		System.out.println("*** JoinPointBean í´ë˜ìŠ¤ì˜ getName() ë©”ì†Œë“œ í˜¸ì¶œ ***");
+		return "í™ê¸¸ë™";
 	}
 	public void calc(int num1, int num2) {
-		System.out.println("*** JoinPointBean Å¬·¡½ºÀÇ calc(int num1, int num2) ¸Ş¼Òµå È£Ãâ");
-		System.out.println("¸ò = "+(num1/num2));
+		System.out.println("*** JoinPointBean í´ë˜ìŠ¤ì˜ calc(int num1, int num2) ë©”ì†Œë“œ í˜¸ì¶œ ***");
 	}
 	
 }
