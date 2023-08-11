@@ -14,6 +14,7 @@ import xyz.itwill10.dto.Userinfo;
 import xyz.itwill10.exception.BadRequestException;
 import xyz.itwill10.exception.ExistsUserinfoException;
 import xyz.itwill10.exception.LoginAuthFailException;
+import xyz.itwill10.exception.UserinfoNotFoundException;
 import xyz.itwill10.service.UserinfoService;
 
 @Controller
@@ -26,11 +27,12 @@ public class UserinfoController {
 	// => 비로그인 사용자 또는 관리자가 아닌 사용자가 페이지를 요청할 경우 인위적 예외 발생
 	// => 예외 처리 메소드(Exception Handle Method)를 이용하여 예외 처리
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public String write(HttpSession session) throws BadRequestException {
-		Userinfo loginUserinfo=(Userinfo)session.getAttribute("loginUserinfo");
+	public String write() throws Exception {
+		Userinfo loginUserinfo=userinfoService.getUserinfo("loginUserinfo");
+		//Userinfo loginUserinfo=(Userinfo)session.getAttribute("loginUserinfo");
 		if(loginUserinfo == null || loginUserinfo.getStatus() != 9) {
-			//throw new Exception("비정상적인 요청입니다.");
-			throw new BadRequestException("비정상적인 요청입니다.");
+			throw new Exception("비정상적인 요청입니다.");
+			//throw new BadRequestException("비정상적인 요청입니다.");
 		}
 		return "userinfo/user_write";
 	}
