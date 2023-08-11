@@ -4,22 +4,22 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.util.StopWatch;
 
 public class ExecutionTimeAdvice {
-	//Å¸°Ù¸Ş¼ÒµåÀÇ ¸í·ÉÀÌ ½ÇÇàµÇ´Â Ã³¸®½Ã°£À» °è»êÇÏ¿© ±â·ÏÇÏ±â À§ÇÑ ¸Ş¼Òµå - Around Advice Method
+	//íƒ€ê²Ÿë©”ì†Œë“œì˜ ëª…ë ¹ì´ ì‹¤í–‰ë˜ëŠ” ì²˜ë¦¬ì‹œê°„ì„ ê³„ì‚°í•˜ì—¬ ê¸°ë¡í•˜ê¸° ìœ„í•œ ë©”ì†Œë“œ - Around Advice Method
 	/*
 	public Object timeWatchLog(ProceedingJoinPoint joinPoint) throws Throwable {
-		//Å¸°Ù¸Ş¼ÒµåÀÇ ¸í·É ½ÇÇàÀü¿¡ µ¿ÀÛµÉ ¸í·É ÀÛ¼º
+		//íƒ€ê²Ÿë©”ì†Œë“œì˜ ëª…ë ¹ ì‹¤í–‰ì „ì— ë™ì‘ë  ëª…ë ¹ ì‘ì„±
 		long startTime=System.currentTimeMillis();
 		
-		//Å¸°Ù¸Ş¼ÒµåÀÇ ¸í·É ½ÇÇà - Å¸°Ù¸Ş¼Òµå È£Ãâ
+		//íƒ€ê²Ÿë©”ì†Œë“œì˜ ëª…ë ¹ ì‹¤í–‰ - íƒ€ê²Ÿë©”ì†Œë“œ í˜¸ì¶œ
 		Object returnValue=joinPoint.proceed();
 		
-		//Å¸°Ù¸Ş¼ÒµåÀÇ ¸í·É ½ÇÇàÈÄ¿¡ µ¿ÀÛµÉ ¸í·É ÀÛ¼º
+		//íƒ€ê²Ÿë©”ì†Œë“œì˜ ëª…ë ¹ ì‹¤í–‰í›„ì— ë™ì‘ë  ëª…ë ¹ ì‘ì„±
 		long endTime=System.currentTimeMillis();
 		
 		String className=joinPoint.getTarget().getClass().getSimpleName();
 		String methodName=joinPoint.getSignature().getName();
 		
-		System.out.println(className+" Å¬·¡½ºÀÇ "+methodName+"() ¸Ş¼Òµå ½ÇÇà ½Ã°£ = "
+		System.out.println(className+"í´ë˜ìŠ¤ì˜ "+methodName+"() ë©”ì†Œë“œ ì‹¤í–‰ ì‹œê°„ = "
 				+(endTime-startTime)+"ms");
 		
 		return returnValue;
@@ -27,25 +27,25 @@ public class ExecutionTimeAdvice {
 	*/
 	
 	public Object timeWatchLog(ProceedingJoinPoint joinPoint) throws Throwable {
-		//Å¸°Ù¸Ş¼ÒµåÀÇ ¸í·É ½ÇÇàÀü¿¡ µ¿ÀÛµÉ ¸í·É ÀÛ¼º
-		//StopWatch °´Ã¼ : ½Ã°£À» ÃøÁ¤ÇÏ±â À§ÇÑ ±â´ÉÀ» Á¦°øÇÏ±â À§ÇÑ °´Ã¼
+		//íƒ€ê²Ÿë©”ì†Œë“œì˜ ëª…ë ¹ ì‹¤í–‰ì „ì— ë™ì‘ë  ëª…ë ¹ ì‘ì„±
+		//StopWatch ê°ì²´ : ì‹œê°„ì„ ì¸¡ì •í•˜ê¸° ìœ„í•œ ê¸°ëŠ¥ì„ ì œê³µí•˜ê¸° ìœ„í•œ ê°ì²´
 		StopWatch stopWatch=new StopWatch();
 		
-		//StopWatch.start() : ½Ã°£ ÃøÁ¤À» ½ÃÀÛÇÏ´Â ¸Ş¼Òµå
+		//StopWatch.start() : ì‹œê°„ ì¸¡ì •ì„ ì‹œì‘í•˜ëŠ” ë©”ì†Œë“œ
 		stopWatch.start();
 		
-		//Å¸°Ù¸Ş¼ÒµåÀÇ ¸í·É ½ÇÇà - Å¸°Ù¸Ş¼Òµå È£Ãâ
+		//íƒ€ê²Ÿë©”ì†Œë“œì˜ ëª…ë ¹ ì‹¤í–‰ - íƒ€ê²Ÿë©”ì†Œë“œ í˜¸ì¶œ
 		Object returnValue=joinPoint.proceed();
 		
-		//Å¸°Ù¸Ş¼ÒµåÀÇ ¸í·É ½ÇÇàÈÄ¿¡ µ¿ÀÛµÉ ¸í·É ÀÛ¼º
-		//StopWatch.stop() : ½Ã°£ ÃøÁ¤À» Á¾·áÇÏ´Â ¸Ş¼Òµå
+		//íƒ€ê²Ÿë©”ì†Œë“œì˜ ëª…ë ¹ ì‹¤í–‰í›„ì— ë™ì‘ë  ëª…ë ¹ ì‘ì„±
+		//stopWatch.stop() : ì‹œê°„ ì¸¡ì •ì„ ì¢…ë£Œí•˜ëŠ” ë©”ì†Œë“œ
 		stopWatch.stop();
 		
 		String className=joinPoint.getTarget().getClass().getSimpleName();
 		String methodName=joinPoint.getSignature().getName();
 		
-		//StopWatch.getTotalTimeMillis() : ½Ã°£ ÃøÁ¤ °á°ú¸¦ ms ´ÜÀ§·Î ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		System.out.println(className+" Å¬·¡½ºÀÇ "+methodName+"() ¸Ş¼Òµå ½ÇÇà ½Ã°£ = "
+		
+		System.out.println(className+" í´ë˜ìŠ¤ì˜ "+methodName+"() ë©”ì†Œë“œ ì‹¤í–‰ ì‹œê°„ = "
 				+stopWatch.getTotalTimeMillis()+"ms");
 		
 		return returnValue;
