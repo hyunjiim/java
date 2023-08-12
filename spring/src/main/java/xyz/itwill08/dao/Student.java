@@ -3,16 +3,16 @@ package xyz.itwill08.dao;
 import lombok.Data;
 
 /*
-ÀÌ¸§       ³Î?       À¯Çü            
+ì´ë¦„       ë„?       ìœ í˜•            
 -------- -------- ------------- 
 NO       NOT NULL NUMBER(4)     
 NAME              VARCHAR2(50)  
 PHONE             VARCHAR2(20)  
 ADDRESS           VARCHAR2(100) 
-BIRTHDAY          DATE          
+BIRTHDAY          DATE   
 */
 
-//ÇÐ»ýÁ¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º - DTO Å¬·¡½º
+//í•™ìƒì •ë³´ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ í´ëž˜ìŠ¤ - DTO í´ëž˜ìŠ¤
 @Data
 public class Student {
 	private int no;

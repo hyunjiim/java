@@ -8,14 +8,14 @@ import javax.sql.DataSource;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-//DataSource °´Ã¼ : ´Ù¼öÀÇ Connection °´Ã¼¸¦ ¹Ì¸® »ı¼ºÇÏ¿© ÀúÀåÇÏ°í ÀÖ´Â °´Ã¼ - DBCP(DataBase Connection Pool)
-// => Spring Bean Configuration File¿¡¼­ DataSource ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº ÀÚ½ÄÅ¬·¡½º(Apache Tomcat(tomcat-dbcp.jar), Spring Framework µî¿¡¼­ Á¦°ø)¸¦
-//Spring BeanÀ¸·Î µî·ÏÇÏ¿© ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê¿¡¼­ Á¦°ø¹Ş¾Æ »ç¿ë
-// => DataSource ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº ÀÚ½ÄÅ¬·¡½º´Â Spring ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ Á¦°øÇÏ´Â spring-jdbc
-//¶óÀÌºê·¯¸®¸¦ ºôµå Ã³¸® - ¸ŞÀÌºì »ç¿ë : pom.xml
-//=> DataSource °ü·Ã ¶óÀÌºê·¯¸®¿Ü¿¡ Oracle Driver °ü·Ã ¶óÀÌºê·¯¸®(ojdbc)µµ ÇÁ·ÎÁ§Æ®¿¡ ºôµå Ã³¸®
+//DataSource ê°ì²´ : ë‹¤ìˆ˜ì˜ Connection ê°ì²´ë¥¼ ë¯¸ë¦¬ ìƒì„±í•˜ì—¬ ì €ì¥í•˜ê³  ìˆëŠ” ê°ì²´ - DBCP(DataBase Connection Pool)
+// => Spring Bean Configuration Fileì—ì„œ DataSource ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìì‹í´ë˜ìŠ¤ë¥¼ Spring Bean
+//ìœ¼ë¡œ ë“±ë¡í•˜ì—¬ ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆì—ê²Œ ì œê³µë°›ì•„ ì‚¬ìš©
+// => DataSource ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìì‹í´ë˜ìŠ¤ëŠ” Spring í”„ë ˆì„ì›Œí¬ì—ì„œ ì œê³µí•˜ëŠ” spring-jdbc
+//ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ë¹Œë“œ ì²˜ë¦¬ - ë©”ì´ë¸ ì‚¬ìš© : pom.xml
+// => DataSource ê´€ë ¨ ë¼ì´ë¸ŒëŸ¬ë¦¬ì™¸ì— Oracle Driver ê´€ë ¨ ë¼ì´ë¸ŒëŸ¬ë¦¬(ojdbc ë¼ì´ë¸ŒëŸ¬ë¦¬)ë„ í”„ë¡œì íŠ¸ ë¹Œë“œ ì²˜ë¦¬
 
-//½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê¿¡°Ô DataSource °´Ã¼¸¦ Á¦°ø¹Ş¾Æ Connection °´Ã¼¸¦ ¹İÈ¯¹Ş¾Æ »ç¿ë
+//ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆì—ê²Œ DataSource ê°ì²´ë¥¼ ì œê³µë°›ì•„ Connection ê°ì²´ë¥¼ ë°˜í™˜ë°›ì•„ ì‚¬ìš©
 public class DataSourceApp {
 	public static void main(String[] args) throws SQLException {
 		ApplicationContext context=new ClassPathXmlApplicationContext("08_dao.xml");

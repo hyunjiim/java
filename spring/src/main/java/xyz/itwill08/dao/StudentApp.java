@@ -9,34 +9,34 @@ public class StudentApp {
 	public static void main(String[] args) {
 		ApplicationContext context=new ClassPathXmlApplicationContext("08_dao.xml");
 		StudentService service=context.getBean("studentService", StudentService.class);
-		System.out.println("=========================================================");
+		System.out.println("==========================================================");
 		/*
 		Student newStudent=new Student();
-		newStudent.setNo(9000);
-		newStudent.setName("È«°æ·¡");
-		newStudent.setPhone("010-6532-5255");
-		newStudent.setAddress("¼­¿ï½Ã µµºÀ±¸");
+		newStudent.setNo(6000);
+		newStudent.setName("í™ê²½ë˜");
+		newStudent.setPhone("010-3189-9622");
+		newStudent.setAddress("ì„œìš¸ì‹œ ë„ë´‰êµ¬");
 		newStudent.setBirthday("1999-05-05");
 		service.addStudent(newStudent);
 		*/
 		
 		/*
 		Student searchStudent=service.getStudent(6000);
-		System.out.println(searchStudent);
-		searchStudent.setName("·ÎºóÈÊ");
+		System.out.println(searchStudent);//toString() ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ í•„ë“œê°’ì„ ë°˜í™˜ë°›ì•„ ì¶œë ¥ 
+		searchStudent.setName("ë¡œë¹ˆí›—");
 		searchStudent.setBirthday("1999-02-05");
 		service.modifyStudent(searchStudent);
 		*/
 		
-		service.removeStudent(9000);
+		service.removeStudent(6000);
 		
 		List<Student> studentList=service.getStudentList();
 		for(Student student : studentList) {
-			System.out.println("ÇĞ¹ø = "+student.getNo() + ", ÀÌ¸§ = "+student.getName() 
-				+ ", ÀüÈ­¹øÈ£ = "+student.getPhone()+ ", ÁÖ¼Ò = "+student.getAddress() 
-				+ ", »ı³â¿ùÀÏ = "+student.getBirthday().substring(0, 10));
+			System.out.println("í•™ë²ˆ = "+student.getNo()+", ì´ë¦„ = "+student.getName()
+					+", ì „í™”ë²ˆí˜¸ = "+student.getPhone()+", ì£¼ì†Œ = "+student.getAddress()
+					+", ìƒë…„ì›”ì¼ = "+student.getBirthday().substring(0, 10));
 		}
-		System.out.println("=========================================================");
+		System.out.println("==========================================================");
 		((ClassPathXmlApplicationContext)context).close();
 	}
 }

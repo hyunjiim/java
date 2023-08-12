@@ -5,9 +5,9 @@ import java.util.List;
 import lombok.Setter;
 
 public class StudentServiceImpl implements StudentService {
-	//StudentDAO ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº ÀÚ½ÄÅ¬·¡½ºÀÇ °´Ã¼¸¦ ÀúÀåÇÏ±â À§ÇÑ ÇÊµå
-	// => Spring Bean Configuration File¿¡¼­ Service Å¬·¡½º¸¦ Spring BeanÀ¸·Î µî·ÏÇÒ ¶§ StudentService
-	//ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº ÀÚ½ÄÅ¬·¡½ºÀÇ Spring BeanÀ» Á¦°ø¹Ş¾Æ ÀÇÁ¸¼º ÁÖÀÔ - Setter Injection
+	//StudentDAO ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìì‹í´ë˜ìŠ¤ì˜ ê°ì²´ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•œ í•„ë“œ
+	// => Spring Bean Configuration Fileì—ì„œ Service í´ë˜ìŠ¤ë¥¼ Spring Beanìœ¼ë¡¤ ë“±ë¡í•  ë•Œ StudentDAO
+	//ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ìì‹í´ë˜ìŠ¤ì˜ Spring Beanì„ ì œê³µë°›ì•„ ì˜ì¡´ì„± ì£¼ì… - Setter Injection
 	@Setter
 	private StudentDAO studentDAO;
 
