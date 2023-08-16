@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MethodController {
-	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)를 반환하는 요청 처리 메소드
+	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)을 반환하는 요청 처리 메소드
 	// => 클라이언트의 요청방식에 상관없이 무조건 요청 처리 메소드 호출
-	//method_input 페이지가 요청되면 실행될 메소드 method_input1 응답처리
+	//method_input 페이지가 요청되면 실행될 메소드로, method_input1.jsp 문서로 응답처리
 	@RequestMapping("/method_input")
 	public String inputOne() {
 		return "method_input1";
@@ -28,8 +28,8 @@ public class MethodController {
 	public String outputOne(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//클라이언트가 현재 페이지를 GET 방식으로 요청한 경우 - 비정상적인 요청
 		if(request.getMethod().equals("GET")) {
-			//response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);//클라이언트에게 405 에러코드 전달
-			response.sendRedirect("method_input");//클라이언트에게 재요청할 수 있는 URL 주소 전달
+			//response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED); //클라이언트에게 405 에러코드 전달
+			response.sendRedirect("method_input"); //클라이언트에게 재요청할 수 있는 URL 주소 전달
 			return null;
 		}
 		
@@ -42,7 +42,7 @@ public class MethodController {
 		request.setAttribute("name", name);
 		return "method_output";
 	}
-	
+
 	//method 페이지를 get 방식으로 요청했을 경우 자동으로 요청되는 메소드
 	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)를 반환하는 요청 처리 메소드
 	// => 클라이언트가 현재 페이지를 [GET] 방식으로 요청한 경우 요청 처리 메소드 호출
@@ -50,6 +50,9 @@ public class MethodController {
 	// => RequestMethod 자료형(Enum)은 클라이언트의 요청방식을 상수로 제공하는 자료형
 	// => method 속성값으로 설정된 요청방식이 아닌 형태로 요청한 경우 클라이언트에게 405 에러코드 전달
 	//[GET] 방식으로 요청 처리 메소드를 호출하기 위해 @RequestMapping 어노테이션 대신 @GetMapping 어노테이션 사용 가능
+	
+	//method 페이지를 get 방식으로 요청했을 경우 자동으로 요청되는 메소드
+	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)을 반환하는 요청 처리 메소드
 	@RequestMapping(value = "/method", method = RequestMethod.GET)
 	public String inputTwo() {
 		return "method_input2";
