@@ -80,37 +80,7 @@ public class DispatcherServlet extends HttpServlet {
 		//경로를 완성하여 반환하는 메소드
 		ViewResolver viewResolver=new ViewResolver();
 		String view=viewResolver.getView(viewName); //응답할 JSP 문서의 경로를 반환받아 저장
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		request.getRequestDispatcher(view).forward(request, response);//JSP 문서로 포워드 이동
 		
 	}
 }

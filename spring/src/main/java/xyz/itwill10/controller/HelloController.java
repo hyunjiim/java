@@ -12,21 +12,21 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 //@Controller 어노테이션을 사용하면 Controller 인터페이스를 상속받지 않아도 요청 처리 클래스로 작성 가능
-// => @RequestMapping 어노테이션을 사용하여 메소드를 요청 처리 메소드 처리되도록 작성
-// => @RequestMapping 어노테이션을 사용하여 요청 처리 메소드를 여러개 선언 가능 
+// => @RequestMapping 어노테이션을 사용하여 메소드를 요청 처리 메소드로 처리되도록 작성
+// => @RequestMapping 어노테이션을 사용하여 요청 처리 메소드를 여러개 선언 가능
 @Controller
 public class HelloController {
 	
 	//요청 처리 메소드는 Front Controller에게 반드시 뷰이름(ViewName) 제공
-	// => Front Controller는 제공받은 뷰이름을 이용하여 ViewResolver 객체로 응답 처리되도록 변환
-	//1.메소드의 반환형을 [void]로 작성한 경우 메소드의 이름을 뷰이름으로 제공 
-	//2.메소드의 반환형을 [String]로 작성한 경우 메소드의 반환값(문자열)을 뷰이름으로 제공 
-	//3.메소드의 반환형을 [ModelAndView]로 작성한 경우 반환된 ModelAndView 객체에 뷰이름을 저장하여 제공
-
-	//Front Controller가 InternalResourceViewResolver를 사용한 경우 뷰이름으로 생성된 JSP 문서로 응답 처리  
+	// => Front Controller는 제공받은 뷰이름을 이용하여 ViewResolver 객체(응답 처리할 JSP 문서의 경로 완성)로 응답 처리되도록 변환
+	//1. 메소드의 반환형을 [void]로 작성한 경우 메소드의 이름을 뷰이름으로 제공
+	//2. 메소드의 반환형을 [String]으로 작성한 경우 메소드의 반환값(문자열)을 뷰이름으로 제공
+	//3. 메소드의 반환형을 [ModelAndView]로 작성한 경우 반환된 ModelAndView 객체에 뷰이름을 저장하여 제공
+	
+	//Front Controller가 InternalResourceViewResolver를 사용한 경우 뷰이름으로 생성된 JSP 문서로 응답 처리
 	//Front Controller가 BeanNameViewResolver를 사용한 경우 Spring Bean으로 응답 처리 가능
-	// => 요청 처리 메소드의 반환형을 Map 인터페이스 또는 Model 인터페이스로 설정 가능  
-
+	// => 요청 처리 메소드의 반환형을 Map 인터페이스 또는 Model 인터페이스로 설정 가능
+	
 	//@RequestMapping : 클라이언트의 요청을 처리하기 위한 메소드로 선언하기 위한 어노테이션
 	// => 기본적으로 클라이언트의 모든 요청방식(Method - GET, POST, PUT, PATCH, DELETE 등)에 
 	//의해 호출되는 요청 처리 메소드를 작성할 경우 사용하는 어노테이션
