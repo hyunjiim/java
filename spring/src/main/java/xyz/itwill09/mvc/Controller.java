@@ -6,11 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//Model ±â´ÉÀ» Á¦°øÇÏ´Â Å¬·¡½º°¡ ¹İµå½Ã »ó¼Ó¹Ş¾Æ¾ß µÇ´Â ÀÎÅÍÆäÀÌ½º
-// => ¸ğµç Model ±â´ÉÀÇ Å¬·¡½º¿¡ µ¿ÀÏÇÑ ¸Ş¼Òµå°¡ ÀÛ¼ºµÇµµ·Ï ±ÔÄ¢ Á¦°ø¤¤
-// => Controller¿¡¼­ Model ±â´ÉÀÇ Å¬·¡½º·Î ¿äÃ» Ã³¸® ¸Ş¼Òµå¸¦ ½±°Ô È£ÃâÇÏ¿© »ç¿ë
+//Model ê¸°ëŠ¥ì„ ì œê³µí•˜ëŠ” í´ë˜ìŠ¤ê°€ ë°˜ë“œì‹œ ìƒì†ë°›ì•„ì•¼ ë˜ëŠ” ì¸í„°í˜ì´ìŠ¤
+// => ëª¨ë“  Model ê¸°ëŠ¥ì˜ í´ë˜ìŠ¤ì— ë™ì¼í•œ ë©”ì†Œë“œê°€ ì‘ì„±ë˜ë„ë¡ ê·œì¹™ ì œê³µ
+// => Controllerì—ì„œ Model ê¸°ëŠ¥ì˜ í´ë˜ìŠ¤ë¡œ ìš”ì²­ ì²˜ë¦¬ ë©”ì†Œë“œë¥¼ ì‰½ê²Œ í˜¸ì¶œí•˜ì—¬ ì‚¬ìš©
 public interface Controller {
-	//¸ğµç Model ±â´ÉÀÇ Å¬·¡½º¿¡¼­ ¹İµå½Ã ÀÛ¼ºÇÒ ¿äÃ» Ã³¸® ¸Ş¼Òµå¸¦ Ãß»ó¸Ş¼Òµå·Î ¼±¾ğ
+	//ëª¨ë“  Model ê¸°ëŠ¥ì˜ í´ë˜ìŠ¤ì—ì„œ ë°˜ë“œì‹œ ì‘ì„±í•  ìš”ì²­ì²˜ë¦¬ ë©”ì†Œë“œë¥¼ ì¶”ìƒë©”ì†Œë“œë¡œ ì„ ì–¸
 	String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException;
 	

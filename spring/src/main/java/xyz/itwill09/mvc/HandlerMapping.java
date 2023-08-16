@@ -3,22 +3,22 @@ package xyz.itwill09.mvc;
 import java.util.HashMap;
 import java.util.Map;
 
-//Å¬¶óÀÌ¾ðÆ®ÀÇ ¿äÃ»Á¤º¸¿Í ¿äÃ» Ã³¸® Å¬·¡½ºÀÇ °´Ã¼¸¦ Map °´Ã¼ÀÇ ¿£Æ®¸®·Î ÀúÀåÇÏ¿© Á¦°øÇÏ´Â ±â´ÉÀÇ Å¬·¡½º
+//í´ë¼ì´ì–¸íŠ¸ì˜ ìš”ì²­ì •ë³´ì™€ ìš”ì²­ì²˜ë¦¬ í´ëž˜ìŠ¤ì˜ ê°ì²´ë¥¼ Map ê°ì²´ì˜ ì—”íŠ¸ë¦¬ë¡œ ì €ìž¥í•˜ì—¬ ì œê³µí•˜ëŠ” ê¸°ëŠ¥ì˜ í´ëž˜ìŠ¤
 public class HandlerMapping {
-	//Map °´Ã¼¸¦ ÀúÀåÇÏ±â À§ÇÑ ÇÊµå
-	// => ¿£Æ®¸®ÀÇ Á¦³×¸¯À¸·Î ¸ÊÅ°´Â ¿äÃ»Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇØ String Å¬·¡½º·Î ¼³Á¤ÇÏ°í
-	//¸Ê°ªÀº ¿äÃ» Ã³¸® Å¬·¡½ºÀÇ °´Ã¼¸¦ ÀúÀåÇÏ±â À§ÇØ Controller ÀÎÅÍÆäÀÌ½º·Î ¼³Á¤
+	//Map ê°ì²´ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ í•„ë“œ
+	// => ì—”íŠ¸ë¦¬ì˜ ì œë„¤ë¦­ìœ¼ë¡œ ë§µí‚¤ëŠ” ìš”ì²­ì •ë³´ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•´ String í´ëž˜ìŠ¤ë¡œ ì„¤ì •í•˜ê³ 
+	//ë§µê°’ì€ ìš”ì²­ ì²˜ë¦¬ í´ëž˜ìŠ¤ì˜ ê°ì²´ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•´ Controller ì¸í„°íŽ˜ì´ìŠ¤ë¡œ ì„¤ì •
 	private Map<String, Controller> mappings;
 	
-	//»ý¼ºÀÚ·Î Map °´Ã¼¸¦ »ý¼ºÇÏ¿© ÇÊµå¿¡ ÀúÀåÇÏ°í ¿äÃ»Á¤º¸¿Í ¿äÃ» Ã³¸® Å¬·¡½ºÀÇ °´Ã¼¸¦	¿£Æ®¸®·Î Ãß°¡
+	//ìƒì„±ìžë¡œ Map ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ í•„ë“œì— ì €ìž¥í•˜ê³  ìš”ì²­ì •ë³´ì™€ ìš”ì²­ì²˜ë¦¬ í´ëž˜ìŠ¤ì˜ ê°ì²´ë¥¼ ì—”íŠ¸ë¦¬ë¡œ ì¶”ê°€
 	public HandlerMapping() {
 		mappings=new HashMap<String, Controller>();
 		mappings.put("/list.itwill", new ListController());
 		mappings.put("/view.itwill", new ViewController());
 	}
 	
-	//¸Å°³º¯¼ö·Î Å¬¶óÀÌ¾ðÆ®ÀÇ ¿äÃ»Á¤º¸¸¦ Àü´Þ¹Þ¾Æ ¿äÃ»À» Ã³¸®ÇÏ±â À§ÇÑ °´Ã¼¸¦ Map °´Ã¼¿¡¼­ 
-	//°Ë»öÇÏ¿© ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå
+	//ë§¤ê°œë³€ìˆ˜ë¡œ í´ë¼ì´ì–¸íŠ¸ì˜ ìš”ì²­ì •ë³´ë¥¼ ì „ë‹¬ë°›ì•„ ìš”ì²­ì„ ì²˜ë¦¬í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ Map ê°ì²´ì—ì„œ
+	//ê²€ìƒ‰í•˜ì—¬ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 	public Controller getController(String command) {
 		return mappings.get(command);
 	}

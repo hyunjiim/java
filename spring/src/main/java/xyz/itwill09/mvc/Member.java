@@ -3,7 +3,7 @@ package xyz.itwill09.mvc;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-//È¸¿øÁ¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º - DTO Å¬·¡½º
+//íšŒì›ì •ë³´ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ - DTO í´ë˜ìŠ¤
 @AllArgsConstructor
 @Data
 public class Member {

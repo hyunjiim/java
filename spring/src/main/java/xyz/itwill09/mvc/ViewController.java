@@ -6,15 +6,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//¸ğµ¨ ±â´ÉÀ» Á¦°øÇÏ±â À§ÇÑ Å¬·¡½º - ¿äÃ» Ã³¸® ¸Ş¼Òµå°¡ Ãß»ó¸Ş¼Òµå·Î ¼±¾ğµÈ ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹Ş¾Æ ÀÛ¼º
-// => Å¬¶óÀÌ¾ğÆ®°¡ [/view.itwill]ÀÇ URL ÁÖ¼Ò·Î ¿äÃ»ÇÑ °æ¿ì ÄÁÆ®·Ñ·¯¿¡ ÀÇÇØ ½ÇÇàµÉ ¿äÃ» Ã³¸® Å¬·¡½º
+//ëª¨ë¸ ê¸°ëŠ¥ì„ ì œê³µí•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ - ìš”ì²­ ì²˜ë¦¬ ë©”ì†Œë“œê°€ ì¶”ìƒë©”ì†Œë“œë¡œ ì„ ì–¸ëœ ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì•„ ì‘ì„±
+// => í´ë¼ì´ì–¸íŠ¸ê°€ [/view.itwill]ì˜ URL ì£¼ì†Œë¡œ ìš”ì²­í•œ ê²½ìš° Controllerì— ì˜í•´ ì‹¤í–‰ë  ìš”ì²­ ì²˜ë¦¬ í´ë˜ìŠ¤
 public class ViewController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Member member=new Member("test", "ÀÏÁö¸Å", "¼­¿ï½Ã Á¾·Î±¸");
+		Member member=new Member("test","ì¼ì§€ë§¤","ì„œìš¸ì‹œ ì¢…ë¡œêµ¬");
 		request.setAttribute("member", member);
 		return "member_view";
 	}
-
 }
