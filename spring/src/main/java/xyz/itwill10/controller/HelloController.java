@@ -26,9 +26,8 @@ public class HelloController {
 	//Front Controller가 InternalResourceViewResolver를 사용한 경우 뷰이름으로 생성된 JSP 문서로 응답 처리
 	//Front Controller가 BeanNameViewResolver를 사용한 경우 Spring Bean으로 응답 처리 가능
 	// => 요청 처리 메소드의 반환형을 Map 인터페이스 또는 Model 인터페이스로 설정 가능
-	
 	//@RequestMapping : 클라이언트의 요청을 처리하기 위한 메소드로 선언하기 위한 어노테이션
-	// => 기본적으로 클라이언트의 모든 요청방식(Method - GET, POST, PUT, PATCH, DELETE 등)에 
+	// => 기본적으로 클라이언트의 모든 요청방식(Method - GET, POST, PUT, PATCH, DELETE 등)에
 	//의해 호출되는 요청 처리 메소드를 작성할 경우 사용하는 어노테이션
 	// => 클라이언트의 요청방식을 구분하여 요청 처리 메소드를 호출하고자 할 경우 @GetMapping
 	//, @PostMapping, @PutMapping, @PatchMapping, @DeleteMapping 등의 어노테이션을 사용 가능
