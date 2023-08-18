@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.RequiredArgsConstructor;
 import xyz.itwill10.dto.Student;
 import xyz.itwill10.service.StudentService;
-
+ 
 //Spring MVC 기능을 사용하여 웹프로그램을 작성하는 방법
 // => 테이블 >> DTO 클래스 >> DAO 클래스(MyBatis) >> Service 클래스 >> Controller 클래스
 // >> 테스트 프로그램(JUnit) - 단위 프로그램(모듈) 테스트 >> HTML 문서를 JSP 문서로 변환

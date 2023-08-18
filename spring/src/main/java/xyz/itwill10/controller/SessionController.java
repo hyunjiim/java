@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import xyz.itwill10.dto.Hewon;
-
+ 
 //LoginController에서 HttpSession으로만 Session Scope를 사용한 것을 어노테이션을 사용하여 얻을 수 있음을
 //보여주기 위해 작성된 Controller
 

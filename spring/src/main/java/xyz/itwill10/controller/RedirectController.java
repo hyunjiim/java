@@ -55,7 +55,7 @@ public class RedirectController {
 		return "redirect:/redirect_move"; 
 	}
 	*/
-	
+	 
 	@RequestMapping("/redirect_move")
 	public String redirect() {
 		return "display_redirect";

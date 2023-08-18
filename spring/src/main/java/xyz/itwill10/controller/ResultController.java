@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
+ 
 //요청 처리 메소드의 의해 처리된 결과를 뷰(JSP 문서)에게 제공하는 방법
 //1. ModelAndView 객체의 addObject() 메소드를 호출하여 처리결과를 속성값으로 저장하여 제공
 //2. HttpServletRequest 객체의 setAttribute() 메소드를 호출하여 처리결과를 속성값으로 저장하여 제공

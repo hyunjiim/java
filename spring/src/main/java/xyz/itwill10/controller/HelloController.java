@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
-
+ 
 //@Controller : 요청 처리 클래스(Controller 클래스)를 Spring Bean으로 등록하기 위한 어노테이션
 // => 클래스의 이름을 Spring Bean의 식별자(beanName)으로 자동 설정 - 첫문자는 소문자로 변환
 // => value 속성을 사용하여 Spring Bean의 식별자(beanName) 변경 가능

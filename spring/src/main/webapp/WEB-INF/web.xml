@@ -5,7 +5,7 @@
 	<!-- web.xml : WAS(Web Application Server) 프로그램이 시작될 때 프로젝트를 웹자원으로
 	변환하기 위해 필요한 정보를 제공하는 환경설정파일 -->
 	<!-- => Listener 설정, Filter 설정, Servlet 설정, ErrorPage 설정, WelcomeFile 설정 등 -->
-	
+	 
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<!-- context-param : 모든 웹프로그램에게 필요한 값을 제공하기 위한 엘리먼트 -->
 	<!-- => contextConfigLocation 이름으로 스프링 컨테이너(WebApplicationContext 객체)에게

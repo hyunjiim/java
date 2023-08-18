@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+ 
 @Controller
 public class MethodController {
 	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)을 반환하는 요청 처리 메소드
