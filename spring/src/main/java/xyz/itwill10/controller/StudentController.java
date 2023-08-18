@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.RequiredArgsConstructor;
 import xyz.itwill10.dto.Student;
 import xyz.itwill10.service.StudentService;
- 
-//Spring MVC 기능을 사용하여 웹프로그램을 작성하는 방법
+
+//SpringMVC 기능을 사용하여 웹프로그램을 작성하는 방법
 // => 테이블 >> DTO 클래스 >> DAO 클래스(MyBatis) >> Service 클래스 >> Controller 클래스
 // >> 테스트 프로그램(JUnit) - 단위 프로그램(모듈) 테스트 >> HTML 문서를 JSP 문서로 변환
 // >> 통합 프로그램 테스트 - 브라우저 이용
@@ -25,7 +25,6 @@ import xyz.itwill10.service.StudentService;
 //4.SpyLogDelegator 객체에 의해 발생된 로그 이벤트를 Spring 프레임워크의 로그 구현체로 기록되도록
 //환경설정파일 변경 - log4j.xml : logger 엘리먼트 추가
 
-
 //Controller 클래스 : 클라이언트의 요청을 처리하기 위한 기능을 제공하기 위한 클래스
 
 //Controller 클래스는 Front Controller(DispatcherServlet 클래스)에게 객체로 제공되어 사용되도록 반드시 Spring Bean으로 등록
@@ -33,6 +32,7 @@ import xyz.itwill10.service.StudentService;
 // => @Controller 어노테이션을 사용하면 클라이언트 요청에 의해 호출되는 요청 처리 메소드 작성
 // => @Controller 어노테이션을 스프링 컨테이너가 처리하기 위해 반드시 클래스가 작성된 패키지를
 //Spring Bean Configuration File(servlet-context.xml)의 component-scan 엘리먼트로 검색되도록 설정
+
 @Controller
 @RequiredArgsConstructor
 //@RequestMapping 어노테이션을 클래스에 선언하면 Controller 클래스의 모든 요청 처리 메소드의
@@ -42,7 +42,7 @@ import xyz.itwill10.service.StudentService;
 @RequestMapping("/student")
 public class StudentController {
 	//Controller 클래스의 요청 처리 메소드에서 사용될 Service 클래스의 객체를 저장하기 위한 필드
-	// => 생성자를 이용하여 필드에 Service 클래스의 객체가 저장되도록 의존성 주입
+	// => 생성자를 이용하여 필드에 Service 클래스의 객체가 저장되도록 의존성 주입 - 필드가 하나이므로 @Autowired 어노테이션 생략 가능
 	private final StudentService studentService;
 	
 	//학생정보를 입력받기 위한 JSP 문서의 뷰이름을 반환하는 요청 처리 메소드
