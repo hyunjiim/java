@@ -44,15 +44,12 @@ public class MethodController {
 	}
 
 	//method 페이지를 get 방식으로 요청했을 경우 자동으로 요청되는 메소드
-	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)를 반환하는 요청 처리 메소드
+	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)을 반환하는 요청 처리 메소드
 	// => 클라이언트가 현재 페이지를 [GET] 방식으로 요청한 경우 요청 처리 메소드 호출
 	//method 속성 : RequestMethod 자료형(Enum)의 상수(Constant) 중 하나를 속성값으로 설정
 	// => RequestMethod 자료형(Enum)은 클라이언트의 요청방식을 상수로 제공하는 자료형
 	// => method 속성값으로 설정된 요청방식이 아닌 형태로 요청한 경우 클라이언트에게 405 에러코드 전달
 	//[GET] 방식으로 요청 처리 메소드를 호출하기 위해 @RequestMapping 어노테이션 대신 @GetMapping 어노테이션 사용 가능
-	
-	//method 페이지를 get 방식으로 요청했을 경우 자동으로 요청되는 메소드
-	//사용자에게 값을 입력받기 위한 JSP 문서에 대한 뷰이름(ViewName)을 반환하는 요청 처리 메소드
 	@RequestMapping(value = "/method", method = RequestMethod.GET)
 	public String inputTwo() {
 		return "method_input2";
